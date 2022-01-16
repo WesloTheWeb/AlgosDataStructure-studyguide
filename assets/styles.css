@@ -1,0 +1,46 @@
+body {
+    font-size: 16px;
+    margin: 0 2.5rem;
+    padding: 0 5.5rem;
+}
+
+a, a:visited {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orangered;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    text-transform: capitalize;
+    text-underline-offset: .75rem;
+    text-decoration: underline;
+    padding: .25rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+.resource-box {
+    /* padding: .5rem 1.25rem 1rem 1.25rem; */
+    border: 1px solid #000;
+}
+
+.resource-box .content {
+    padding: .5rem 1.25rem 1rem 1.25rem;
+}
+
+.resource-box .content ul li {
+    padding: .25rem 0;
+}
