@@ -7,7 +7,7 @@ To run code, simply type `node` and then to the path of which code you want to r
 
 ## EXAMPLE
 I want to run the code in the insertion sort. Open a the terminal in VSCode and type the following command:
-`node .\Algorithms\sorting-algos\insertionSort.js`
+`node .\Algorithms\Sorting\insertionSort.js`
 
 And, as long as the function in question has a console log, it will print to the terminal.
 

@@ -9,7 +9,7 @@ let insertionSort = (inputArr) => {
             inputArr[j + 1] = inputArr[j];
             j = j - 1;
         }
-        inputArr[j + 1] = key;
+        inputArr[j + 1] = key; // We are reassigning the "sorted index" to be the new "key". Same array reassign values
     }
     return inputArr;
 };
