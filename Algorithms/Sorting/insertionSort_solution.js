@@ -4,7 +4,6 @@ function insertionSort(array) {
     const length = array.length;
 
     for (let i = 1; i < length; i++) {
-
         for (let j = i; j > 0; j--) {
             if (array[j] < array[j - 1]) {
                 // const temp = array[j];

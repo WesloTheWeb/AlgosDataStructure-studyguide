@@ -1,23 +1,20 @@
 // Given the following array of, targetArray, sort the array using insertion sort.
 
-const targetArray = [2,5,8,3,9,4];
+const targetArray = [2, 5, 8, 3, 9, 4];
 
-function insertionSort(targetArray) {
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = i; j > 0; j--) {
+      if (arr[j] < arr[j - 1]) {
+        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+      }
+      else {
+        break;
+      }
+    };
+  };
 
-  const newArr = [];
-
-  // Loop through the array compare current value to the left.
-  for ( i=0; i < targetArray.length; i++) {
-    if (targetArray[i] < targetArray[i - 1]) {
-
-      //Missing swapping logic!
-      
-      newArr.push(targetArray[i])
-    }
-  }
-
-  return newArr;
-  // console.log(newArr);
+  return arr;
 };
 
-insertionSort(targetArray);
+console.log(insertionSort(targetArray));
