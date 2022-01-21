@@ -7,14 +7,13 @@
 // • Given an aray: [1] // returns [1]
 // • Given an aray: [3, 1, 2, 4] // returns [1, 2, 3, 4]
 
-
 /*#######
  [3, 1, 2, 4 ]
 [3, 1 ] [2, 4 ]
 [3] [1] [2] [4]
 
 [1, 3]  [2. 4]
-      i1    i2
+i1       i2
 
 i1 < i2 push to new arr
 
@@ -35,10 +34,10 @@ function mergeSort(input) {
     let sortedLeft = mergeSort(left)
     let sortedRight = mergeSort(right)
 
-    return zip(sortedLeft, sortedRight)
+    return sortArrayHandler(sortedLeft, sortedRight)
 }
 
-function zip(input1, input2) {
+function sortArrayHandler(input1, input2) {
     let res = [];
     let i1 = 0;
     let i2 = 0;
@@ -52,8 +51,7 @@ function zip(input1, input2) {
             i2 += 1
         }
     }
-    // res.push(input.slice(i1, input1.length), input.slice(i2, input2.length))
-    // return res;
+ 
     return [...res, ...input1.slice(i1), ...input2.slice(i2)];
 }
 

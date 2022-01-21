@@ -1,4 +1,5 @@
 body {
+    background-color: #ececec;
     font-size: 16px;
     margin: 0 2.5rem;
     padding: 0 5.5rem;
@@ -33,7 +34,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resource-box {
-    /* padding: .5rem 1.25rem 1rem 1.25rem; */
     border: 1px solid #000;
 }
 
@@ -41,6 +41,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: .5rem 1.25rem 1rem 1.25rem;
 }
 
+.resource-box .content > img.content-image {
+    width: 100%;
+}
+
 .resource-box .content ul li {
     padding: .25rem 0;
+}
+
+.resource-box .content h3.technique {
+    text-decoration: none;
+    text-transform: capitalize;
+    margin: .5rem 0 -.75rem 0;
+}
+
+.resource-box .content .definition {
+    color:teal;
+    font-size: 1.25rem;
 }
