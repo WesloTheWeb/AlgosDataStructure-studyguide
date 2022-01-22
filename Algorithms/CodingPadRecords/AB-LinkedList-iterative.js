@@ -34,7 +34,6 @@ function count2(node) {
         count += 1
         node = node.next
     }
-
     return count
 }
 
