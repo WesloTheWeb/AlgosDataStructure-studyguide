@@ -66,16 +66,16 @@ Assumptions:
 -
 */
 
-function maxProfit(prices)  {
+function maxProfit(prices) {
     let minPrice = 0;
     let maxProfit = 0;
     let potentialProfit = 0;
-    
-    
+
+
     // [6, 10, 2, 3, 8]
     for (let i = 0; i < prices.length; i++) {
-      if (prices[i] < minPrice) {
-        minPrice = prices[i];    
-      }
-    
-  }
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+        }
+    }
+}
