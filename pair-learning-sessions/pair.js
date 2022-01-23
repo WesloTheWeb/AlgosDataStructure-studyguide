@@ -4,47 +4,48 @@ breadth first search (BFS).
 */
 
 class TreeNode {
-    constructor(value = 0, leftChild = null, rightChild = null) {
-        this.value = value
-        this.left = leftChild
-        this.right = rightChild
-    }
+  constructor(value = 0, leftChild = null, rightChild = null) {
+    this.value = value
+    this.left = leftChild
+    this.right = rightChild
+  }
 }
 
-  /*
-       a
-    /    \
-   b       
-  /  \   
-  d   e  
-  target : e
-  queue [ de ]
-  targeted: ab
-  */
+/*
+     a
+  /    \
+ b       
+/  \   
+d   e  
+target : e
+queue [ de ]
+targeted: ab
+*/
 
-function BFSTree(root, target) { 
+function BFSTree(root, target) {
 
   if (!root) {
     return false
   };
-  
+
   const queue = [root];
-  
-  while ( queue.length > 0 ) { 
+
+  while (queue.length > 0) {
     let current = queue.shift()
-    if ( current.value == target ) {
+    if (current.value == target) {
       return true
-    } 
-    
-    if ( current.left != null ) {
+    }
+
+    if (current.left != null) {
       queue.push(current.left)
     }
-    if ( current.right != null ) {
+    
+    if (current.right != null) {
       queue.push(current.right)
     }
   };
 
-    return false
+  return false
 };
 
 // Test Cases
