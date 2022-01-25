@@ -25,14 +25,14 @@ const tree1 = new Node(3, new Node(29, new Node(2)), new Node(4, null, new Node(
 
 const bfs = (root, target) => {
     const queue = [root];
-  
+
     if (!root) {
-      return false
+        return false
     }
-  
+
     while (queue.length > 0) {
         let curr = queue.shift();
-    
+
         if (curr.val === target) {
             return true;
         }
@@ -45,9 +45,7 @@ const bfs = (root, target) => {
             queue.push(curr.right);
         }
     }
-    return false;
 };
-
 
 console.log(bfs(null, 1)) // true
 console.log(bfs(tree1, 2)) // false
