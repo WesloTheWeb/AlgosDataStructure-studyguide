@@ -32,7 +32,6 @@ function kthFromLast(head, k) {
   }
 
   return slow;
-
 }
 
 // Test Cases
