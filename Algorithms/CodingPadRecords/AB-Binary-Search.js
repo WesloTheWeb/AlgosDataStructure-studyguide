@@ -30,7 +30,6 @@ function binarySearch(arr, target) {
       left = mid + 1;
     }
   }
-  return false;
 }
 
 /*##########
