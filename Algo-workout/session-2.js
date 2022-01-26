@@ -41,29 +41,29 @@ const query3 = "?foo=hello&bar="
 const query4 = "?foo&bar=world"
 const query5 = "?foo=abc&bar=world&foo=2"
 
-function splitURL(input){
-  
+function splitURL(input) {
+
   if (input.length === 1) return ({})
-  
-  input = input.substr(1, input.length);  
+
+  input = input.substr(1, input.length);
   const keyValMap = {};
   let splitKeyPairs = input.split('&').forEach((str) => {
-   const splitStringArray = str.split('=');
-   const key = splitStringArray[0]
-   const currValue = keyValMap[key]
-   if (currValue === undefined) {
-    
-   }
-   keyValMap[splitStringArray[0]] = splitStringArray[1] !== undefined ? splitStringArray[1] : "true";
-    
-    if(keyValMap[splitStringArray[0]] > 1 ) {
+    const splitStringArray = str.split('=');
+    const key = splitStringArray[0]
+    const currValue = keyValMap[key]
+    if (currValue === undefined) {
+
+    }
+    keyValMap[splitStringArray[0]] = splitStringArray[1] !== undefined ? splitStringArray[1] : "true";
+
+    if (keyValMap[splitStringArray[0]] > 1) {
       return keyValMap[splitStringArray[0]].Array();
     }
   });
-  
 
 
-  
+
+
   return keyValMap;
 }
 
@@ -76,4 +76,4 @@ console.log(splitURL(query1));
 console.log(splitURL(query2));
 console.log(splitURL(query3));
 console.log(splitURL(query4));
-console.log(splitURL(query5));
+console.log(splitURL(query5));  

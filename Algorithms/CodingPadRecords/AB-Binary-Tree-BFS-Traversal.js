@@ -46,6 +46,5 @@ const bfs = (root, target) => {
     }
 };
 
-
 console.log(bfs(null, 1)) // true
 console.log(bfs(tree1, 2)) // false
