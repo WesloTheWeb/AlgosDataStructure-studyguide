@@ -16,20 +16,24 @@ let nums = [1, 2, 3, 6, 8, 13, 113, 153, 200]
 /*##########
 ITERATIVE | O(logN) time
 ############*/
-function binarySearch(arr, target) {
+function binarySearch(array, target) {
+  let targetIndex = -1;
   let left = 0;
-  let right = arr.length - 1;
+  let right = array.length - 1;
 
-  while (left < right) {
+  while (targetIndex === -1 && left <= right) {
     let mid = Math.floor((left + right) / 2);
-    if (target === arr[mid]) {
+
+    if (target === array[mid]) {
       return mid;
-    } else if (target < arr[mid]) {
+    } else if (target < array[mid]) {
       right = mid - 1;
     } else {
       left = mid + 1;
-    }
-  }
+    };
+  };
+
+  return targetIndex;
 }
 
 /*##########
@@ -61,3 +65,5 @@ RECURSIVE
 console.log(binarySearch(nums, 3)); //2
 console.log(binarySearch(nums, 154));
 console.log(binarySearch(nums, 13));
+
+
