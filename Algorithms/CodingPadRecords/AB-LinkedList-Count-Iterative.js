@@ -1,7 +1,13 @@
-// Q. Given an unsorted linked list, count the number of elements (iteratively or recursively).
-// Examples:
-// • Given a linked list: 1 ➞ 4 ➞ 5 // returns 3
-// • Given a linked list: 0 // returns 1`
+/*##################################################################################
+TAG: Count Elements in a Linked List (iterative) - 1m
+#####################################################################################
+
+Q. Given an unsorted linked list, count the number of elements (iteratively or recursively).
+
+Examples:
+• Given a linked list: 1 ➞ 4 ➞ 5 // returns 3
+• Given a linked list: 0 // returns 1`
+*/
 
 // Data Structure of the Linked List in JavaScript.
 class ListNode {
@@ -11,7 +17,10 @@ class ListNode {
     }
 }
 
-// Solution 1: Iteratively
+/*############################
+Iterative Solution
+############################*/
+
 function count(node) {
     let count = 0;
 
@@ -26,7 +35,10 @@ function count(node) {
     return count + 1;
 };
 
-// Solution 2: Iteratively - simplified
+/*############################
+Iterative Solution - 2
+############################*/
+
 function count2(node) {
     let count = 0
 

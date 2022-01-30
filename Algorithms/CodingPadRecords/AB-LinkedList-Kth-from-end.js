@@ -1,7 +1,7 @@
-/*###################################
-▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-✏️ Description
-▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+/*##################################################################################
+TAG: Find Kth Element from the End a Linked List in One Pass - 3m
+#####################################################################################▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
 Q. Given a linked list, return the kth element from the end of the list.
    If the k exceedes the length of the list, return -1.
 
@@ -22,6 +22,10 @@ class ListNode {
         this.next = next
     }
 }
+
+/*############################
+Iterative Solution
+############################*/
 
 function kthFromLast(head, k) {
     let fast = head.next;

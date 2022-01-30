@@ -1,4 +1,7 @@
-/*
+/*##################################################################################
+TAG: Insert a Target Element in a Sorted Linked List (iterative / recursive) - 1m
+#####################################################################################
+
 Q. Given a sorted linked list, insert an element in the appropriate position.
 
 Examples:
@@ -21,15 +24,13 @@ function arrayify(head) {
         ptr = ptr.next
     }
     return array
-}
+};
 
-// function insert(head, target) {
-//     // Write your code here.
-//     return new ListNode()
-// }
-
+/*############################
+Iterative Solution
+############################*/
+// O(N) time
 function insert(head, target) {
-
     if (!head) return new ListNode(target)
 
     let dummyHead = new ListNode(0)
@@ -48,9 +49,24 @@ function insert(head, target) {
     }
 
     return dummyHead.next;
+};
 
+/*############################
+Recursive Solution
+############################*/
+// O(N) time
+function insert(head, target) {
+    let node = head
+    if (!node) {
+        return new ListNode(target);
+    } else if (target < node.value) {
+        return new ListNode(target, node);
+    } else {
+        node.next = insert(node.next, target);
+    }
+
+    return head;
 }
-
 
 // Test Cases
 var LL1 = new ListNode(1, new ListNode(3, new ListNode(4)))
