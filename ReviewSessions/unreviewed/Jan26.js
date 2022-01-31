@@ -28,7 +28,7 @@ function solution(list) {
 
 
 /*#############
-4. Q. Given an unsorted array, perform merge sort in ascending order.
+4. Given an unsorted array, perform merge sort in ascending order.
 #############*/
 function solution(array) {
     // write code here
