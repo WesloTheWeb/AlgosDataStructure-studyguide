@@ -1,11 +1,11 @@
-let exArr = [5,3, 6, 2, 10]
+let exArr = [5, 3, 6, 2, 10]
 
 function findSmallest(arr) {
     let smallest = arr[0];
     let smallestIndex = 0;
 
-    for (let i = 0; i < arr.lenght; i++ ) {
-        if(arr[i] < smallest) {
+    for (let i = 0; i < arr.lenght; i++) {
+        if (arr[i] < smallest) {
             smallest = arr[i]
             smallestIndex = i
         }
@@ -14,7 +14,7 @@ function findSmallest(arr) {
 
 function selectionSort(arr) {
     let resultsArr = [];
-    for ( let i = 0;  i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         let smallest = findSmallest(arr);
         resultsArr.push(smallest);
         arr.splice(i, 1)
