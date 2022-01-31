@@ -1,7 +1,4 @@
-/*##################################################################################
-TAG: Number of Duplicated Elements in an Array - 1m
-#####################################################################################
-
+/*
 Q. Given an unsorted array, return the number of duplicated elements that appear more than once in the array.
 
 Examples:
@@ -10,19 +7,11 @@ Examples:
 */
 
 function numDuplicates(array) {
-
-  const counts = new Map();
-
-  array.forEach((num) => {
-    counts.set(num, (counts.get(num) || 0) + 1);
-  });
-
-  return Array.from(counts.values())
-    .filter(count => count > 1)
-    .length;
+  // Write Code Here.
 
 };
 
+// Completion Time: Record Time Here...
 // Test Cases
 console.log(numDuplicates([])) // 0
 console.log(numDuplicates([3, 1, 1, 2, 3, 1, 1, 1, 4])) // 2

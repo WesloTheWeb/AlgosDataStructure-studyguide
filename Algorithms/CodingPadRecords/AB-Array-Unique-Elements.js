@@ -1,13 +1,17 @@
-// Q. Given an unsorted array, return the number of unique elements that appear only once in the array.
+/*##################################################################################
+TAG: Number of Unique Elements in an Array - 1m
+##################################################################################### 
 
-// Examples:
-// • Given an array: [3, 1, 1, 2, 3, 1, 1, 1, 4] // returns 2 (unique elements: 2 and 4)
-// • Given an array: [1] // returns 1 (unique element: 1)
+Q. Given an unsorted array, return the number of unique elements that appear only once in the array.
 
-// Approach # 1:
-// - Iterate through the array, keeping track of the count of each element by incrementing them as you go through. 
-// - Iterate through the dictionary, keeping track of the number of elements whose values are 1.
+Examples:
+• Given an array: [3, 1, 1, 2, 3, 1, 1, 1, 4] // returns 2 (unique elements: 2 and 4)
+• Given an array: [1] // returns 1 (unique element: 1)
 
+Approach # 1:
+- Iterate through the array, keeping track of the count of each element by incrementing them as you go through. 
+- Iterate through the dictionary, keeping track of the number of elements whose values are 1.
+*/
 
 function numUniques(array) {
     const counts = new Map();

@@ -1,15 +1,18 @@
-// ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-// ✏️ Description
-// ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-// Q. Given a sorted array of unique positive integers and a target integer, check if the array contains a target using binary search and return its index. If the array does not contain the target, return -1.
+/*##################################################################################
+TAG: Binary Search - 3m
+#####################################################################################
 
-// Note:
-// • Indexes (indices) follow the zero-based numbering rule (i.e. the index of the first element of an array is 0, not 1). 
+Q. Given a sorted array of unique positive integers and a target integer, check if the array contains a target using binary search and return its index. If the array does not contain the target, return -1.
 
-// Examples:
-// • Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 1 // returns 0
-// • Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 200 // returns 8
-// • Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 154 // returns -1
+Note:
+• Indexes (indices) follow the zero-based numbering rule (i.e. the index of the first element of an array is 0, not 1). 
+
+Examples:
+• Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 1 // returns 0
+• Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 200 // returns 8
+• Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 154 // returns -1
+*/
+
 
 let nums = [1, 2, 3, 6, 8, 13, 113, 153, 200]
 

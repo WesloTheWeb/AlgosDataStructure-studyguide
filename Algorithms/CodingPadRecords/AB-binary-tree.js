@@ -1,24 +1,26 @@
-// ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-// ✏️ Description
-// ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-// Q. Given a binary tree, sum all elements in the tree.
+/*##################################################################################
+TAG: Sum Elements in a Binary Tree - 2m
+#####################################################################################
 
-// Example:
-// • Given a binary tree:
-//                  1
-//                 / \
-//                7   3
-//               / \
-//              4   5
-// returns 20
+Q. Given a binary tree, sum all elements in the tree.
+
+Example:
+• Given a binary tree:
+                 1
+                / \
+               7   3
+              / \
+             4   5
+returns 20
+*/
 
 class TreeNode {
-    constructor(value = 0, leftChild = null, rightChild = null) {
-        this.value = value
-        this.left = leftChild
-        this.right = rightChild
-    }
-}
+  constructor(value = 0, leftChild = null, rightChild = null) {
+    this.value = value
+    this.left = leftChild
+    this.right = rightChild
+  };
+};
 
 function sumBT(root) {
   const stack = root ? [root] : [];

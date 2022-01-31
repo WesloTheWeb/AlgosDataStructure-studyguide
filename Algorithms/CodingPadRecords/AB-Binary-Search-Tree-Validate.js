@@ -1,20 +1,23 @@
-// ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-// ✏️ Description
-// ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-// Q. Given a binary tree, determine if it is a valid binary search tree (BST).
+/*##################################################################################
+TAG: Validate a Binary Search Tree - 4m
+#####################################################################################
 
-// Examples:
-// • Given a binary tree:
-//         2
-//        / \
-//       1   3
-// // returns True
+Q. Given a binary tree, determine if it is a valid binary search tree (BST).
 
-// • Given a binary tree:
-//         1
-//        / \
-//       2   3
-// // returns False
+Examples:
+• Given a binary tree:
+        2
+       / \
+      1   3
+returns True
+
+• Given a binary tree:
+        1
+       / \
+      2   3
+returns False
+*/
+
 
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
