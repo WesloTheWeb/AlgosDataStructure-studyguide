@@ -11,5 +11,4 @@ This should double the length of the original list and every other value should 
 //
 function solution(head) {
 
-}
-2
+};
