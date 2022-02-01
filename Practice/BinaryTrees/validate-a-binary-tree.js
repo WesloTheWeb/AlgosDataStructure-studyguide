@@ -12,7 +12,7 @@ Examples:
 returns True
 
 • Given a binary tree:
-        1
+        1   
        / \
       2   3
 returns False
@@ -29,7 +29,7 @@ class TreeNode {
 function validateBST(node, min = -Infinity, max = Infinity) {
     if (!node) {
         return true;
-    } else if (node.value <= min || node.value > max) {
+    } else if ( node.value <= min || node.value > max) {
         return false;
     }
 
