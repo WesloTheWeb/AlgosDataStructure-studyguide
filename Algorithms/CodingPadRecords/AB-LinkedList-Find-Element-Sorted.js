@@ -23,6 +23,7 @@ function search(head, target) {
         if (node.value == target) {
             return true;
         }
+        
         node = node.next;
     }
 
