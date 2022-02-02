@@ -1,5 +1,6 @@
 /*##################################################################################
 TAG: Count Elements in a Binary Tree (iterative / recursive) - 2m
+####################################################################################
 
 Q. Given a binary tree, count the number of elements in the tree.
 
@@ -11,7 +12,7 @@ Example:
               / \
              4   5
 // returns 5
-####################################################################################*/
+*/
 
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
