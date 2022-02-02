@@ -16,9 +16,9 @@ returns 20
 
 class TreeNode {
   constructor(value = 0, leftChild = null, rightChild = null) {
-    this.value = value
-    this.left = leftChild
-    this.right = rightChild
+    this.value = value;
+    this.left = leftChild;
+    this.right = rightChild;
   };
 };
 

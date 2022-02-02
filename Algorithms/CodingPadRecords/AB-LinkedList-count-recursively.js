@@ -21,7 +21,6 @@ function count(node) {
     }
 
     return 1 + count(node.next);
-    // return -1
 };
 
 // Test Cases
