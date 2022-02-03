@@ -28,10 +28,24 @@ function findMax(node) {
       result = node.value;
     }
     node = node.next;
-  }
+  };
 
   return result;
-}
+};
+
+/*############################
+Recursive Solution
+############################*/
+// O(N) time
+function findMax(node) {
+  if (!node.next) {
+    return node.value;
+  } else {
+    const biggestValueInRest = findMax(node.next);
+
+    return (node.value > biggestValueInRest ? node.value : biggestValueInRest);
+  };
+};
 
 // Test Cases
 var LL1 = new ListNode(1, new ListNode(4, new ListNode(5, new ListNode(1))))

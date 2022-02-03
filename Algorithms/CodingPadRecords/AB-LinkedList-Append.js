@@ -34,14 +34,30 @@ Iterative Solution
 function append(head, target) {
     if (!head) {
         return new ListNode(target);
-    }
+    };
 
     let node = head;
     while (node.next) {
         node = node.next;
-    }
+    };
 
     node.next = new ListNode(target);
+    return head;
+};
+
+/*############################
+Recursive Solution
+############################*/
+// O(N time)
+function append(head, target) {
+    if (!head) {
+        return new ListNode(target);
+    }
+    if (head.next) {
+        append(head.next, target);
+    } else {
+        head.next = new ListNode(target);
+    }
     return head;
 }
 
