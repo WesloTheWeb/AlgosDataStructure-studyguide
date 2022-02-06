@@ -1,13 +1,10 @@
-/*▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-✏️ Description
-▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+/*
 Q. Given an unsorted array, perform selection sort in ascending order.
 
 Examples:
 • Given an aray: [1] // returns [1]
 • Given an aray: [3, 1, 2, 4] // returns [1, 2, 3, 4]
 
-  
 [3, 1, 2, 4]
  i        j
  minValX = 1
@@ -19,8 +16,6 @@ minValX = 2
 [1, 2, 3, 4]
           i  j
 minValX = 2
-
-
 */
 
 function selectionSort(array) {
@@ -33,11 +28,8 @@ function selectionSort(array) {
         }
       };
         [array[i], array[minValX]] = [array[minValX], array[i]];
-        
-    }
-    
+    };
     return array;
-    
   };
   
   // Test Cases
