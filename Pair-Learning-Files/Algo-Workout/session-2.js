@@ -1,9 +1,11 @@
 /*
-"""
+############################
+SESSION 2 | Feb 2nd
+############################
 
+BASE QUESTION:
 Build a URL query string parser!
   
-
 Examples
 Input: "?foo=hello&bar=world"
 Output: { foo: "hello", bar: "world" }
@@ -20,19 +22,15 @@ Keys can be used multiple times. The resulting value for that key should be an a
 
 https://google.com/post.php?q=covid&bar=world
  
+Time: O(n)Space: O(n)
 
-""" 
+query begins with '?'
+if every k-v pair separated by =
+start a dictionary/hashmap
+string.split() on & and get k-v pairs
+for each k-v pair, string.split() on = and get separate k-v
+add k-v to dict
 */
-//Time: O(n)
-//Space: O(n)
-
-
-// query begins with '?'
-// if every k-v pair separated by =
-// start a dictionary/hashmap
-// string.split() on & and get k-v pairs
-// for each k-v pair, string.split() on = and get separate k-v
-// add k-v to dict
 
 const query = "?foo=hello&bar=world"
 const query1 = "?foo="
@@ -43,7 +41,7 @@ const query5 = "?foo=abc&bar=world&foo=2"
 
 function splitURL(input) {
 
-  if (input.length === 1) return ({})
+  if (input.length === 1) return ({});
 
   input = input.substr(1, input.length);
   const keyValMap = {};
@@ -61,15 +59,11 @@ function splitURL(input) {
     }
   });
 
-
-
-
   return keyValMap;
 }
 
 //{ "foo": "true", bar: "world" }
 //[[foo, undefined <= does not exist] [bar, world]]
-
 
 console.log(splitURL(query));
 console.log(splitURL(query1));

@@ -1,9 +1,10 @@
-// Q. Given an unsorted array, perform insertion sort in ascending order.
+/*
+Q. Given an unsorted array, perform insertion sort in ascending order.
 
-// Examples:
-// • Given an aray: [1] // returns [1]
-// • Given an aray: [3, 1, 2, 4] // returns [1, 2, 3, 4]
-
+Examples:
+• Given an aray: [1] // returns [1]
+• Given an aray: [3, 1, 2, 4] // returns [1, 2, 3, 4]
+*/
 
 function insertionSort(array) {
     // O(N^2) time
@@ -21,7 +22,9 @@ function insertionSort(array) {
     // }
     // return array;
 
-    // alternative method
+    /*##################    
+    Alternative Method
+    ####################*/
     for (let i = 1; i < array.length; i++) {
         let key = array[i];
         let j = i - 1;

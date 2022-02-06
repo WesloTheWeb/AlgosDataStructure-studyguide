@@ -6,7 +6,6 @@ function sayHello() {
 
 _.times(5, sayHello);
 
-
 /* 
 Your previous Python 3 content is preserved below:
 

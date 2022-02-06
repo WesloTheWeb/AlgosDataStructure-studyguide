@@ -1,12 +1,16 @@
-//############################
-// SESSION 1 | Jan 22
-//############################
-/*PROBLEM:
-Given an array of chronological prices for a stock, find the maximum profit to be made per stock. You can make at most one trade and there are no trading fees.
+/*
+############################
+SESSION 1 | Jan 22
+############################
 
+BASE QUESTION:
+(Reference: LeetCode - Best time to sell)
+Given an array of chronological prices for a stock, find the maximum profit to be made per stock. You can make at 
+most one trade and there are no trading fees.
+
+APPROACH / PLANNING:
 - [2, 5] -> 3 (buy at 2, sell at 5)
 - [6, 10, 2, 3, 8] -> 6 (buy at 2, sell at 8)
-       
        
 - [3, 4, 7, 8, 1, 9]
 
@@ -14,7 +18,6 @@ Given an array of chronological prices for a stock, find the maximum profit to b
 Brute force: 
 Time: O(n^2)
 Space: O(1)
-
 
 minPrice, minIndex
 maxPrice, maxIndex
@@ -32,7 +35,6 @@ profit=
 // 0
 
 nums[i] = 10
-
   minPrice = 2;
   maxProfit = 6 (10 - 6)
 - [6, 10, 2, 3, 8]
@@ -55,10 +57,6 @@ potential pofit = -2
 minPrice = 4
 maxProfit = 0
 
-
-
-
-
 - [2, 2, 2, 2] --> 0
 Assumptions:
 - Can't sell on a prior day after buying
@@ -67,15 +65,14 @@ Assumptions:
 */
 
 function maxProfit(prices) {
-    let minPrice = 0;
-    let maxProfit = 0;
-    let potentialProfit = 0;
+  let minPrice = 0;
+  let maxProfit = 0;
+  let potentialProfit = 0;
 
-
-    // [6, 10, 2, 3, 8]
-    for (let i = 0; i < prices.length; i++) {
-        if (prices[i] < minPrice) {
-            minPrice = prices[i];
-        }
+  // [6, 10, 2, 3, 8]
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < minPrice) {
+      minPrice = prices[i];
     }
-}
+  };
+};
