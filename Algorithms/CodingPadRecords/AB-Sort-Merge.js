@@ -9,9 +9,6 @@ Examples:
 • Given an aray: [3, 1, 2, 4] // returns [1, 2, 3, 4]
 */
 
-/*############################
-Iterative Solution
-############################*/
 function merge(left, right) {
     let arr = [];
 
@@ -37,10 +34,6 @@ console.log(mergeSort([1])) // [1]
 console.log(mergeSort([3, 1, 2, 4])) // [1, 2, 3, 4]
 console.log(mergeSort([-10, 1, 3, 8, -13, 32, 9, 5])) // [-13, -10, 1, 3, 5, 8, 9, 32]
 
-
-/*############################
-Recursive Solution
-############################*/
 // O(NlogN) time
 function mergeSort(array) {
     if (array.length < 2) {
