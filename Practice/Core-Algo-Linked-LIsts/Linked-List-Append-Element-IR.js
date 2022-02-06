@@ -1,13 +1,15 @@
 /*##################################################################################
-TAG: Append an Element to a Linked List (iterative / recursive) - 1m
+TAG: Append an Element to a Linked List (Iterative / Recursive) - 1m
+Personal Record (TIME): 
 #####################################################################################
 
-Q. Given a linked list, append an element with a target value to the list iteratively.
+Question: 
+1. Given a linked list, append an element with a target value to the list iteratively.
+2. Given a linked list, append an element with a target value to the list recursively.
 
 Examples:
 • Given a linked list: 1 ➞ 4 ➞ 5, target: 7 // returns 1 ➞ 4 ➞ 5 ➞ 7
 • Given a linked list: 0, target 7 // returns 0 ➞ 7
-
 */
 
 // Data Structure Dependency:
@@ -33,37 +35,32 @@ Iterative Solution
 ############################*/
 // O(N) time
 function append(head, target) {
-    let node = head;
 
-    if (!head) {
-        return new ListNode(target);
-    };
-
-    while (node.next) {
-        node = node.next;
-    };
-
-    node.next = new ListNode(target);
-    return head;
 };
+
+// Test Cases (Iterative);
+var LL1 = new ListNode(1, new ListNode(4, new ListNode(5)))
+console.log(arrayify(append(null, 1))) // [1]
+console.log(arrayify(append(LL1, 7))) // [1, 4, 5, 7]
+console.log(arrayify(append(new ListNode(), 7))) // [0, 7]
 
 /*############################
 Recursive Solution
 ############################*/
 // O(N time)
-function append(head, target) {
+function appendRecursive(head, target) {
     if (!head) {
         return new ListNode(target);
     }
     if (head.next) {
-        append(head.next, target);
+        appendRecursive(head.next, target);
     } else {
         head.next = new ListNode(target);
     }
     return head;
 }
 
-// Test Cases
+// Test Cases (Recursive);
 var LL1 = new ListNode(1, new ListNode(4, new ListNode(5)))
 console.log(arrayify(append(null, 1))) // [1]
 console.log(arrayify(append(LL1, 7))) // [1, 4, 5, 7]
