@@ -18,13 +18,15 @@ function firstKTimes(array, k) {
         const count = (counts.get(el) || 0) + 1;
         if (count === k) return el;
         counts.set(el, count);
-    }
-}
+    };
+
+    return -1;
+};
 
 // Completion Time: Record Time Here...
 // Test Cases
-console.log(firstKTimes([1, 2, 2, 3, 3], 2)) // 2
-console.log(firstKTimes([1, 2, 2, 3, 3], 3)) // -1
-console.log(firstKTimes([], 1)) // -1
+console.log(firstKTimes([1, 2, 2, 3, 3], 2)); // 2
+console.log(firstKTimes([1, 2, 2, 3, 3], 3)); // -1
+console.log(firstKTimes([], 1)); // -1
 
 // NOTE TO SELF: Study Dictionaries JS
