@@ -18,7 +18,7 @@ Examples:
 • For target: 2 // returns True
 */
 
-
+//Data dependency
 class Node {
     constructor(val = 0, leftChild = null, rightChild = null) {
         this.val = val;
@@ -29,29 +29,26 @@ class Node {
 
 const tree1 = new Node(3, new Node(29, new Node(2)), new Node(4, null, new Node(2, new Node(9))))
 
-const bfs = (root, target) => {
-    const queue = [root];
-
-    if (!root) {
-        return false
-    }
-
+function BFSTree(node, target) {
+    let queue = node ? [node] : [];
+  
     while (queue.length > 0) {
-        let curr = queue.shift();
+      let cur = queue.shift(); // dequeue first element
+      if (cur.value === target) {
+        return true;
+      };
+      
+      if (cur.left) {
+        queue.push(cur.left);
+      };
 
-        if (curr.val === target) {
-            return true;
-        }
-
-        if (curr.left !== null) {
-            queue.push(curr.left);
-        }
-
-        if (curr.right !== null) {
-            queue.push(curr.right);
-        }
-    }
-};
+      if (cur.right) {
+        queue.push(cur.right);
+      };
+    };
+  
+    return false;
+  };
 
 console.log(bfs(null, 1)) // true
 console.log(bfs(tree1, 2)) // false

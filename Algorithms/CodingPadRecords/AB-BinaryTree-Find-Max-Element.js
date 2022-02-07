@@ -27,20 +27,17 @@ Iterative Solution
 ############################*/
 
 function findTreeMax(root) {
-
   if (!root) {
-    return null;
-  };
-
-  let max = root.value;
-  let queue = [root];
-
+    return null
+  }
+  let max = root.value
+  let queue = [root]
   while (queue.length > 0) {
-    let curr = queue.shift();
+    let curr = queue.shift()
     max = Math.max(max, curr.value);
 
     if (curr.left) {
-      queue.push(curr.left);
+      queue.push(curr.left)
     }
 
     if (curr.right) {

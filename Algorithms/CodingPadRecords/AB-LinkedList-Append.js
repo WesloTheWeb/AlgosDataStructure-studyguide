@@ -2,7 +2,7 @@
 TAG: Append an Element to a Linked List (iterative / recursive) - 1m
 #####################################################################################
 
-Q. Given a linked list, append an element with a target value to the list iteratively.
+Q. Given a linked list, Append an element with a target value to the list (iteratively / recursively).
 
 Examples:
 • Given a linked list: 1 ➞ 4 ➞ 5, target: 7 // returns 1 ➞ 4 ➞ 5 ➞ 7

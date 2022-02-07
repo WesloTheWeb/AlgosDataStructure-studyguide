@@ -22,19 +22,19 @@ function search(head, target) {
     while (node) {
         if (node.value == target) {
             return true;
-        }
+        };
         
         node = node.next;
-    }
+    };
 
     return false;
 };
 
 // Test Cases
-let LL1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(5, new ListNode(6, new ListNode(7, new ListNode(10)))))))
-console.log(search(null, 1)) // false
-console.log(search(LL1, 2)) // true
-console.log(search(LL1, 4)) // false
-console.log(search(LL1, -1)) // false
-console.log(search(LL1, 10)) // true
-console.log(search(LL1, 11)) // false
+let LL1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(5, new ListNode(6, new ListNode(7, new ListNode(10)))))));
+console.log(search(null, 1)); // false
+console.log(search(LL1, 2)); // true
+console.log(search(LL1, 4)); // false
+console.log(search(LL1, -1)); // false
+console.log(search(LL1, 10)); // true
+console.log(search(LL1, 11)); // false
