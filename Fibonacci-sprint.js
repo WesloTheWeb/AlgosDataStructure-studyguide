@@ -12,7 +12,7 @@ Delayed Fibonacci Sequence. This sequence starts with 1, 1, 1, and then each sub
 const _ = require('lodash');
 
 function sayHello() {
-  console.log('Hello, World');
+    console.log('Hello, World');
 }
 
 _.times(5, sayHello);
@@ -37,40 +37,39 @@ Your previous Python 3 content is preserved below:
 # 1. Iterative
 # 2. Recursive
 # */
-# 
-# function fib(n) {
-#   let results = [0,1]
-#   // let prev = 1;
-#   // let cur = 1;
-#   
-#   for (let i = 2; i < n; i++) {
-#        let sum = results[i - 2] + results[i - 1] //
-#        results[i] = sum
-#   }
-#   
-#   return results;
-# }
-# console.log(fib(5)) // [0, 1,  1, 2, 3];
-# console.log(fib(3)) //
-# console.log(fib(10)) //
+
+function fib(n) {
+    let results = [0, 1]
+    // let prev = 1;
+    // let cur = 1;
+
+    for (let i = 2; i < n; i++) {
+        let sum = results[i - 2] + results[i - 1] //
+        results[i] = sum
+    }
+
+    return results;
+}
+console.log(fib(5)) // [0, 1,  1, 2, 3];
+console.log(fib(3)) //
+console.log(fib(10)) //
 
 
 
-'''
+/*
 0b. Code the original fibonacci sequence with three variables that are replaced as you go. 
 (go over space complexity differences)
-
 
 // Taking no more space that we start with
 // let a, b, c 
 
+fib(5) = 
+n - 2 = 1
+n - 1 = 2
+n = 3
+*/
 
-fib(5)
-n-2 = 1 
-n-1 = 2
-n= 3
-'''
-'''
+/*
 def fib(n):
     n2=0
     n1=1
@@ -85,7 +84,6 @@ def fib(n):
 fib(10)
 '''
 
-'''
 Return the kth number of an alternative sequence that starts with 1, 1, 1 and each subsequent number is the sum of the previous THREE elements. (1, 1, 1, 3, 5, 9, 17...)
 
 k = 1 [1,1,1] -> 1 (first element)
@@ -104,9 +102,10 @@ n2 = n3   // 1
 n3 = sumOfPreviousThreeNums // 3
 
 k = 7
+*/
 
-'''
 
+/*
 def kthElementOfAlternativeSequence(k):
     n1=1
     n2=1
