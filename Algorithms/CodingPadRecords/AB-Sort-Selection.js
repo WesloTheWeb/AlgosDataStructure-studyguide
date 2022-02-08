@@ -30,8 +30,8 @@ const selectionSort = (arr) => {
   return arr;
 };
 
-console.log(selectionSort(testCase1));
-console.log(selectionSort(testCase2));
+console.log(selectionSort(testCase1)); // 1
+console.log(selectionSort(testCase2)); // [1, 2, 3, 4]
 
 // Time: 17m 55sec
 // Included before work link, readings
