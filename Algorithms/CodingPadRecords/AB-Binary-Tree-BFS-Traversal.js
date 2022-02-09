@@ -24,16 +24,16 @@ class Node {
     this.val = val;
     this.left = leftChild;
     this.right = rightChild;
-  }
-}
+  };
+};
 
 class TreeNode {
   constructor(value = 0, leftChild = null, rightChild = null) {
-    this.value = value
-    this.left = leftChild
-    this.right = rightChild
-  }
-}
+    this.value = value;
+    this.left = leftChild;
+    this.right = rightChild;
+  };
+};
 
 // O(N^2) time (shift() is O(N) with array)
 function BFSTree(node, target) {
@@ -41,12 +41,15 @@ function BFSTree(node, target) {
 
   while (queue.length > 0) {
     let cur = queue.shift(); // dequeue first element
+
     if (cur.value === target) {
       return true;
     }
+
     if (cur.left) {
       queue.push(cur.left);
     }
+
     if (cur.right) {
       queue.push(cur.right);
     }
