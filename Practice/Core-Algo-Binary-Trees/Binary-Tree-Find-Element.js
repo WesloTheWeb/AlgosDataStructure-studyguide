@@ -20,41 +20,25 @@ Examples:
 
 //Data dependency
 class Node {
-  constructor(val = 0, leftChild = null, rightChild = null) {
-    this.val = val;
-    this.left = leftChild;
-    this.right = rightChild;
-  }
+    constructor(val = 0, leftChild = null, rightChild = null) {
+        this.val = val;
+        this.left = leftChild;
+        this.right = rightChild;
+    }
 }
 
 class TreeNode {
-  constructor(value = 0, leftChild = null, rightChild = null) {
-    this.value = value
-    this.left = leftChild
-    this.right = rightChild
-  }
+    constructor(value = 0, leftChild = null, rightChild = null) {
+        this.value = value
+        this.left = leftChild
+        this.right = rightChild
+    }
 }
 
-// O(N^2) time (shift() is O(N) with array)
-function BFSTree(node, target) {
-  let queue = node ? [node] : [];
+function BFSTree(root, target) {
+  //write code here
 
-  while (queue.length > 0) {
-    let cur = queue.shift(); // dequeue first element
-    if (cur.value === target) {
-      return true;
-    }
-    if (cur.left) {
-      queue.push(cur.left);
-    }
-    if (cur.right) {
-      queue.push(cur.right);
-    }
-  }
-
-  return false;
 }
-
 // Test Cases
 var tree1 = new TreeNode(3, new TreeNode(29, new TreeNode(2)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9))))
 console.log(BFSTree(null, 1)) // false
