@@ -5,6 +5,14 @@ body {
     padding: 0 5.5rem;
 }
 
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
 a, a:visited {
     font-size: 1.25rem;
     font-weight: bold;
@@ -37,6 +45,11 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #000;
 }
 
+.resource-box p {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
 .resource-box .content {
     padding: .5rem 1.25rem 1rem 1.25rem;
 }
@@ -58,4 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 .resource-box .content .definition {
     color:teal;
     font-size: 1.25rem;
+}
+
+.big-o-container {
+  font-size: 1.5rem;  
 }
