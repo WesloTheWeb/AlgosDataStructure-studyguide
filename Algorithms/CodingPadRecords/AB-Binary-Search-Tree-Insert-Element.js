@@ -58,27 +58,67 @@ function arrayifyTree(root) {
 
 // O(logN) time
 function insertBST(root, val) {
-    let cur = root;
 
-    if (!root) return new TreeNode(val);
+    /*########################
+    Formation Solution 
+    - comparison are inversed!
+    ##########################*/
+    // let cur = root;
 
-    while (cur) {
-        if (cur.value < val) {
-            if (cur.right) {
-                cur = cur.right;
+    // if (!root) return new TreeNode(val);
+
+    // while (cur) {
+    //     // cur.value = 5 and val is 8
+    //     if (cur.value < val) {
+    //         if (cur.right) {  // if existing right node
+    //             cur = cur.right;
+    //         } else {
+    //             cur.right = new TreeNode(val);
+    //             // return;
+    //         };
+    //     } else {
+    //         if (cur.left) {  // if existing left node
+    //             cur = cur.left;
+    //         } else {
+    //             cur.left = new TreeNode(val);
+    //             // return;
+    //         };
+    //     };
+    // };
+
+    // // return root;
+
+    /*########################
+       Altered Solution 
+       - comparison more intuitive
+       - variable for new node
+    ##########################*/
+    let curr = root;  // our pointer;
+    let node = new TreeNode(val);
+
+    if (!root) return node;  // null case check.
+
+    while (curr) {
+        if (val < curr.value) {
+            if (curr.left) {
+                curr = curr.left;
             } else {
-                cur.right = new TreeNode(val);
+                curr.left = node;
                 return;
-            }
-        } else {
-            if (cur.left) {
-                cur = cur.left;
+            };
+        };
+
+        if (val > curr.value) {
+            if (curr.right) {
+                curr = curr.right;
             } else {
-                cur.left = new TreeNode(val);
+                curr.right = node;
                 return;
             };
         };
     };
+
+    return root;
 };
 
 // Test Cases
