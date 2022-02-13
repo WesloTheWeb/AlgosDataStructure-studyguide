@@ -14,39 +14,11 @@ Examples:
     fib(2) = fib(0) + fib(1) = 1 + 1 = 2
  */
 
-/*############################
-Iterative Solution
-############################*/
-// O(n) time
-function fib(k) {
-    if (k <= 1) return 1;
-
-    let prev = 1;
-    let cur = 1;
-
-    for (let i = 2; i < k + 1; i++) {
-        [prev, cur] = [cur, prev + cur];
-    };
-
-    return cur;
-};
+function fib(k) { 
+    // write code here.
+}
 
 // Test Cases
-console.log(fib(0)); // 1
-console.log(fib(5)); // 8
-console.log(fib(11)); // 144
-
-/*############################
-Recursive Solution
-############################*/
-
-function fibRecursive(k) {
-    if (k < 2) return 1;
-
-    return fibRecursive(k - 2) + fibRecursive(k - 1);
-};
-
-// Test Cases
-console.log(fibRecursive(0)); // 1
-console.log(fibRecursive(5)); // 8
-console.log(fibRecursive(11)); // 144
+console.log(fib(0)) // 1
+console.log(fib(5)) // 8
+console.log(fib(11)) // 144

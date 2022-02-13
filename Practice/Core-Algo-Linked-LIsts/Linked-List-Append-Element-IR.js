@@ -35,6 +35,7 @@ Iterative Solution
 ############################*/
 // O(N) time
 function append(head, target) {
+    //write code below
 
 };
 
@@ -47,17 +48,9 @@ console.log(arrayify(append(new ListNode(), 7))) // [0, 7]
 /*############################
 Recursive Solution
 ############################*/
-// O(N time)
+// O(N) time
 function appendRecursive(head, target) {
-    if (!head) {
-        return new ListNode(target);
-    }
-    if (head.next) {
-        appendRecursive(head.next, target);
-    } else {
-        head.next = new ListNode(target);
-    }
-    return head;
+    //write code below
 }
 
 // Test Cases (Recursive);
