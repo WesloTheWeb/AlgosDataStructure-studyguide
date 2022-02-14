@@ -22,31 +22,7 @@ Iterative Solution
 ############################*/
 
 function count(node) {
-    let count = 0;
-
-    if (node == null) {
-        return 0;
-    }
-
-    while (node.next != null) {
-        count += 1;
-        node = node.next;
-    }
-    return count + 1;
-};
-
-/*############################
-Iterative Solution - 2
-############################*/
-
-function count2(node) {
-    let count = 0
-
-    while (node) {
-        count += 1;
-        node = node.next;
-    };
-    return count;
+    // write code below:
 };
 
 // Test Cases to run:
@@ -55,17 +31,13 @@ console.log(count(null)); // 0
 console.log(count(LL1)); // 3
 console.log(count(new ListNode())); // 1
 
-
 /*############################
 Recursive Solution
 ############################*/
 
 function countRecursive(node) {
-    if (node == null) {
-        return 0;
-    }
+    // write code below:
 
-    return 1 + count(node.next);
 };
 
 // Test Cases

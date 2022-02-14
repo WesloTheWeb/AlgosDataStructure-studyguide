@@ -10,10 +10,10 @@ Examples:
 */
 
 class ListNode {
-  constructor(value = 0, next = null) {
-    this.value = value;
-    this.next = next;
-  };
+    constructor(value = 0, next = null) {
+        this.value = value;
+        this.next = next;
+    };
 };
 
 /*############################
@@ -21,15 +21,8 @@ Iterative Solution
 ############################*/
 // O(N) time
 function findMax(node) {
-  let result = node.value;
+    // write code below:
 
-  while (node) {
-    if (node.value > result) {
-      result = node.value;
-    }
-    node = node.next;
-  };
-  return result;
 };
 
 /*############################
@@ -37,13 +30,8 @@ Recursive Solution
 ############################*/
 // O(N) time
 function findMaxRecursive(node) {
-  if (!node.next) {
-    return node.value;
-  } else {
-    const biggestValueInRest = findMaxRecursive(node.next);
+    // write code below:
 
-    return (node.value > biggestValueInRest ? node.value : biggestValueInRest);
-  };
 };
 
 // Test Cases

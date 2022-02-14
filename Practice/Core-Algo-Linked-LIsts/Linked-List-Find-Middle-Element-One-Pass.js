@@ -27,18 +27,8 @@ class ListNode {
 
 // O(N) time
 function findMiddle(head) {
-  if (!head) {
-    return null;
-  }
-  let slow = head;
-  let fast = head;
-
-  while (fast.next && fast.next.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
-
-  return slow.value;
+  // Write code below:
+  
 }
 // Test Cases
 var LL1 = new ListNode(1, new ListNode(3, new ListNode(5)));

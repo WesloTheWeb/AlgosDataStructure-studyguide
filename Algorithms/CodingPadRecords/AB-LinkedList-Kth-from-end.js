@@ -29,7 +29,7 @@ Iterative Solution
 
 function kthFromLast(head, k) {
     let fast = head.next;
-    let slow = head;
+    let slow = head;    ``
 
     // This is what moves the fast pointer by K steps.
     for (let i = 0; i < k; i++) {
@@ -40,7 +40,7 @@ function kthFromLast(head, k) {
         }
     };
 
-    // While fast (head.next) is NOT null, increment the fast and slow pointer by one.        
+    // While fast pointer's next is NOT null, increment the fast and slow pointer by one.        
     while (fast) {
         fast = fast.next;
         slow = slow.next;
