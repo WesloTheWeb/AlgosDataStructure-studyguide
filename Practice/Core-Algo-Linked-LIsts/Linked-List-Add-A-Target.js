@@ -31,22 +31,8 @@ Iterative Solution
 ############################*/
 // O(N) time
 function insert(head, target) {
-    if (!head) return new ListNode(target)
+       // write code below:
 
-    let dummyHead = new ListNode(0)
-    dummyHead.next = head
-    let node = dummyHead
-
-    while (node) {
-        if (!node.next || target < node.next.value) {
-            const next = node.next;
-            node.next = new ListNode(target);
-            node.next.next = next;
-            break;
-        }
-        node = node.next;
-    }
-    return dummyHead.next;
 };
 
 
@@ -60,16 +46,7 @@ Recursive Solution
 ############################*/
 // O(N) time
 function insertRecursive(head, target) {
-    let node = head
-    if (!node) {
-        return new ListNode(target);
-    } else if (target < node.value) {
-        return new ListNode(target, node);
-    } else {
-        node.next = insertRecursive(node.next, target);
-    }
-
-    return head;
+   // write code below:
 }
 
 // Test Cases

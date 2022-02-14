@@ -50,11 +50,11 @@ Recursive Solution
 ############################*/
 // O(N) time
 function appendRecursive(head, target) {
-    //write code below
+   // write code below
 }
 
 // Test Cases (Recursive);
 var LL1 = new ListNode(1, new ListNode(4, new ListNode(5)))
-console.log(arrayify(append(null, 1))) // [1]
-console.log(arrayify(append(LL1, 7))) // [1, 4, 5, 7]
-console.log(arrayify(append(new ListNode(), 7))) // [0, 7]
+console.log(arrayify(appendRecursive(null, 1))) // [1]
+console.log(arrayify(appendRecursive(LL1, 7))) // [1, 4, 5, 7]
+console.log(arrayify(appendRecursive(new ListNode(), 7))) // [0, 7]
