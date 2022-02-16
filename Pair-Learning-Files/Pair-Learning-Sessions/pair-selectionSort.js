@@ -19,21 +19,41 @@ minValX = 2
 */
 
 function selectionSort(array) {
-    for (let i = 0; i < array.length; i++) {
-      let minValX = i;
-      
-      for (let j = i; j < array.length; j++) {
-        if (array[j] < array[minValX]) {
-          minValX = j;
-        }
-      };
-        [array[i], array[minValX]] = [array[minValX], array[i]];
+  for (let i = 0; i < array.length; i++) {
+    let minValX = i;
+    for (let j = i; j < array.length; j++) {
+      if (array[j] < array[minValX]) {
+        minValX = j;
+      }
     };
-    return array;
+    [array[i], array[minValX]] = [array[minValX], array[i]];
   };
-  
-  // Test Cases
-  console.log(selectionSort([])) // []
-  console.log(selectionSort([1])) // [1]
-  console.log(selectionSort([3, 1, 2, 4])) // [1, 2, 3, 4]
-  console.log(selectionSort([-10, 1, 3, 8, -13, 32, 9, 5])) // [-13, -10, 1, 3, 5, 8, 9, 32]
+  return array;
+};
+
+// Test Cases
+console.log(selectionSort([])) // []
+console.log(selectionSort([1])) // [1]
+console.log(selectionSort([3, 1, 2, 4])) // [1, 2, 3, 4]
+console.log(selectionSort([-10, 1, 3, 8, -13, 32, 9, 5])) // [-13, -10, 1, 3, 5, 8, 9, 32]
+
+
+/* ANOTHER PAIR SESSION */
+
+function selectionSort2(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {   // i = 0  =>  j= 0
+      if (array[j] < array[i]) {
+        [array[i], array[j]] = [array[j], array[i]];
+      };
+    };
+  };
+
+  return array;
+}
+
+// Test Cases
+console.log(selectionSort2([])) // []
+console.log(selectionSort2([1])) // [1]
+console.log(selectionSort2([3, 1, 2, 4])) // [1, 2, 3, 4]
+console.log(selectionSort2([-10, 1, 3, 8, -13, 32, 9, 5])) // [-13, -10, 1, 3, 5, 8, 9, 32]

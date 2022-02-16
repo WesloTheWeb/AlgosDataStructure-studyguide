@@ -34,14 +34,7 @@ Examples:
 
 // Time = O(n) \ Space = O(h) h is the height of tree
 
-const isBST = (node, min = -Infinity, max = Infinity) => {
-    if (!node) return true;
-    if (node.value < min || node.value >= max) {
-        return false;
-    }
 
-    return isBST(node.left, min, node.value) && isBST(node.right, node.value, max);
-};
 
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
@@ -58,6 +51,15 @@ function validateBST(tree) {
     // helper function
     return isBST(tree);
 }
+
+const isBST = (node, min = -Infinity, max = Infinity) => {
+    if (!node) return true;
+    if (node.value < min || node.value >= max) {
+        return false;
+    }
+
+    return isBST(node.left, min, node.value) && isBST(node.right, node.value, max);
+};
 
 /* 
   2
