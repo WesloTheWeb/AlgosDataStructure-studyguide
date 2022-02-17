@@ -18,24 +18,6 @@ class ListNode {
 };
 
 /*############################
-Iterative Solution
-############################*/
-
-function count(node) {
-    let count = 0;
-
-    if (node == null) {
-        return 0;
-    }
-
-    while (node.next != null) {
-        count += 1;
-        node = node.next;
-    }
-    return count + 1;
-};
-
-/*############################
 Iterative Solution - 2
 ############################*/
 

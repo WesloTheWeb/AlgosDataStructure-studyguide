@@ -31,7 +31,7 @@ Iterative Solution
 ############################*/
 // O(N) time
 function insert(head, target) {
-       // write code below:
+    // write code below:
 
 };
 
@@ -46,7 +46,7 @@ Recursive Solution
 ############################*/
 // O(N) time
 function insertRecursive(head, target) {
-   // write code below:
+    // write code below:
 }
 
 // Test Cases
