@@ -13,31 +13,37 @@ Examples:
 • Given an array: [1, 2, 3, 6, 8, 13, 113, 153, 200], target: 154 // returns -1
 */
 
-
-let nums = [1, 2, 3, 6, 8, 13, 113, 153, 200]
-
 /*##########
 ITERATIVE | O(logN) time
 ############*/
 function binarySearch(array, target) {
-  let targetIndex = -1;
-  let left = 0;
-  let right = array.length - 1;
+  let leftBound = 0;
+  let rightBound = array.length - 1;
 
-  while (targetIndex === -1 && left <= right) {
-    let mid = Math.floor((left + right) / 2);
+  while (leftBound <= rightBound) {
+    let mid = Math.floor((leftBound + rightBound) / 2);
 
     if (target === array[mid]) {
       return mid;
-    } else if (target < array[mid]) {
-      right = mid - 1;
+    }
+
+    if (target < array[mid]) {
+      rightBound = rightBound - 1;
     } else {
-      left = mid + 1;
-    };
+      leftBound = leftBound + 1;
+    }
   };
 
-  return targetIndex;
+  return -1;
+
 }
+// Test Cases
+var array = [1, 2, 3, 6, 8, 13, 113, 153, 200]
+console.log(binarySearch(array, 1)) // 0
+console.log(binarySearch(array, 200)) // 8
+console.log(binarySearch(array, 8)) // 4
+console.log(binarySearch(array, 154)) // -1
+console.log(binarySearch(array, 69)) // -1
 
 /*##########
 RECURSIVE

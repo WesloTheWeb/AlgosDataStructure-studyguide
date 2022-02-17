@@ -20,66 +20,66 @@ if array[index]=target
     i++
 */
 function binarySearch(array, target) {
-    let leftbound=0;
-    let rightbound=array.length - 1;
-    
-    
-  
-    while (leftbound <= rightbound) {
-      let index = Math.floor((rightbound+leftbound)/ 2); 
-  
-      if (target == array[index]) {
-        if (array[index+1]!==target){
-          return index;
-        } else {
-          leftbound=index+1
-        }
-      } 
-      
-      else if (target < array[index]) {
-        rightbound = index - 1;
+  let leftbound = 0;
+  let rightbound = array.length - 1;
+
+
+
+  while (leftbound <= rightbound) {
+    let index = Math.floor((rightbound + leftbound) / 2);
+
+    if (target == array[index]) {
+      if (array[index + 1] !== target) {
+        return index;
       } else {
-        leftbound = index + 1;
+        leftbound = index + 1
       }
-      
     }
-    return -1;
+
+    else if (target < array[index]) {
+      rightbound = index - 1;
+    } else {
+      leftbound = index + 1;
+    }
+
   }
-        
+  return -1;
+}
+
+
+
+
+
+
+
+/*
+ 
+left = 0
+right = length - 1
+ 
+iterate while left <= right
+  check if mid = target
+  check if left adjacent !== current index
   
-  
-  
-  
-  
-  
-  /*
-  
-  left = 0
-  right = length - 1
-  
-  iterate while left <= right
-    check if mid = target
-    check if left adjacent !== current index
-    
-  
-  Given a string in the format of a * x, b * y, c * z, count the number of b's there are in the string.
-  ex: aaabbcccc => 2
-         L
-          R
-  
-  time: o(n)
-  space: o(n)
-  
-  time: o(log n)
-  space: o(1)
-  
-   
-  let leftbound = 0
-  let rightbound = string.length - 1
-  
-  
-  
-  Return the closest value to the target. For example [1, 4, 7, 8, 9], 5 returns 4. If two elements are equidistant to the target, return either.
-  
-  
-  */
+ 
+Given a string in the format of a * x, b * y, c * z, count the number of b's there are in the string.
+ex: aaabbcccc => 2
+       L
+        R
+ 
+time: o(n)
+space: o(n)
+ 
+time: o(log n)
+space: o(1)
+ 
+ 
+let leftbound = 0
+let rightbound = string.length - 1
+ 
+ 
+ 
+Return the closest value to the target. For example [1, 4, 7, 8, 9], 5 returns 4. If two elements are equidistant to the target, return either.
+ 
+ 
+*/
