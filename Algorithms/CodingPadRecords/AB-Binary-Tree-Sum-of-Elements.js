@@ -22,6 +22,10 @@ class TreeNode {
   };
 };
 
+/*############################
+Iterative Solution
+############################*/
+// O(N) time
 function sumBT(root) {
   const stack = root ? [root] : [];
   let result = 0;
@@ -31,9 +35,23 @@ function sumBT(root) {
     result += node.value;
     if (node.left) stack.push(node.left);
     if (node.right) stack.push(node.right);
-  }
+  };
 
   return result;
+};
+
+/*############################
+Recursive Solution
+############################*/
+// O(N) time
+function sumBT(root) {
+  if (!root) return 0;
+
+  return (
+    root.value +
+    sumBT(root.left) +
+    sumBT(root.right)
+  );
 }
 
 // Test Cases
