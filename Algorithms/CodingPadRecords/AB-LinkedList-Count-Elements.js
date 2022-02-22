@@ -18,7 +18,7 @@ class ListNode {
 };
 
 /*############################
-Iterative Solution - 2
+Iterative Solution
 ############################*/
 
 function count2(node) {

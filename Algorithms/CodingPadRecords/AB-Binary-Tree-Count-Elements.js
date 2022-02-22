@@ -22,6 +22,9 @@ class TreeNode {
     };
 };
 
+/*############################
+Iterative Solution
+############################*/
 // O(N) time
 function countTree(root) {
     const stack = root ? [root] : [];
@@ -32,10 +35,10 @@ function countTree(root) {
         result += 1;
         if (node.left) stack.push(node.left);
         if (node.right) stack.push(node.right);
-    }
+    };
 
     return result;
-}
+};
 
 // Test Cases
 console.log(countTree(null)) // 0
