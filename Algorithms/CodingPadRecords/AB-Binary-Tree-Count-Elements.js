@@ -40,8 +40,24 @@ function countTree(root) {
     return result;
 };
 
+/*############################
+Recursive Solution
+############################*/
+function countTreeRecursive(root) {
+    if (!root) return 0;
+
+    return (
+        1 + countTreeRecursive(root.left) + countTreeRecursive(root.right)
+    );
+};
+
 // Test Cases
 console.log(countTree(null)) // 0
 console.log(countTree(new TreeNode(1, new TreeNode(2), new TreeNode(3)))); // 3
 console.log(countTree(new TreeNode(2, new TreeNode(29, new TreeNode(26)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9)))))); // 6
 console.log(countTree(new TreeNode())); // 1
+
+console.log(countTreeRecursive(null)) // 0
+console.log(countTreeRecursive(new TreeNode(1, new TreeNode(2), new TreeNode(3)))); // 3
+console.log(countTreeRecursive(new TreeNode(2, new TreeNode(29, new TreeNode(26)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9)))))); // 6
+console.log(countTreeRecursive(new TreeNode())); // 1

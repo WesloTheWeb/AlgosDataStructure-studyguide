@@ -35,11 +35,16 @@ class TreeNode {
   };
 };
 
+/*############################
+Iterative Solution
+############################*/
 // O(N^2) time (shift() is O(N) with array)
 function BFSTree(node, target) {
+  // queue
   let queue = node ? [node] : [];
 
   while (queue.length > 0) {
+    // acts as a pointer
     let cur = queue.shift(); // dequeue first element
 
     if (cur.value === target) {
