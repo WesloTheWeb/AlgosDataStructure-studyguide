@@ -22,12 +22,14 @@ Examples:
  8     11                  
    6            node.right
 
+  2
+1  3
+
 */
 // 8 node.left min -Infinity max - 10
 // min, max = node.value
 // left - node.value = max
 // right - max
-
 // Function Signature:
 // function validateBST(node) -> Bool
 
@@ -35,11 +37,15 @@ Examples:
 
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
-        this.value = value
-        this.left = leftChild
-        this.right = rightChild
-    }
-}
+        this.value = value;
+        this.left = leftChild;
+        this.right = rightChild;
+    };
+};
+
+/*############################
+Recursive Solution
+############################*/
 
 function validateBST(tree) {
     //base case
@@ -53,24 +59,19 @@ const isBST = (node, min = -Infinity, max = Infinity) => {
     if (!node) return true;
     if (node.value <= min || node.value > max) {
         return false;
-    }
+    };
 
     return isBST(node.left, min, node.value) && isBST(node.right, node.value, max);
 };
 
-/* 
-  2
-1  3
-*/
-
 // Test Cases
-var tree1 = new TreeNode(2, new TreeNode(1), new TreeNode(3))
-var tree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3))
-var tree3 = new TreeNode(8, new TreeNode(3, new TreeNode(1), new TreeNode(6)), new TreeNode(10, null, new TreeNode(14, new TreeNode(13))))
-var tree4 = new TreeNode(2, new TreeNode(1), new TreeNode(2))
-console.log(validateBST(null)) // true
-console.log(validateBST(tree1)) // true
-console.log(validateBST(tree2)) // false
-console.log(validateBST(tree3)) // true
-console.log(validateBST(new TreeNode())) // true
-console.log(validateBST(tree4)) // false
+var tree1 = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+var tree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+var tree3 = new TreeNode(8, new TreeNode(3, new TreeNode(1), new TreeNode(6)), new TreeNode(10, null, new TreeNode(14, new TreeNode(13))));
+var tree4 = new TreeNode(2, new TreeNode(1), new TreeNode(2));
+console.log(validateBST(null)); // true
+console.log(validateBST(tree1)); // true
+console.log(validateBST(tree2)); // false
+console.log(validateBST(tree3)); // true
+console.log(validateBST(new TreeNode())); // true
+console.log(validateBST(tree4)); // false
