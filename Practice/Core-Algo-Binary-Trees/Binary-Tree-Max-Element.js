@@ -38,8 +38,11 @@ Recursive Solution
 function findTreeMax(root) {
     // write code below
 
-    // Test Cases
-    console.log(findTreeMax(null)) // null
-    console.log(findTreeMax(new TreeNode(1, new TreeNode(2), new TreeNode(3)))) // 3
-    console.log(findTreeMax(new TreeNode(2, new TreeNode(29, new TreeNode(26)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9)))))) // 29
-    console.log(findTreeMax(new TreeNode(1))) // 1
+}
+// Test Cases
+
+console.log(findTreeMax(null)) // null
+console.log(findTreeMax(new TreeNode(1, new TreeNode(2), new TreeNode(3)))) // 3
+console.log(findTreeMax(new TreeNode(2, new TreeNode(29, new TreeNode(26)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9)))))) // 29
+console.log(findTreeMax(new TreeNode(1))) // 1
+console.log(findTreeMax(new TreeNode(-4, new TreeNode(-22), new TreeNode(-6)))) // -4
