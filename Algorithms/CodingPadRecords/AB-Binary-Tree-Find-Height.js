@@ -22,10 +22,14 @@ class TreeNode {
     };
 };
 
+/*############################
+Recursive Solution
+############################*/
+
 function findTreeHeight(root) {
     if (!root) {
-        return -1
-    }
+        return -1;
+    };
 
     return 1 + Math.max(findTreeHeight(root.left), findTreeHeight(root.right));
 };

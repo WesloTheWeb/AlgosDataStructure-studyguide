@@ -54,7 +54,7 @@ function sumBT(root) {
     sumBT(root.left) +
     sumBT(root.right)
   );
-}
+};
 
 // Test Cases
 console.log(sumBT(null)) // 0
