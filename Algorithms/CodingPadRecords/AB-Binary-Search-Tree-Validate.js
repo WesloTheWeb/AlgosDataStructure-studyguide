@@ -1,5 +1,6 @@
-/*
-
+/*##################################################################################
+TAG: Validate a Binary Search Tree
+#####################################################################################
 
 Q. Given a binary tree, determine if it is a valid binary search tree (BST).
 
@@ -22,8 +23,6 @@ Examples:
    6            node.right
 
 */
-
-
 // 8 node.left min -Infinity max - 10
 // min, max = node.value
 // left - node.value = max
@@ -33,8 +32,6 @@ Examples:
 // function validateBST(node) -> Bool
 
 // Time = O(n) \ Space = O(h) h is the height of tree
-
-
 
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
@@ -54,7 +51,7 @@ function validateBST(tree) {
 
 const isBST = (node, min = -Infinity, max = Infinity) => {
     if (!node) return true;
-    if (node.value < min || node.value > max) {
+    if (node.value <= min || node.value > max) {
         return false;
     }
 
@@ -64,10 +61,7 @@ const isBST = (node, min = -Infinity, max = Infinity) => {
 /* 
   2
 1  3
- 
 */
-
-
 
 // Test Cases
 var tree1 = new TreeNode(2, new TreeNode(1), new TreeNode(3))
