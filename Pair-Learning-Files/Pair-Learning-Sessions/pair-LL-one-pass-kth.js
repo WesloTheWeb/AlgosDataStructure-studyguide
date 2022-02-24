@@ -17,37 +17,37 @@ s
 // List Node Data Structure:
 class ListNode {
   constructor(value = 0, next = null) {
-      this.value = value
-      this.next = next
+    this.value = value
+    this.next = next
   }
 }
 
 
 function kthFromLast(head, k) {
-let fast = head;
-let slow = head;
+  let fast = head;
+  let slow = head;
 
-if (!head) return -1;
+  if (!head) return -1;
 
-for (let i = 0; i < k; i++) {
-  if (fast.next) {  // important to check fast.next is null return -1 !!
+  for (let i = 0; i < k; i++) {
+    if (fast.next) {  // important to check fast.next is null return -1 !!
+      fast = fast.next;
+    } else {
+      return -1;
+    }
+  };
+
+  /*
+  This can change depending on if line 27 is head.next or not.  
+  - If fast is at head, then our while loop condition is fast.next
+  - If fast is at head.next then our while loop is at fast.
+  */
+  while (fast.next) {
     fast = fast.next;
-  } else {
-    return -1;
+    slow = slow.next;
   }
-};
 
-/*
-This can change depending on if line 27 is head.next or not.  
-- If fast is at head, then our while loop condition is fast.next
-- If fast is at head.next then our while loop is at fast.
-*/
-while (fast.next) { 
-  fast = fast.next;
-  slow = slow.next;
-}
-
-return slow.value;
+  return slow.value;
 
 };
 
@@ -62,7 +62,7 @@ console.log(kthFromLast(LL1, 6)) // -1
 
 var LL2 = new ListNode(2, new ListNode(3)); // 2 -> 3
 
-console.log('linked list #2:',(kthFromLast(LL2, 1) )) // 2
+console.log('linked list #2:', (kthFromLast(LL2, 1))) // 2
 /*
 2  3
  f

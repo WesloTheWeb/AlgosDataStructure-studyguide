@@ -50,6 +50,38 @@ function kthFromLast(head, k) {
     return slow.value;
 };
 
+
+/*############################
+Iterative Solution - More Optimized 
+############################*/
+function kthFromLast(head, k) {
+    let fast = head;
+    let slow = head;
+  
+    if (!head) return -1;
+  
+    for (let i = 0; i < k; i++) {
+      if (fast.next) {  // important to check fast.next is null return -1 !!
+        fast = fast.next;
+      } else {
+        return -1;
+      }
+    };
+  
+    /*
+    This can change depending on if line 27 is head.next or not.  
+    - If fast is at head, then our while loop condition is fast.next
+    - If fast is at head.next then our while loop is at fast.
+    */
+    while (fast.next) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+  
+    return slow.value;
+  
+  };
+
 // Test Cases
 var LL1 = new ListNode(13, new ListNode(1, new ListNode(5, new ListNode(3, new ListNode(7, new ListNode(10))))))
 // 13 1 5 3 7 10
