@@ -8,19 +8,13 @@ cache.add(4): cache 4, 2, 1, 3
 cache.add(5): cache 5, 4, 2, 1   3 gets evicted
 cache.get(2): cache 2, 5, 4, 1
 
-
-
   h ->  2 <-> 5 <-> 4 <-> 1  <- t
-^
-
-
+^---------------------------------^
 
 add: O(1)
 get: O(1)
 delete: O(1)
 
-
----------------------------------^
 """
 
 from typing import Dict, Optional, List
