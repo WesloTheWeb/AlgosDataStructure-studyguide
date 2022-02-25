@@ -11,36 +11,27 @@ Examples:
 
 class ListNode {
     constructor(value = 0, next = null) {
-        this.value = value
-        this.next = next
-    }
-}
+        this.value = value;
+        this.next = next;
+    };
+};
 
 function arrayify(head) {
-    let ptr = head
-    var array = []
+    let ptr = head;
+    var array = [];
     while (ptr != null) {
-        array.push(ptr.value)
-        ptr = ptr.next
-    }
-    return array
-}
+        array.push(ptr.value);
+        ptr = ptr.next;
+    };
+    return array;
+};
 
 /*############################
 Iterative Solution
 ############################*/
 // O(N) time
 function remove(node, value) {
-    if (!node) return node;
-    const sentinel = new ListNode(0, node);
-    let curr = sentinel;
-
-    while (curr && curr.next) {
-        if (curr.next.value === value) curr.next = curr.next.next;
-        else curr = curr.next;
-    };
-
-    return sentinel.next;
+  
 };
 
 /*############################

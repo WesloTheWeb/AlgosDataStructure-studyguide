@@ -23,6 +23,6 @@ function numDuplicates(array) {
 };
 
 // Test Cases
-console.log(numDuplicates([])) // 0
-console.log(numDuplicates([3, 1, 1, 2, 3, 1, 1, 1, 4])) // 2
-console.log(numDuplicates([1])) // 0
+console.log(numDuplicates([])); // 0
+console.log(numDuplicates([3, 1, 1, 2, 3, 1, 1, 1, 4])); // 2
+console.log(numDuplicates([1])); // 0

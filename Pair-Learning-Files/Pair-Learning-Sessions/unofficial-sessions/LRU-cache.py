@@ -1,5 +1,3 @@
-
-
 """
 
 cache = 1, 2, 3
@@ -25,10 +23,7 @@ delete: O(1)
 ---------------------------------^
 """
 
-
 from typing import Dict, Optional, List
-
-
 
 class Node:
     def __init__(self, val: int, prev: 'Node' = None, next: 'Node' = None):

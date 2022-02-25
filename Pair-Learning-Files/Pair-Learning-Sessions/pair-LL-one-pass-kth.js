@@ -1,19 +1,22 @@
-/*
-Q. Given a linked list, return the kth element from the end of the list.
-   If the k exceedes the length of the list, return -1.
+/*################
+PAIR LEARNING: Linked List One Pass kth
+###################
+Question: 
+- Given a linked list, return the kth element from the end of the list.
+  If the k exceedes the length of the list, return -1.
 
 Examples:
 • Given a linked list: 13 ➞ 1 ➞ 5 ➞ 3 ➞ 7 ➞ 10, k: 0 // returns 10
 • Given a linked list: 13 ➞ 1 ➞ 5 ➞ 3 ➞ 7 ➞ 10, k: 6 // returns -1
-#####################################*/
-/* Approach:
+#####################################
+
+APPROACH:
 
 13 1 5 4 k = 9
          f         
 s
-
-
 */
+ 
 // List Node Data Structure:
 class ListNode {
   constructor(value = 0, next = null) {

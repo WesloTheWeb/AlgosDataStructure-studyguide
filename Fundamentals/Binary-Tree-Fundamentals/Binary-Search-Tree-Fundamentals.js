@@ -1,3 +1,8 @@
+/*######################################
+BINARY SEARCH TREE FUNDAMENTALS 
+- with methods  (size, insert, min, max, contains / find, DFSInOrder, DFSPreOrder, DFSPostOrder and BreadthFirstSearch)
+#######################################*/
+// Data Structure Dependency
 class treeNode {
     constructor(value) {
         this.value = value;
@@ -6,7 +11,30 @@ class treeNode {
     };
 };
 
-// Binary Tree Practice
+// Use this one for Sessions and Problems
+class TreeNode {
+    constructor(value = 0, leftChild = null, rightChild = null) {
+      this.value = value;
+      this.left = leftChild;
+      this.right = rightChild;
+    };
+  };
+
+  // Helper Function to make arrays 
+  function arrayifyTree(root) {
+    if (!root) { return [] };
+    var queue = [];
+    var array = [];
+    queue.push(root);
+    while (queue.length !== 0) {
+        var node = queue.shift();
+        array.push(node.value);
+        if (node.left) { queue.push(node.left) };
+        if (node.right) { queue.push(node.right) };
+    };
+    return array;
+};
+
 
 class BST {
     constructor(value) {
@@ -59,7 +87,7 @@ class BST {
         let currentNode = this.root;
 
         while (currentNode.left) {
-           currentNode = currentNode.left;
+            currentNode = currentNode.left;
         }; // It is a BST so just keep going left and set the currentNode to currentNode.left until reach end.
 
         return currentNode.value;
@@ -69,7 +97,7 @@ class BST {
     max() {
         let currentNode = this.root;
 
-        while(currentNode.right) {
+        while (currentNode.right) {
             cuirrentNode = currentNode.right;
         };
 
@@ -80,7 +108,7 @@ class BST {
     contains(value) {
         let currentNode = this.root;
 
-        while(currentNode) {
+        while (currentNode) {
             if (value === currentNode.value) {
                 return true;
             } else if (value < currentNode.value) {
@@ -113,5 +141,54 @@ class BST {
     bfs() {
 
     };
+};
 
-}
+/* 
+     5
+   /   \
+  3      7
+ / \    / \
+1   2  10 9
+
+// 5 odd numbers
+read: [5, 3]
+
+X % 2 == 1 // X is odd
+count += 1;
+
+queue [, 7]
+queue2 [1, 2, 10, 9]
+
+stack.add(1)
+stack.add(4)
+stack.add(5)
+stack.add(7)
+
+7
+5
+4
+1
+
+stack.pop() // 7
+stack.pop() // 5
+stack.pop() // 4
+stack.pop() // 1
+
+queue.add(1)
+queue.add(4)
+queue.add(5)
+queue.add(7)
+
+1 4 5 7
+
+queue.pop() // 1
+queue.pop() // 4
+queue.pop() // 5
+queue.pop() // 7
+
+     5*
+   /   \
+  3      7
+ / \    / \
+1   2  10 9
+*/

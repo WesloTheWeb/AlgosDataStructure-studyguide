@@ -1,6 +1,6 @@
-/* 
-Your previous Python 3 content is preserved below:
-
+/*###################################
+Focus on Binary Tree and Traversals
+#####################################
 FIRST TREE for BFS 
       10   1st level
      /    \
@@ -8,8 +8,6 @@ FIRST TREE for BFS
              \
              13  3rd level 
   
-                        
-
 SECOND TREE for DFS - last function iteratively
        10   1st level
      /    \
@@ -58,8 +56,6 @@ function dfs(head) {
 
 // In-order
 // dfs(tree) // 8, 10, 11, 12, 13
-
-
 
 function bfs(root) {
     const queue = root ? [root] : [];

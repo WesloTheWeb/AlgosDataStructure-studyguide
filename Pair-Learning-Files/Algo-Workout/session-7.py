@@ -1,10 +1,6 @@
-/*
 ############################
-SESSION 7 | Feb 22
+# SESSION 7 | Feb 22
 ############################
-*/
-
-
 # 
 # Your previous JavaScript content is preserved below:
 # 

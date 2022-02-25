@@ -43,18 +43,18 @@ class TreeNode {
 }
 
 function arrayifyTree(root) {
-    if (!root) { return [] }
-    var queue = []
-    var array = []
-    queue.push(root)
+    if (!root) { return [] };
+    var queue = [];
+    var array = [];
+    queue.push(root);
     while (queue.length !== 0) {
-        var node = queue.shift()
-        array.push(node.value)
-        if (node.left) { queue.push(node.left) }
-        if (node.right) { queue.push(node.right) }
-    }
-    return array
-}
+        var node = queue.shift();
+        array.push(node.value);
+        if (node.left) { queue.push(node.left) };
+        if (node.right) { queue.push(node.right) };
+    };
+    return array;
+};
 
 // O(logN) time
 function insertBST(root, val) {

@@ -1,5 +1,8 @@
-/*
-Q. Given an unsorted array, perform bubble sort in ascending order.
+/*################
+PAIR LEARNING: Bubble Sort
+###################
+Question: 
+- Given an unsorted array, perform bubble sort in ascending order.
 
 Examples:
 • Given an aray: [1] // returns [1]

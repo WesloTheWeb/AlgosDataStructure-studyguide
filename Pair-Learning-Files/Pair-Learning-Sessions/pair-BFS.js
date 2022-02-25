@@ -1,17 +1,10 @@
-/*
-Q. Given a binary tree and a target element's value, determine if the tree contains the target using 
+/*################
+PAIR LEARNING: BFS
+###################
+Question: 
+- Given a binary tree and a target element's value, determine if the tree contains the target using 
 breadth first search (BFS).
-*/
 
-class TreeNode {
-  constructor(value = 0, leftChild = null, rightChild = null) {
-    this.value = value
-    this.left = leftChild
-    this.right = rightChild
-  }
-}
-
-/*
      a
   /    \
  b       
@@ -21,6 +14,14 @@ target : e
 queue [ de ]
 targeted: ab
 */
+
+class TreeNode {
+  constructor(value = 0, leftChild = null, rightChild = null) {
+    this.value = value;
+    this.left = leftChild;
+    this.right = rightChild;
+  };
+};
 
 function BFSTree(root, target) {
 

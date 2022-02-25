@@ -1,7 +1,9 @@
-/*
-
-
-Q. Given a binary tree, determine if it is a valid binary search tree (BST).
+/*################
+PAIR LEARNING: Binary Search Tree
+- Go to solution
+###################
+Question:
+- Given a binary tree, determine if it is a valid binary search tree (BST).
 
 Examples:
 • Given a binary tree:
@@ -20,22 +22,9 @@ Examples:
   /   \
  8     11                  
    6            node.right
-
 */
 
-
-// 8 node.left min -Infinity max - 10
-// min, max = node.value
-// left - node.value = max
-// right - max
-
-// Function Signature:
-// function validateBST(node) -> Bool
-
-// Time = O(n) \ Space = O(h) h is the height of tree
-
-
-
+// Data Dependency
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
         this.value = value
@@ -44,6 +33,7 @@ class TreeNode {
     }
 }
 
+// Time = O(n) \ Space = O(h) h is the height of tree
 function validateBST(tree) {
     //base case
     if (!tree) return true;
@@ -60,14 +50,6 @@ const isBST = (node, min = -Infinity, max = Infinity) => {
 
     return isBST(node.left, min, node.value) && isBST(node.right, node.value, max);
 };
-
-/* 
-  2
-1  3
- 
-*/
-
-
 
 // Test Cases
 var tree1 = new TreeNode(2, new TreeNode(1), new TreeNode(3))
