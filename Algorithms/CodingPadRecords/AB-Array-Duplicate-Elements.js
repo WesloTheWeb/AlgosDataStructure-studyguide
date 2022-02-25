@@ -20,7 +20,6 @@ function numDuplicates(array) {
   return Array.from(counts.values())
     .filter(count => count > 1)
     .length;
-
 };
 
 // Test Cases
