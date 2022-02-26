@@ -14,14 +14,14 @@ class treeNode {
 // Use this one for Sessions and Problems
 class TreeNode {
     constructor(value = 0, leftChild = null, rightChild = null) {
-      this.value = value;
-      this.left = leftChild;
-      this.right = rightChild;
+        this.value = value;
+        this.left = leftChild;
+        this.right = rightChild;
     };
-  };
+};
 
-  // Helper Function to make arrays 
-  function arrayifyTree(root) {
+// Helper Function to make arrays 
+function arrayifyTree(root) {
     if (!root) { return [] };
     var queue = [];
     var array = [];
@@ -39,7 +39,7 @@ class TreeNode {
 class BST {
     constructor(value) {
         this.root = new treeNode(value);
-        this.count = 0; // keeps tracks of how many nodes are in the tree.
+        this.count = 1; // keeps tracks of how many nodes are in the tree. Initialize as 1 to count for root
     };
 
     // Finding the size
@@ -98,7 +98,7 @@ class BST {
         let currentNode = this.root;
 
         while (currentNode.right) {
-            cuirrentNode = currentNode.right;
+            currentNode = currentNode.right;
         };
 
         return currentNode.value;
@@ -126,22 +126,130 @@ class BST {
 
     // in order
     dfsInOrder() {
+        // Left Node, Root Node, Right Node
+        let result = [];
+
+        const traverse = (node) => {
+            // if left child exists, go left again
+            if (node.left) traverse(node.left);
+            // capture root node
+            result.push(node.value);
+            // if right child exists, go right again
+            if (node.right) traverse(node.right);
+        };
+
+        traverse(this.root);
+
+        return result;
 
     };
 
     dfsPreOrder() {
+        // Root Node, Left Node, Right Node
+        let result = [];
 
+        const traverse = (node) => {
+            // capture root node
+            result.push(node.value);
+            // if left child exists, go left again
+            if (node.left) traverse(node.left);
+            // if right child exists, go right again
+            if (node.right) traverse(node.right);
+        };
+
+        traverse(this.root);
+
+        return result;
     };
 
     dfsPostOrder() {
+        // Left Node, Right Node, Root Node
+        let result = [];
 
+        const traverse = (node) => {
+            // if left child exists, go left again
+            if (node.left) traverse(node.left);
+            // if right child exists, go right again
+            if (node.right) traverse(node.right);
+            // capture root node
+            result.push(node.value);
+        };
+
+        traverse(this.root);
+
+        return result;
     };
 
     //breadthFirstSearch 
     bfs() {
+        let result = [];
 
+        let queue = [];
+
+        queue.push(this.root)
+
+        while (queue.length) {
+            let currentNode = queue.shift(); // de-queues 
+
+            result.push(currentNode.value);
+
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            };
+
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            };
+        };
+
+        return result;
     };
 };
+
+
+// TEST CASES:
+const bst = new BST(15)
+
+bst.insert(3)
+bst.insert(36)
+bst.insert(2)
+bst.insert(12)
+bst.insert(28)
+bst.insert(39)
+
+console.log('Size of tree:', bst.size())
+
+console.log('Minimum element of tree', bst.min())
+console.log('Maximum element of tree', bst.max())
+
+console.log('Contain 2?:', bst.contains(2)); // true
+console.log('Contain 9?:', bst.contains(9)); // false
+
+// DFS!!!
+// in-order: 2, 3, 12, 15, 28, 36, 39
+console.log('DFS In-Order:', bst.dfsInOrder());
+
+// pre-order: 
+// 15, 3, 2, 12, 36, 28, 39
+console.log('DFS Pre-Order', bst.dfsPreOrder());
+
+// post-order: 
+// 2, 12, 3, 28, 39, 36, 15
+console.log('DFS Post-Order', bst.dfsPostOrder());
+
+// BFS!!!
+// 15, 3, 36, 2, 12, 28, 39
+console.log('Breadth First Search', bst.bfs());
+
+
+
+
+
+
+
+
+
+
 
 /* 
      5
