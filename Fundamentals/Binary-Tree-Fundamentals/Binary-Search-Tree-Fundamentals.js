@@ -225,16 +225,22 @@ console.log('Maximum element of tree', bst.max())
 console.log('Contain 2?:', bst.contains(2)); // true
 console.log('Contain 9?:', bst.contains(9)); // false
 
-// DFS!!!
-// in-order: 2, 3, 12, 15, 28, 36, 39
+/* DFS!!!                       2
+In-Order: Left, Root, Right   1   3
+2, 3, 12, 15, 28, 36, 39
+*/
 console.log('DFS In-Order:', bst.dfsInOrder());
 
-// pre-order: 
-// 15, 3, 2, 12, 36, 28, 39
+/*
+Pre-Order: Root, Left, Right   1
+15, 3, 2, 12, 36, 28, 39     2   3
+*/
 console.log('DFS Pre-Order', bst.dfsPreOrder());
 
-// post-order: 
-// 2, 12, 3, 28, 39, 36, 15
+/*
+Post-Order: Left, Right, Root    3
+2, 12, 3, 28, 39, 36, 15       1   2
+*/
 console.log('DFS Post-Order', bst.dfsPostOrder());
 
 // BFS!!!

@@ -75,3 +75,18 @@ console.log(validateBST(tree2)); // false
 console.log(validateBST(tree3)); // true
 console.log(validateBST(new TreeNode())); // true
 console.log(validateBST(tree4)); // false
+
+
+/*#########################
+LEETCODE VARIATION
+- Deals with the case of null nodes
+###########################*/
+
+const isValidBST = (root) => dfs(root, null, null);
+
+const dfs = (node, l, r) => {
+    if (!node) return true;
+    if (l && l.val >= node.val) return false;
+    if (r && r.val <= node.val) return false;
+    return dfs(node.left, l, node) && dfs(node.right, node, r);
+};
