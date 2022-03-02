@@ -104,7 +104,7 @@ function insertBST(root, val) {
                 curr = curr.left;
             } else {
                 curr.left = node;
-                return;
+                break;
             };
         };
 
@@ -113,7 +113,7 @@ function insertBST(root, val) {
                 curr = curr.right;
             } else {
                 curr.right = node;
-                return;
+                break;
             };
         };
     };
@@ -141,3 +141,84 @@ console.log(tree2.value, 1) // 1
 //         2   4  7
 //        /     \
 //       1       5
+
+// alternatvie solution
+/*
+/*
+Q. Given a binary search tree and a target integer, check if the tree contains a target.
+
+[execution time limit] 4 seconds (js)
+
+[input] tree.integer root
+
+root of the tree
+
+[input] integer target
+
+target element's value
+
+[output] boolean
+
+class TreeNode {
+    constructor(value = 0, leftChild = null, rightChild = null) {
+        this.value = value;
+        this.left = leftChild;
+        this.right = rightChild;
+    };
+  };
+  
+  function arrayifyTree(root) {
+    if (!root) { return [] };
+    var queue = [];
+    var array = [];
+  
+    queue.push(root);
+    while (queue.length !== 0) {
+        var node = queue.shift()
+        array.push(node.value)
+        if (node.left) { queue.push(node.left) }
+        if (node.right) { queue.push(node.right) }
+    }
+  
+    return array;
+  };
+  
+  function insertBST(root, target) {
+    if (!root) new TreeNode(target);
+    
+    let node = new TreeNode(target);
+    let curr = root;
+  
+    while(curr) {
+      if (target <= curr.value) {
+        if (curr.left) {
+          curr = curr.left;
+        } else {
+          curr.left = node;
+          break;
+        }
+      }
+      else {
+        if (curr.right) {
+          curr = curr.right;
+        } else {
+          curr.right = node;
+          break;
+        }
+      }
+    }
+  
+    return root;
+  };
+  
+  var root = new TreeNode(6, new TreeNode(3, new TreeNode(2), new TreeNode(4)), new TreeNode(8));
+  // root = insertBST(root, 1);
+  insertBST(root, 7);
+  console.log(arrayifyTree(root), [6, 3, 8, 2, 4, 7]);
+  insertBST(root, 5);
+  console.log(arrayifyTree(root), [6, 3, 8, 2, 4, 7, 5]);
+  insertBST(root, 1);
+  console.log(arrayifyTree(root), [6, 3, 8, 2, 4, 7, 5]);
+  console.log(root.value, 1);
+  
+*/
