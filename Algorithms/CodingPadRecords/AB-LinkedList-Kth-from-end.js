@@ -87,8 +87,11 @@ var LL1 = new ListNode(13, new ListNode(1, new ListNode(5, new ListNode(3, new L
 // 13 1 5 3 7 10
 //            f
 //          s
-console.log(kthFromLast(LL1, 0)) // 10
-console.log(kthFromLast(LL1, 1)) // 7
-console.log(kthFromLast(LL1, 2)) // 3 
-console.log(kthFromLast(LL1, 5)) // 13
-console.log(kthFromLast(LL1, 6)) // -1
+
+console.log(kthFromLast(LL1, 3)) // 3 
+console.log(kthFromLast(LL1, 6)) // 13
+console.log(kthFromLast(LL1, 7)) // -1
+console.log(kthFromLast(LL1, 1)) // 10
+console.log(kthFromLast(LL1, 2)) // 7
+console.log(kthFromLast(LL1, 5)) // 1
+console.log(kthFromLast(LL1, 6)) // 13
