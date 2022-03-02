@@ -35,19 +35,19 @@ class TreeNode {
 
 function searchBST(root, target) {
     let curr = root;
-
+  
     while (curr) {
-        if (curr.value === target) {
+        if (target === curr.value) {
             return true;
-        } else if (curr.value < target) {
+        } else if (target > curr.value) {
             curr = curr.right;
         } else {
             curr = curr.left;
         };
     };
-
+  
     return false;
-};
+  };
 
 // Test Cases
 let tree = new TreeNode(8, new TreeNode(3, new TreeNode(1), new TreeNode(6)), new TreeNode(10, null, new TreeNode(14, new TreeNode(13))))
