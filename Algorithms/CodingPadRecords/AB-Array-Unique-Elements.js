@@ -29,3 +29,17 @@ function numUniques(array) {
 console.log(numUniques([])) // 0
 console.log(numUniques([3, 1, 1, 2, 3, 1, 1, 1, 4])) // 2
 console.log(numUniques([1])) // 1
+
+// Variant solution to account for number itself:
+
+// function numUniques(array) {
+//     const counts = new Map();
+
+//     array.forEach(el => {
+//         counts.set(el, (counts.get(el) || 0) + 1);
+//     });
+
+//     return Array.from(counts.values())
+//         .filter(count => count >= 1)  // greater than or equal to 1 to account for value itself
+//         .length;
+// };
