@@ -34,7 +34,7 @@ function sumBT(root) {
     const node = stack.pop();
     result += node.value;
 
-    // moving our pointer to get the lef tand right. If there's node left or right then push.
+    // moving our pointer to get the left and right. If there's node left or right then push.
     if (node.left) stack.push(node.left);
     if (node.right) stack.push(node.right);
   };

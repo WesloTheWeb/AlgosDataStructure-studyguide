@@ -2,7 +2,8 @@
 TAG: Find the Middle Element from a Linked List in One Pass - 2m
 ##################################################################################
 
-Q. Given a linked list, find the middle element in one pass. If the length of the list is even, return the first of the two middle nodes.
+Q. Given a linked list, find the middle element in one pass. If the length of the list is even, return the first of 
+the two middle nodes. 
 Follow-up: What if we want to return the second of the two middle nodes in lists with even numbers of nodes?
 
 Examples:
@@ -19,10 +20,10 @@ s
 */
 
 class ListNode {
-    constructor(value = 0, next = null) {
-        this.value = value;
-        this.next = next;
-    };
+  constructor(value = 0, next = null) {
+    this.value = value;
+    this.next = next;
+  };
 };
 
 // O(N) time
