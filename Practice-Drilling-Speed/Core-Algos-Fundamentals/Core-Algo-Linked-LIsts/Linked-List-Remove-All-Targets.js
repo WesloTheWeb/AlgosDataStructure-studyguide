@@ -31,17 +31,7 @@ Iterative Solution
 ############################*/
 // O(N) time
 function remove(node, value) {
-    if (!node) return NodeList;
-    let sentinel = new ListNode(0, node);
-
-    let curr = sentinel;
-    while (curr && curr.next) {
-        if (curr.value === target) {
-            curr = curr.next.next;
-        } else {
-            curr = curr.next;
-        };
-    };
+    // write code here
 };
 
 /*############################
@@ -49,11 +39,7 @@ Recursive Solution
 ############################*/
 // O(N) time
 function remove(node, value) {
-    if (!node) return null;
-
-    if (node.value === target) {
-        return remove(node.next)
-    }
+    // write code here
 
 };
 
