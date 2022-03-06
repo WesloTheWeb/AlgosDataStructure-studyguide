@@ -31,8 +31,7 @@ Iterative Solution
 ############################*/
 // O(N) time
 function remove(node, value) {
-    // write code below:
-
+    // write code here
 };
 
 /*############################
@@ -40,7 +39,7 @@ Recursive Solution
 ############################*/
 // O(N) time
 function remove(node, value) {
-    // write code below:
+    // write code here
 
 };
 
