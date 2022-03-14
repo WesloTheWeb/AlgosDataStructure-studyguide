@@ -11,5 +11,5 @@ Keep the original relative order of the upper and lower case letters the sa
 */
 
 function capToFront(s) {
-	
+
 };

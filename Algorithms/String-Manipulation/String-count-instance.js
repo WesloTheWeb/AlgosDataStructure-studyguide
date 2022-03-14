@@ -9,5 +9,5 @@ charCount("b", "big fat bubble") ➞ 4
 */
 
 function charCount(myChar, str) {
-	
+
 };

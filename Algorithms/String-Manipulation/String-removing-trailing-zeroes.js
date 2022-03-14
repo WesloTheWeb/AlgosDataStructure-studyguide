@@ -5,5 +5,5 @@ Leading Zeros are the zeros before a whole number which don't affect the value (
 */
 
 function removeLeadingTrailing(n) {
-	
+
 };

@@ -9,5 +9,5 @@ reverseCase("sPoNtAnEoUs") ➞ "SpOnTaNeOuS"
 */
 
 function reverseCase(str) {
-	
+
 };

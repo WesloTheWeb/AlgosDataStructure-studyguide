@@ -6,5 +6,5 @@ The first parameter txt is the string to be repeated and the second parameter is
 */
 
 function repetition(txt, n) {
-	
+
 };
