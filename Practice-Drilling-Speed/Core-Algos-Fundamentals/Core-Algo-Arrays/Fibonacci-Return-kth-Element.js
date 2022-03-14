@@ -16,7 +16,6 @@ fib(2) = fib(0) + fib(1) = 1 + 1 = 2
 // O(n) time
 function fib(k) {
     // Write Code Here
-
 };
 
 // Completion Time: Record Time Here...
