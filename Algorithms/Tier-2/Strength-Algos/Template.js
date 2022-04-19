@@ -6,62 +6,18 @@
 ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 ✏️ Description
 ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-Q. Given an array of integers, find all unique triplets (a, b, c) in the array such that their sum equals zero (a + b + c = 0).
-
-Examples:
-• Given an array: [1, 2, 0] returns: []
-• Given an array: [-1, 0, 1, 0, 1] returns: [[-1, 0, 1]]
-• Given an array: [-5, -1, 0, 1, 4, -1] returns: [[-5,1,4], [-1,0,1]
+Q.
 
 #########################
 HIGH LEVEL APPROACH:
 ##########################
-triplets = [[-1, 0, 1]]
-currSum = 0
-  0   1  2  3  4  5
-[-1, -1, 0, 0, 1, 1];
-  C  
-         L
-                  R
+ 
 
 NOTES:
-2 Sum
-  - Unsorted Input
-  - To solve -> use a dictionary
-2 Sum II
-  - Sorted Input
-  - Use two pointers
+ 
 */
 
-function tns(input) {
-    // Write your code here.
-    let triplets = [];
-    input.sort((a, b) => a - b);
-
-    for (let i = 0; i < input.length - 2; i++) {
-        let left = i + 1;
-        let right = input.length - 1;
-        if (i > 0 && input[i] === input[i - 1]) continue;
-
-        while (left < right) {
-            let currentSum = input[i] + input[left] + input[right];
-
-            if (currentSum === 0) {
-                triplets.push([input[i], input[left], input[right]]);
-                left++;
-                while (input[left] === input[left - 1]) { // skips duplicates for the 2SUM part
-                    left++
-                };
-            } else if (currentSum < 0) {
-                left++;
-            } else if (currentSum > 0) {
-                right--;
-            };
-        };
-    };
-
-    return triplets;
-};
+// Function problem here
 
 class Test {
     constructor(test_name = "", printTests = false) {
@@ -161,9 +117,3 @@ class ListNode {
 }
 
 // Test Cases
-test.startProblem("Three Number Sum")
-test.testForArrays([], tns([]), 1)
-test.testForArrays([[-1, 0, 1]], tns([-1, 0, 1]), 2)
-test.testForArrays([[-1, 0, 1]], tns([-1, -1, 1, 1, 0, 0]), 3)
-test.testMatchAny([[-1, 0, 1], [-5, 1, 4]], tns([-5, -1, 0, 1, 4, -1]), 4)
-test.endProblem()
