@@ -1,5 +1,3 @@
-import Test from "./Test-dependency";
-
 /*################################
 LEETCODE: https://leetcode.com/problems/task-scheduler/
 ✏️ Description
@@ -17,5 +15,3 @@ test.test(6, taskScheduler(["B","B","B","A","A","A"], 0), 1)
 test.test(8, taskScheduler(["E","E","E","D","D","D"], 2), 2)
 test.test(16, taskScheduler(["A","A","A","A","A","A","B","Y","Z","E","F","G"], 2), 3)
 test.endProblem()
-
-{Test}
