@@ -67,16 +67,20 @@ Pseudo Code  (Approach 2)
 ------------
 7 7 7 7 7 7 = 42 / 2 = 21
 
+######################
+APPROACH: 2
+Time: O(n) for sum
+Space: O(1)
+######################
 */
-
 function findMissingNumber(nums) {
     // 0. Initialize vars: expected_sum, actual_sum
     // 1. set expected sum to = n(n+1)/2
-    // 3. set actual_sum to Sum of the elements in the array 
+    // 2. set actual_sum to Sum of the elements in the array 
     let expectedSum = (nums.length * (nums.length + 1) / 2);
     let actualSum = nums.reduce((acc, cV) => acc + cV);
 
-    // 5. return  expectedSum - actual_sum
+    // 3. return  expectedSum - actual_sum
     return expectedSum - actualSum
 };
 
