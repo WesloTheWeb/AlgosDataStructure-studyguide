@@ -36,7 +36,7 @@ NOTES:
 function tns(input) {
     // Write your code here.
     let triplets = [];
-    input.sort((a, b) => a - b);
+    input.sort((a, z) => a - z);
 
     for (let i = 0; i < input.length - 2; i++) {
         let left = i + 1;
@@ -62,6 +62,19 @@ function tns(input) {
 
     return triplets;
 };
+
+
+// test cases
+console.log(tns([12, 3, 1, 2, -6, 5, 0, -8, -1, 6], 0),
+      [[-8, 2, 6], [-8, 3, 5], [-6, 0, 6], [-6, 1, 5], [-1, 0, 1]]) // wrong, 4 triplets
+
+console.log(tns([-2, 0, 1, 1, 2], 0), [[-2, 0, 2], [-2, 1, 1]]) // correct
+console.log(tns([-1, 0, 1, 2, -1, -4], 0), [[-1, -1, 2], [-1, 0, 1]]) // correct
+
+console.log('from test harness below')
+console.log(tns([-1, -1, 1, 1, 0, 0]), [[-1, 0, 1]])
+console.log(tns([-5, -1, 0, 1, 4, -1]), [[-1, 0, 1], [-5, 1, 4]])
+
 
 class Test {
     constructor(test_name = "", printTests = false) {
