@@ -3,10 +3,6 @@ This folder is a place of common patterns found as well as explanations. This wi
 This doc will attempt to summarize each but has folders for specific cases. To see individual pattern:
 `cd Algorithms/patterns` and `node` a specific pattern.
 
-Table of Contents
-### PATTERN: Hashmap or Dictionary
-### PATTERN: Two Pointers
- 
 # Table of Contents
 1. [Hashmap or Dictonary](#Hashmap)
 2. [Two Pointers](#TwoPointers)
@@ -28,7 +24,7 @@ Given a list of strings, return a list of string lists that groups all anagrams 
 
 Each group of anagrams should be in alphabetical order. The output should be in alphabetical order by the first elements of each group of anagrams.
 
-### Solution 1
+### **Solution 1**
 - This use the `Map` function from JavaScript:
 ``` 
 function groupAnagrams(strs) {
@@ -53,7 +49,7 @@ In that case, we can use a hashmap to store the information, with the key being 
 
 It has a time complexity of `O(n * mlog(m))`, where n is the number of strings and m is the max size of each string.
 
-### Solution 2
+### **Solution 2**
  - Another alternative that does the same thing as the above example is writing like this:
  1. `Hashmap dictionary` approach, if its sorted, have a key, add to counter.
  2. if its an anagram, create sub-array.
