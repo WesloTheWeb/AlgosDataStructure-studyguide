@@ -88,8 +88,8 @@ function search(listener, towers) {
 };
 
 let tower1 = [0, 2, 6, 10];
-let customer1 = [0, 5, 11]
-let customer2 = [0, 4, 13]
+let customer1 = [0, 5, 11];
+let customer2 = [0, 4, 13];
 
 console.log(search(tower1, customer1)); // 1
 console.log(search(tower1, customer2)); // 3

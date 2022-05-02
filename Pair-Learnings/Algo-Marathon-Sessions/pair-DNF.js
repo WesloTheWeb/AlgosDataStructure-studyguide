@@ -93,9 +93,9 @@ HIGH-LEVEL APPROACH:
 
 ###################################################*/
 function dnf(nums) {
-  let left = 0
-  let mid = 0
-  let right = nums.length - 1
+  let left = 0;
+  let mid = 0;
+  let right = nums.length - 1;
 
   while (mid <= right) {
     // if middle value is the lowest value: nums = [3, 0, 1]
