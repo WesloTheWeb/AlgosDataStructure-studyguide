@@ -83,9 +83,28 @@ let anagramCount = {
 
 # Two Pointers <a id="TwoPointers"></a>
 
-Problems where you would want to either check the beginning annd end of an array, check against two arrays. A great
+Since "two pointers" is kind of a broad topic, there is no singular way to implement it. Depending on the questions you encounter, you need to implement the answer differently. Generally speaking, a two pointer algorithm has these characteristics:
+
+1. Two moving pointers, regardless of directions, moving dependently or independently;
+2. A function that utilizes the entries pointing at the two pointers that relates to the answer in a way;
+3. An easy way of deciding which pointer to move;
+4. Optionally a way to process the array when the pointers are moved.
+
+Also problems where you would want to either check the beginning annd end of an array, check against two arrays. A great
 alternative to using double for loops that typically improves your time & space complexity.
 
 ### Example problems:
 - Two Sum
 - Binary Search
+
+## Same Direction Problems
+These questions have two pointers that move in the same direction.
+
+### Example problems:
+- Remove Duplicates
+
+### How it Works:
+The moving condition of the two pointer is that:
+- if the previous check match, only the fast pointer moves.
+- Otherwise, the slow pointer moves, perform the process of setting the value at the slow pointer to the value at the fast pointer, and then the fast pointer moves.
+
