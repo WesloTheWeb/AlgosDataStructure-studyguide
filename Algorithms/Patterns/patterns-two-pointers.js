@@ -33,6 +33,7 @@ We simply traverse the array once moving from left to right.
 ####################*/
 
 /*##############
+SAME DIRECTION
 PROBLEM: Remove Duplicates
 Q. Given an array of integers, move all the 0s to the back of the array while maintaining the relative order of the non-zero elements. 
 Do this in-place using constant auxiliary space.
@@ -53,23 +54,78 @@ function moveZeros(nums) {
 };
 
 function twoSumSorted(arr, target) {
-    arr.sort((a,z) => a - z);
-    let left = 0;
-    let right = arr.length - 1;
-    let pair = [];
-    
-    while (left < right) {
-//         const currentSum = 1 + Math.ceil((right - left) / 2);
-//         const currentSum = left + Math.trunc((right - left) / 2);
-        const currentSum = Math.floor((left + right) / 2);
-        if (currentSum === target) {
-            pair.push([arr[left], arr[right]])
-        } else if (currentSum > target) {
-           right--;
-        } else if (currentSum < target) {
-            left++;
+    let l = 0;
+    let r = arr.length - 1;
+    while (l < r) {
+        const two_sum = arr[l] + arr[r];
+        if (two_sum === target) {
+            return [l, r];
+        }
+        if (two_sum < target) {
+            l++;
+        } else {
+            r--;
         };
     };
-    
-    return pair;
+};
+
+/*##############
+OPPOSITE DIRECTION
+PROBLEM: Remove Duplicates
+Q. Given an array of integers sorted in ascending order, find two numbers that add up to a given target. 
+Return the indices of the two numbers in ascending order. You can assume elements in the array are unique and 
+there is only one solution. Do this in O(n) time and with constant auxiliary space.
+
+Input: [2 3 4 5 8 11 18], 8
+Output: 1 3
+#################*/
+
+function twoSumSorted(arr, target) {
+    let l = 0;
+    let r = arr.length - 1;
+    while (l < r) {
+        const two_sum = arr[l] + arr[r];
+        if (two_sum === target) {
+            return [l, r];
+        }
+        if (two_sum < target) {
+            l++;
+        } else {
+            r--;
+        };
+    };
+};
+
+/*###########################################################################################
+Q. Determine whether a string is a palindrome, ignoring non-alphanumeric characters and case. 
+Examples:
+
+Input: Do geese see God? Output: True
+Input: Was it a car or a cat I saw? Output: True
+Input: A brown fox jumping over Output: False
+##############################################################################################*/
+
+function isPalindrome(s) {
+    let l = 0;
+    let r = s.length - 1;
+    while (l < r) {
+        while (l < r && !isAlphaNumeric(s.charAt(l))) {  // Note 1, 2
+            l++;
+        }
+        while (l < r && !isAlphaNumeric(s.charAt(r))) {
+            r--;
+        }
+        if (s.charAt(l).toLowerCase() !== s.charAt(r).toLowerCase()) {  // ignore case
+            return false;
+        }
+        l++;
+        r--;
+    };
+
+    return true;
+};
+
+// regEx
+const isAlphaNumeric = c => {
+    /^[a-zA-Z0-9]*$/.test(c);
 }
