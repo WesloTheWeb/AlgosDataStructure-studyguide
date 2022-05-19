@@ -17,14 +17,17 @@ const canMatchFellows = (input) => {
 
 // Formation solution:
 // Here's our explanation of the solution:
-// Create an empty set to hold skill ratings. Iterate through the input dictionary, For each Fellow, if their skill rating already exists in the set, remove the element from the set and move on. If the skill rating doesn't already exist in the set, add it and move on. At the end, return true if the set is empty (which means there are no Fellows without a match)
+// Create an empty set to hold skill ratings.
+//  Iterate through the input dictionary, 
+// For each Fellow, if their skill rating already exists in the set, remove the element from the set and move on. 
+// If the skill rating doesn't already exist in the set, add it and move on. At the end, return true if the set is empty (which means there are no Fellows without a match)
 function matchFellows(input) {
   let skillSet = new Set()
   for (let fellow in input) {
     let skill = input[fellow]
     if (skillSet.has(skill)) {
       skillSet.delete(skill)
-    } else {
+    } else {    
       skillSet.add(skill)
     }
   }
