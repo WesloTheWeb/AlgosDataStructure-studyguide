@@ -1,6 +1,9 @@
-/*
-
-Given an array of 0s and 1s, what is the minimum number of moves needed to group all 0s on one side and 1s on the other side. A "move" is a swap between any adjacent positions.
+/*##################################################### 
+TYPE: Estimation problem
+- not really doing the work
+Q. Given an array of 0s and 1s, what is the minimum number of moves 
+needed to group all 0s on one side and 1s on the other side. 
+A "move" is a swap between any adjacent positions.
 
 Examples
 [0, 1] => 0, no swaps are needed since they are already grouped.
@@ -77,7 +80,7 @@ swap = 1
 c      
 
     p2
-[0, 1, 1, 1, 9]
+[0, 1, 1, 1, 0]
 
 Compare in either directions:
 - 0s on the left
@@ -85,4 +88,4 @@ Compare in either directions:
 - 1s on the left
 
 TO-DO: Estimation problem write code for this.
-*/
+##########################################################*/
