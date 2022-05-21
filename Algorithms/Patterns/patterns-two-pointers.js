@@ -32,8 +32,9 @@ Time Complexity: O(n)
 We simply traverse the array once moving from left to right.
 ####################*/
 
-/*##############
-SAME DIRECTION
+/*#################
+-=SAME DIRECTION=-
+####################
 PROBLEM: Remove Duplicates
 Q. Given an array of integers, move all the 0s to the back of the array while maintaining the relative order of the non-zero elements. 
 Do this in-place using constant auxiliary space.
@@ -69,8 +70,47 @@ function twoSumSorted(arr, target) {
     };
 };
 
-/*##############
-OPPOSITE DIRECTION
+/*
+PROBLEM: Longest Substring without Repeating Characters
+Q. Find the length of the longest substring of a given string without repeating characters.
+
+Input: abccabcabcc
+Output: 3
+
+Explanation: longest substrings are abc, cab, both of length 3
+
+Input: aaaabaaa
+Output: 2
+
+Explanation: ab is the longest substring, length 2
+*/
+
+function longestSubStringWithoutRepeatingCharacters(s) {
+    const n = s.length;
+    let l = r = 0; // two pointers
+    const window = new Set();
+    let longest = 0;
+
+    while (r < n) {
+        // if character is not encountered yet, move r pointer to right. While loop keeps going until reach end
+        if (!window.has(s.charAt(r))) {
+            window.add(s.charAt(r));
+            r++;
+        } else {
+            // If duplicate exist we move l pointer at beginning to right
+            window.delete(s.charAt(l));
+            l++;
+        };
+        longest = Math.max(longest, r - l);
+        // we compare what we have for longest, to r minus l and return biggest subsequent substring.
+    };
+
+    return longest;
+};
+
+/*####################
+-=OPPOSITE DIRECTION=-
+######################
 PROBLEM: Remove Duplicates
 Q. Given an array of integers sorted in ascending order, find two numbers that add up to a given target. 
 Return the indices of the two numbers in ascending order. You can assume elements in the array are unique and 

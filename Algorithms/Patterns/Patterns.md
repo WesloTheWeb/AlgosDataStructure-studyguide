@@ -93,6 +93,8 @@ Since "two pointers" is kind of a broad topic, there is no singular way to imple
 Also problems where you would want to either check the beginning annd end of an array, check against two arrays. A great
 alternative to using double for loops that typically improves your time & space complexity.
 
+Two pointers are helpful because it often offers a more efficient solution than the naive solution. From the examples above, if we use the naive solution and use two loops to iterate through the array, the **time complexity** is often `O(n^2)`, which is often not enough. If we use two pointers for this type of problem, we are often only passing through the array once with the two pointers, which means that the **time complexity** is often `O(n)`.
+
 ### Example problems:
 - Two Sum
 - Binary Search
@@ -101,10 +103,39 @@ alternative to using double for loops that typically improves your time & space 
 These questions have two pointers that move in the same direction.
 
 ### Example problems:
-- Remove Duplicates
+- Remove Duplicate
+- Sliding Windows
 
 ### How it Works:
 The moving condition of the two pointer is that:
 - if the previous check match, only the fast pointer moves.
 - Otherwise, the slow pointer moves, perform the process of setting the value at the slow pointer to the value at the fast pointer, and then the fast pointer moves.
+
+Problem: Longest substring without repeating characters
+```
+const longestSubstringWithoutRepeatingCharacters = (s) => {
+  const n = s.length // length of longestSubString
+  let longest = 0; // longest pointer we will return our answer (range of substrings)
+  let l = r = 0; 
+  const window = new Set();
+
+  while ( r < n) {
+    if (!window.has(s.charAt(r))) {
+      window.add(s.charAt(r));
+      r++;
+    } else {
+      window.delete(s.charAt(l));
+      l++
+    }
+    // here we get the "range" of substrings. Look more into math.max()
+    longest = Math.max(longest, r - l);
+  };
+
+  return longest;
+}
+```
+
+## Notes & Breakdown
+This makes it a classic sliding window problem. A sliding window is defined by two pointers. We move the window (incrementing pointers) whilst maintaining a certain invariant. For this particular problem, the invariant is the characters inside the window being unique. We use a set to record what's in the window. And when we encounter a character that's already in the window, we want to move the left pointer until it goes past the last occurrence of that character.
+
 
