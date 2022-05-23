@@ -45,12 +45,12 @@ const fixed_max_sub_array_of_size_k = function (k, arr) {
         windowSum += arr[window_end]; // add the next element
         // slide the window, we don't need to slide if we've not hit the required window size of 'k'
         if (window_end >= k - 1) {
-          maxSum = Math.max(maxSum, windowSum);
-          windowSum -= arr[windowStart]; // subtract the element going out
-          windowStart += 1; // slide the window ahead
+            maxSum = Math.max(maxSum, windowSum);
+            windowSum -= arr[windowStart]; // subtract the element going out
+            windowStart += 1; // slide the window ahead
         };
-      };
-      return maxSum;
+    };
+    return maxSum;
 };
 
 // Brute Force Approach
