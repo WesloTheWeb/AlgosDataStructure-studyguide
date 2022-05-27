@@ -1,89 +1,80 @@
-/*
+/*####################
+PROBLEM: Toeplitz matrix (ATTEMPT)
 
+Q. A Toeplitz matrix is one where all elements along diagonals from top left to bottom right are the same. 
+Given a matrix, return true if it is a Toeplitz matrix and false otherwise.
+
+Examples
+This is a Toeplitz matrix:
+
+1  2  3  4
+5  1  2  3
+6  5  1  2
+7  6  5  1
+
+This is not a Toeplitz matrix:
+
+1  2  3. 1
+2  2  3. 1
+1. 2. 2. 1
+3. 2. 3. 1
+
+
+ APPROACH
+ 1  2  3  4
+
+ 5  1  2  3  
+ 
+ 6  5  1  2
+ 
+ 7  6  5  1
+            *
+ search all diagonals
+  if any diagonal has mismatches values
+  return false
+
+  PSEUDO CODE
+- outer for loop and then inner for loop
+- upperbound length of array outer, innerbound will length within subarray
+- within our inner for loop we want to check for matching values
+- if mismatch, return false. if matching return true
+- we want to down 1, right 1
 */
 
-function calendarMatching(calendar1, dailyBounds1, calendar2, dailyBounds2, meetingDuration) {
-    const updatedCalendar1 = updateCalendar(calendar1, dailyBounds1);
-    const updatedCalendar2 = updateCalendar(calendar2, dailyBounds2);
-    const mergedCalendar = mergeCalendars(updatedCalendar1, updatedCalendar2);
-    const flattenedCalendar = flattenCalendar(mergedCalendar);
-    return getMatchingAvailabilities(flattenedCalendar, meetingDuration);
-};
+// isToeplitz
+// establish  upperrow/col bounds
+// iterate over row
+//.  hasEqualValues
+// iterate over col
+//   hasEqualValues
+// hasEqualValues
+// establish upper row/col bounds
+// iterate over diagonal
 
-// sets the daily bounds
-const updateCalendar = (calendar, dailyBounds) => {
-    const updatedCalendar = [['0:00', dailyBounds[0]], ...calendar, [dailyBounds[1], '23:59']];
-    return updatedCalendar.map(meeting => meeting.map(timeToMinutes));
-};
-
-const mergeCalendars = (calendar1, calendar2) => {
-    const merged = [];
-    let i = 0;
-    let j = 0;
-
-    while (i < calendar1.length && j < calendar2.length) {
-        const meeting1 = calendar1[i];
-        const meeting2 = calendar2[j];
-
-        if (meeting1[0] < meeting2[0]) {
-            merged.push(meeting1);
-            i++;
-        } else {
-            merged.push(meeting2);
-            j++;
-        }
+function isToeplitz(input) {
+    //outer
+    for (let col = 0; col < input.length; col++) {
+      // inner
+      for (let row = 0; row < input[col].length; row++) {
+        // checks
+        hasEqualValues(input, col, 0);
+        hasEqualValues(input, 0, row);
+      };
     };
-
-    while (i < calendar1.length) merged.push(calendar1[i++]);
-    while (j < calendar2.length) merged.push(calendar2[j++]);
-    return merged;
-};
-
-const flattenCalendar = (calendar) => {
-    const flattened = [calendar[0].slice()];
-    for (let i = 1; i < calendar.length; i++) {
-        const currentMeeting = calendar[i];
-        const previousMeeting = flattened[flattened.length - 1];
-        const [currentStart, currentEnd] = currentMeeting;
-        const [previousStart, previousEnd] = previousMeeting;
-
-        if (previousEnd >= currentStart) {
-            const newPreviousMeeting = [previousStart, Math.max(previousEnd, currentEnd)];
-            flattened[flattened.length - 1] = newPreviousMeeting;
-        } else {
-            flattened.push(currentMeeting.slice());
-        };
+  
+    return true;
+  };
+  
+  const hasEqualValues = (matrix, col, row) => {
+    // get upper col index of matrix - matrix.length
+    // get upper row index of matrix - matrix[0].length
+    // get the value to check against, e.g. matrix[row][col]
+    // 
+    // while (row < matrix[0].length && col < matrix.length)
+    while (row < matrix[0].length && col < matrix.length) {
+      if (matrix[col][row] !== matrix[col + 1][row + 1]) {
+        return false;
+      };
     };
-    return flattened;
-};
-
-const getMatchingAvailabilities = (calendar, meetingDuration) => {
-    const matchingAvailabilities = [];
-    for (let i = 1; i < calendar.length; i++) {
-        const start = calendar[i - 1][1];
-        const end = calendar[i][0];
-        const availabilityDuration = end - start;
-
-        if (availabilityDuration >= meetingDuration) {
-            matchingAvailabilities.push([start, end]);
-        };
-    }
-    return matchingAvailabilities.map(meeting => meeting.map(minutesToTime));
-}
-
-const timeToMinutes = time => {
-    const [hours, minutes] = time.split(':').map(str => parseInt(str));
-    return hours * 60 + minutes;
-};
-
-const minutesToTime = (minutes) => {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    const hoursString = hours.toString();
-    const minutesString = mins < 10 ? '0' + mins.toString() : mins.toString();
-    return hoursString + ':' + minutesString;
-}
-
-
-// Do not edit the line below.
-exports.calendarMatching = calendarMatching;
+  
+  };
