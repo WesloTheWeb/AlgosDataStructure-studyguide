@@ -3,8 +3,8 @@
 */
 
 const matrix = [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
+    [ 1,  2,  3,  4, 5],
+    [ 6,  7,  8,  9, 10],
     [11, 12, 13, 14, 15]
   ];
   
@@ -18,7 +18,7 @@ const matrix = [
       if (i % 2 === 0) {
         // go forward
         for (let j = 0; j < row.length; j++) {
-          result.push(row[j]);
+          result.push(row[j]); 
         }
       } else {
         // go backward
@@ -38,7 +38,7 @@ const matrix = [
       if (i % 2 === 0) {
         // go forward
         for (let j = 0; j < array[i].length; j++) {
-          result.push(array[i][j]);
+          result.push(array[i][j]); 
         }
       } else {
         // go backward
@@ -79,69 +79,6 @@ const matrix = [
   }
   
   console.log(columnMajor(matrix));
-  /*
-  Given a 2d rectangular matrix any row that contains a zero. set all row  elem to zero and columns to zero
-  Avoid Domino effect
-  */
   
-  const input1 = [
-    [1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1]
-  ];
   
-  const output1 = [
-    [1, 0, 1],
-    [0, 0, 0],
-    [1, 0, 1]
-  ];
   
-  const input2 = [
-    [0, 1, 1],
-    [1, 1, 1],
-    [1, 1, 1]
-  ];
-  
-  const zrows = [0];
-  const zcolumns = [0]
-  
-  const output2 = [
-    [0, 0, 0],
-    [0, 1, 1],
-    [0, 1, 1]
-  ];
-  
-  function setMatrixZeros(matrix) {
-    const zrows = [];
-    const zcolumns = [];
-  
-    // make lists of the rows and columns to zero out
-    for (let i = 0; i < matrix.length; i++) {
-      for (let j = 0; j < matrix[0].length; j++) {
-        if (matrix[i][j] === 0) {
-          zrows.push(i);
-          zcolumns.push(j);
-        }
-      }
-    }
-  
-    while (zrows.length) {
-      const rowIndex = zrows.pop();
-      // Zero out one row
-    }
-  
-    while (zcolumns.length) {
-      const colIndex = zcolumns.pop();
-      // Zero out one column
-    }
-  
-  }
-  /*
-  time o(n)
-  3 linear passes 
-  at worst num of rows and columns
-  space:o(n)
-   lenght of lists we are making
-  r + c
-  
-  */
