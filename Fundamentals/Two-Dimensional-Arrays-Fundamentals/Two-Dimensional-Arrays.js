@@ -5,8 +5,9 @@ NOTES
 #####################
 */
 
-// Two ways to make a matrix
-
+/*##########################
+ Two ways to make a matrix
+#############################*/
 //  Option 1:
 const rows = 10;
 const columns = 8; 
