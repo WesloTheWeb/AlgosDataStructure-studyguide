@@ -10,16 +10,19 @@ m = [[1, 2, 3, 4],
 the output should be
 
 solution(m) = [[8, 7, 6, 5],
-                      [4, 3, 2, 1]]
+               [4, 3, 2, 1]]
 ##############################################################*/
 
 function solution(m) {
-    for (let row = 0; row < m.length; row++) {
-        
-        for (let col = 0; col < m[row].length; col++) {
-            
-        };
-    };
+
 };
 
 // test cases
+const testCase1 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8]
+];
+/* 
+ [[8, 7, 6, 5],
+   [4, 3, 2, 1]]
+*/

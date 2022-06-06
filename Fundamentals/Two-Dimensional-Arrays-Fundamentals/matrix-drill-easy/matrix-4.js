@@ -28,3 +28,16 @@ function solution(m) {
 }
 
 // test cases
+const testCase1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+const testCase2 = [
+    [1, 2, 3],
+    [4, 5, 6]
+];
+
+console.log(solution(testCase1));
+console.log(solution(testCase2));
