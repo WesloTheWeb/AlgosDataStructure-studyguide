@@ -10,7 +10,7 @@ NOTES
 #############################*/
 //  Option 1:
 const rows = 10;
-const columns = 8; 
+const columns = 8;
 
 const myArray1 = []; // resultant array
 
@@ -31,19 +31,15 @@ M = cols
 ###########*/
 let matrix = [];
 let n = 5;
-for (i = 0; i < n; i++){
+for (i = 0; i < n; i++) {
     let inner = [];
-    for (j = 0; j < n; j++){
+    for (j = 0; j < n; j++) {
         inner.push(0);
     }
     matrix.push(inner);
 }
 
 console.log(matrix);
-
-
-
-
 
 // Practice with 2d arrays
 let array = [
@@ -77,3 +73,19 @@ for (let i = 0; i < length; i++) {
 };
 
 console.log(str);
+
+/*#####################
+TRAVERSING A MATRIX
+######################*/
+
+// Row by row and column by column
+for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[0].length; col++) {
+    };
+};
+
+// Column by column then row by row
+for (let col = 0; col < matrix[0].length; col++) {
+    for (let row = 0; row < matrix.length; row++) {
+    };
+};
