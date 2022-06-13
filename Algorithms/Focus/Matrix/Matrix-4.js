@@ -4,7 +4,6 @@ each of the nine 3 x 3 sub-grids that compose the grid contains all of the digit
 
 Write an algorithm to check if the given grid of numbers represents a correct solution to Sudoku.
 
-
 APPROACH:
  
 
@@ -27,4 +26,3 @@ function solution(grid) {
 };
 
 // Test Cases
-

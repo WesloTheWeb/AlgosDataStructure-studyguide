@@ -1,5 +1,3 @@
-Literally do a Matrix problem a day I'm sick of this shit.
-
 ## NOTES
 - Sometimes sub arrays have different length.
 - Matrices are always a giant array with sub-arrays.
