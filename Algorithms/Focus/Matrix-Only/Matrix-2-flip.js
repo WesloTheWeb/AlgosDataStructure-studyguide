@@ -20,20 +20,31 @@ APPROACH:
 
 PSEUDO CODE
  
-NOTE:
-There aren't that many patterns. Basically you should be able to iterate through a 2d array in a row-major way or a column-major way. 
-More advanced would be moving through the matrix along other orderings (spiral, diagonals, etc).
-But at the end of the day, it's all about:
-
-Keeping track of two indices (row and column) in an organized matter.
-Deciding how to move from one location to the next.
-Dealing with the edges.
-Deciding what work needs to be done at each visited location.             
 
 #######################################################################################################*/
 
 function solution(matrix) {
+    let foldedMatrix = [];
 
+    for (let row = 0; row < matrix.length; row++) {
+        let innerColumns = [];
+        let left = 0;
+        let right = matrix[0].length - 1;
+
+        while (left <= right) {
+            if (left === right) {
+                innerColumns.push(matrix[row][left]);
+            }
+            else {
+                innerColumns.push(matrix[row][left] + matrix[row][right]);
+            }
+            left += 1;
+            right -= 1;
+        };
+        foldedMatrix.push(innerColumns)
+    };
+
+    return foldedMatrix;
 };
 
 // Test Cases
@@ -41,5 +52,9 @@ const matrix1 = [
     [1], [2]
 ]; // [[1], [2]]
 
+const matrix2 = [
+    [3, 7, 2, 4], [8, 1, 9, 5]
+]; // [[1], [2]]
 
 console.log(solution(matrix1)); // true
+console.log(solution(matrix2)); // true

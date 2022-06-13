@@ -1,4 +1,4 @@
-/*################################################/*##############################################################
+/*#####################################################################################
 Q. Given a two dimensional matrix (NxM), a size A such that A is less than both N and M, and an offset X, Y, 
 return a new matrix that is the sub-matrix of the original. The size of the new matrix is AxA (square) and 
 the values should be those in the original matrix starting at position indicated by the offset (X, Y). 
@@ -15,7 +15,7 @@ Size is 2 and offset is (0, 1), the expected output is:
 Because the output is size 2x2 and is taken from a submatrix whose top left corner is at (0, 1) in the original.
 
 Return an empty array if a square of the required size is not possible at starting at the given offset. The input matrix can be assumed to be a consistent rectangle (all rows are the same length).
-########################/*#############################################################*/
+##########################################################################################
 
 /* THOUGHT PROCESS
 Matrix of (NxM) size A, less than both N & M

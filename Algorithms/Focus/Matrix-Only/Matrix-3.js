@@ -28,6 +28,15 @@ Deciding what work needs to be done at each visited location.
 #######################################################################################################*/
 
 function solution(matrix) {
+    const averageArr = [];
+
+    for (let col = 0; col < matrix[0].length; col++) {
+        let runningSum = 0;
+        for (let row = 0; row < matrix.length; row++ ) {
+            runningSum += matrix[row][col];
+        };
+        averageArr.push(Math.floor(matrix[row][col] / runningSum))
+    };
 
 };
 

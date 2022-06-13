@@ -28,19 +28,30 @@ Deciding what work needs to be done at each visited location.
 #######################################################################################################*/
 
 function solution(matrix) {
+    const avgArr = [];
 
+    for (let column = 0; column < matrix[0].length; column++) {
+        let runningSum = 0;
+        for (let row = 0; row < matrix.length; row++) {
+            // avgArr.push(matrix[column][row]);
+            runningSum += matrix[row][column]
+            // avgArr.push(matrix[row][column]);
+        };
+        avgArr.push(Math.floor(runningSum / (matrix.length)));
+    };
+
+    return avgArr;
 };
 
 // Test Cases
 const matrix1 = [
-    [1,5],
-    [8,7]
+    [1, 5],
+    [8, 7]
 ] // 4
 
 const matrix2 = [
     [1],
     [2]
 ] // 1
-
 
 console.log(solution(matrix1)); // true

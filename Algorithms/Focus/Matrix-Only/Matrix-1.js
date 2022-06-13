@@ -31,7 +31,20 @@ Deciding what work needs to be done at each visited location.
 #######################################################################################################*/
 
 function solution(matrix) {
-  
+    for (let row = 0; row < matrix.length; row++) {
+        for (let col = 0; col < matrix.length; col++) {
+            // Check the right cell
+            if (matrix[row][col + 1] !== undefined && matrix[row][col] > matrix[row][col + 1]) {
+                return false;
+            };
+            // Check the bottom cell
+            // matrix[row] && matrix[row][col] && ....
+            if (matrix[row + 1] !== undefined && matrix[row][col] > matrix[row + 1][col]) {
+                return false;
+            };
+        };
+    };
+    return true;
 };
 
 // Test Cases
