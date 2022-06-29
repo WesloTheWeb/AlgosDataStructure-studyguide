@@ -33,6 +33,7 @@ Iterative Solution
 // O(N) time
 function DFSTree(node, target) {
   let stack = node ? [node] : [];
+  console.log(stack);
 
   while (stack.length > 0) {
     let cur = stack.pop(); // pop last element
@@ -58,22 +59,22 @@ Recursive Solution
 ############################*/
 
 // O(N) time
-function DFSTree(node, target) {
-  if (!node) {
-    return false;
-  };
+// function DFSTree(node, target) {
+//   if (!node) {
+//     return false;
+//   };
 
-  if (node.value === target) {
-    return true;
-  };
+//   if (node.value === target) {
+//     return true;
+//   };
 
-  return DFSTree(node.left, target) || DFSTree(node.right, target);
-};
+//   return DFSTree(node.left, target) || DFSTree(node.right, target);
+// };
 
 // Test Cases
 var tree1 = new TreeNode(3, new TreeNode(29, new TreeNode(2)), new TreeNode(4, null, new TreeNode(2, new TreeNode(9))))
 console.log(DFSTree(null, 1)) // false
 console.log(DFSTree(tree1, 9)) // true
-console.log(DFSTree(tree1, 1)) // false
-console.log(DFSTree(tree1, 2)) // true
-console.log(DFSTree(new TreeNode(1), 2)) // false
+// console.log(DFSTree(tree1, 1)) // false
+// console.log(DFSTree(tree1, 2)) // true
+// console.log(DFSTree(new TreeNode(1), 2)) // false
