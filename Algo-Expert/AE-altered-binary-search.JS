@@ -27,13 +27,13 @@ const alteredBinarySearch = (array, target, left, right, finalRange, goLeft) => 
             } else {
                 alteredBinarySearch(array, target, left, mid - 1, finalRange, goLeft);
             };
-      } else {
-          if (mid === array.length - 1 || array[mid + 1] != target) {
-              finalRange[1] = mid;
-          } else {
-              alteredBinarySearch(array, target, mid + 1, right, finalRange, goLeft)
-          }
-      }
+        } else {
+            if (mid === array.length - 1 || array[mid + 1] != target) {
+                finalRange[1] = mid;
+            } else {
+                alteredBinarySearch(array, target, mid + 1, right, finalRange, goLeft)
+            }
+        }
     };
 };
 
