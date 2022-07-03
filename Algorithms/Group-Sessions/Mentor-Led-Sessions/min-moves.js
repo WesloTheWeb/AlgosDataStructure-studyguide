@@ -1,9 +1,9 @@
-/*##################################################### 
+/*########################
 TYPE: Estimation problem
-- not really doing the work
-Q. Given an array of 0s and 1s, what is the minimum number of moves 
-needed to group all 0s on one side and 1s on the other side. 
-A "move" is a swap between any adjacent positions.
+TIP: So you are not really doing the work when coding. You want to figure out the number of moves not the actual moving.
+
+Question: Given an array of 0s and 1s, what is the minimum number of moves  needed to group all 0s on one side 
+and 1s on the other side. A "move" is a swap between any adjacent positions.
 
 Examples
 [0, 1] => 0, no swaps are needed since they are already grouped.
@@ -31,8 +31,6 @@ Examples
 
 [0, 0, 1, 1, 1]   count = 4
     p
-
-
 [1, 0, 1, 1, 0]
 l
     f
@@ -52,11 +50,7 @@ increment l by 1
     l
              f
 
-
-Function Signature
-function minSwaps(input: Array): number
-
-APPROACH
+APPROACH / PSEUDO CODE
 count 1
 [0, 0, 1, 0]
 p1         p2     
@@ -87,5 +81,15 @@ Compare in either directions:
   - 
 - 1s on the left
 
-TO-DO: Estimation problem write code for this.
-##########################################################*/
+########################*/
+
+function minSwaps(arr) {
+
+};
+
+// TO-DO: Estimation problem write code for this.
+
+// Test Cases:
+console.log();
+console.log();
+console.log();
