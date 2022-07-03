@@ -1,3 +1,12 @@
+/* Office Hour - Algo Marathon
+Date: June 9th, 2022
+TOPIC: Various
+Contains:
+- Text Justification
+- Zig-Zag Traversal (Matrix)
+- Sum Diagonals (Matrix)
+#########################################*/
+
 /*########################################################################################################################
 Problem: Text Justification
 Given an array of strings words and a width maxWidth, format the text such that each line has exactly maxWidth 
@@ -31,7 +40,7 @@ Output:
 
 
 /*########################################################################################################################
-Problem: Zig-Zag Traverssal
+Problem: Zig-Zag Traversal
 
 1 2 3
 4 5 6
@@ -60,6 +69,7 @@ function columnMajorZigZag(matrix) {
     return output;
 }
 
+// Test Cases:
 console.log(columnMajorZigZag([[1, 2, 3], [4, 5, 6], [7, 8, 9]]));
 /*########################################################################################################################*/
 
@@ -102,16 +112,16 @@ function diagonalSum(matrix) {
         sum += matrix[i][i];
         if (i !== length - 1 - i) {
             sum += matrix[length - 1 - i][i];
-        }
-    }
+        };
+    };
 
     return sum;
-}
+};
 
 console.log(diagonalSum([[1, 2], [3, 4]]), 10);
 console.log(diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), 25);
 
-// Test cases
+// Test Cases:
 const mat1 = [
     [1, 2, 3],
     [4, 5, 6],
