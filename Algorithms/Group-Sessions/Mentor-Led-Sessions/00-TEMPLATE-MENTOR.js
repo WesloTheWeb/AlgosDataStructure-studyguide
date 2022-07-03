@@ -29,7 +29,7 @@ Pseudo Code:
 
 
 
-// Test Cases
+// Test Cases:
 console.log();
 console.log();
 console.log();
