@@ -20,9 +20,6 @@ class SparseArray:
      set(i, val)
      get(i)
 
-
-
-
 Approach:
 
 0 0 0 1 1 2 8
@@ -128,4 +125,4 @@ test.init([0, 0, 1, 1, 2]);  //map
 console.log(test.get(2)); //return 1
 test.set(2, 0);
 console.log(test.get(0)); //return 0
-console.log(test.get(4)) //return 2
+console.log(test.get(4)); //return 2
