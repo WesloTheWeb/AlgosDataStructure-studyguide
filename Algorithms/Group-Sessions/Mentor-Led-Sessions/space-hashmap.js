@@ -1,15 +1,14 @@
-/*####################################################
-TYPE: Class problem
-QUESTION: 
+/*########################
+TYPE: Class Problem
+Question:
 You are given a large array where the vast majority of the elements is zero. 
 Create a class that can store these elements more space efficiently. Your class must have the following methods:
-
 
 init(original) - you are passed in the original array
 set(i, val) - set the value val at index i
 get(i) - get the value at index i
 
-Examples
+Examples:
 array = init([0, 0, 1, 0 , 0, 0, 0, 2])
 array.get(0) // returns 0
 array.set(0, 3)
@@ -20,6 +19,8 @@ class SparseArray:
      init(original)
      set(i, val)
      get(i)
+
+Approach:
 
 0 0 0 1 1 2 8
 
@@ -44,6 +45,10 @@ set(2, 0) ----> map.remove(2)
 maxIndx = original.length
 values as keys
 
+Time Complexity:
+Space Complexity:
+
+Pseudo Code:
 //init - array
 create a variable to store the length 
 iterate through the array 
@@ -72,7 +77,8 @@ get(4) ----> check map for key ---- present ---- value ---1
 set(2, val) ----> map.put(2, val)
 set(2, 0) ----> map.remove(2)
 
-####################################################*/
+########################################################################*/
+
 //const hashmap = new Map();
 
 class SparseArray {
@@ -113,10 +119,10 @@ class SparseArray {
     };
 };
 
-// test cases
+// Test Cases:
 const test = new SparseArray();
 test.init([0, 0, 1, 1, 2]);  //map
 console.log(test.get(2)); //return 1
 test.set(2, 0);
 console.log(test.get(0)); //return 0
-console.log(test.get(4)) //return 2
+console.log(test.get(4)); //return 2

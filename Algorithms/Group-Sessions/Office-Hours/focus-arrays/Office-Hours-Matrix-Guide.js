@@ -1,3 +1,12 @@
+/* Office Hour - Algo Marathon
+TOPIC: Matrix Breakdown
+Contains:
+- Basics of a matrix
+- Zig-Zag matrix row dominated
+- Zig-Zag matrix column dominated
+- Set matrix zeroes
+#########################################*/
+
 /*##############################################################
 Matrix Breakdown
 ##############################################################*/
@@ -110,9 +119,6 @@ function columnMajor(matrix) {
 console.log(columnMajor(matrix));
 // [4,6,11, 2, 7, 12, 3, 8, 13, 4, 9, 14, 5, 10, 15]
 
-
-/*
-*/
 /*###########################################
 EXAMPLE 4: Set Matrix Zeroes
 Given a 2d rectangular matrix any row that contains a zero. set all row elem to zero and columns to zero
@@ -177,5 +183,4 @@ at worst num of rows and columns
 space:o(n)
 lenght of lists we are making
 r + c
- 
 */
