@@ -42,7 +42,10 @@ Target runtime and space complexity:
  O(n), where n = # of nodes in tree
 
  Formation's Pseudocode:
- 
+1. Create a hashmap to store frequencies (key = node value, value = frequency).
+2. DFS or BFS through your tree using a helper function, incrementing frequencies in your hashmap as you go.
+3. After you're done recording frequencies - iterate through your hashmap to find node value with the smallest frequency 
+and return that node value (key).
 
 #########################################*/
 class TreeNode {
