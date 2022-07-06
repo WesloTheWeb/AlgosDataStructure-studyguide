@@ -2,7 +2,8 @@
 Date: 07/05/2022
 PARTNERS:
 Eric Lee
-
+Highlights: 
+- This problem uses a hashmap / dictionary with a binary tree
 QUESTION:
 Given a binary tree with node values represented as integers, find and return the least occurring  tree node value (eg: 3).
 
@@ -39,6 +40,9 @@ PSEUDO CODE:
 
 Target runtime and space complexity:
  O(n), where n = # of nodes in tree
+
+ Formation's Pseudocode:
+ 
 
 #########################################*/
 class TreeNode {
@@ -99,7 +103,7 @@ const tree1 = new TreeNode(1, new TreeNode(2, new TreeNode(3)));
 console.log(findLeastFrequentNodeValue(tree1))
 
 
-// Solution: 
+// Solution:
 
 
 
