@@ -1,6 +1,6 @@
 /* Office Hour - Algo Marathon
-Date: 
-TOPIC:
+Date: July 6th, 2022
+TOPIC: Trees
 Contains:
 - Height of tree
 - Least occurring
