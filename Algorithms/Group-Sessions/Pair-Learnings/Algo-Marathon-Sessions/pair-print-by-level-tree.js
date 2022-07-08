@@ -90,19 +90,14 @@ const TREE1 = new TreeNode(
         4,
         null,
         new TreeNode(5),
-    );
+    )
 );
 
 // Test Cases:
-console.log(printByLevel(TREE1))
-  /**
-* 3
-* 24
-* 15
-
-
+console.log(printByLevel(TREE1)); // 3 14 15
+ 
 // Solution: 
 
 
-
 // Solution Test Cases:
+
