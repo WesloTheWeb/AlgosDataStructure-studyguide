@@ -1,3 +1,18 @@
+/* Office Hour - Algo Marathon
+Date: 
+TOPIC:
+Contains:
+- 
+-
+-
+-
+-
+#########################################*/
+
+/*############################
+QUESTION: 1: 
+#############################*/
+
 /*
 
 get all subsequences
