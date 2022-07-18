@@ -15,6 +15,60 @@ class TreeNode {
     };
 };
 
+//####################################
+// One of the best ways to do this
+//####################################
+var levelOrder = function (root) {
+    // instantiate and create our variables
+    let queue = root ? [root] : [];
+    let result = [];
+
+    // standard while loop of queue
+    while (queue.length > 0) {
+        // create two arrays for current level and next level
+        let currLvl = [];
+        let nextLvl = [];
+
+        // This is the inner for loop we need to use to differentiate between current level and next level
+        queue.forEach((node) => {
+            currLvl.push(node.val);
+            // enque the children of current node value
+            if (node.left) nextLvl.push(node.left);
+            if (node.right) nextLvl.push(node.right);
+        });
+
+        // queue is the nextlvl and we push our current levels into result array.
+        queue = nextLvl;
+        result.push(currLvl);
+    };
+
+    return result;
+};
+
+//############################################
+// Algo Monster way of doing this traversal:
+//#############################################
+function levelOrderTraversal(root) {
+    let res = [];
+    let queue = [root];  // at least one element in the queue to kick start bfs
+    while (queue.length > 0) {  // as long as there is element in the queue
+        const n = queue.length;  // number of nodes in current level, see explanation above
+        let new_level = [];
+        for (let i = 0; i < n; i++) {  // dequeue each node in the current level
+            const node = queue.shift();
+            new_level.push(node.val);
+            // enqueue non-null children
+            for (const child of [node.left, node.right]) {
+                if (child) queue.push(child);
+            };
+        };
+
+        res.push(new_level);
+    };
+
+    return res;
+};
+
 /*############
 1. 
 Question:
@@ -52,7 +106,7 @@ function findLevelAverages(root) {
             if (cur.right) queue.push(cur.right);
         };
     };
-    
+
     return values;
 };
 
