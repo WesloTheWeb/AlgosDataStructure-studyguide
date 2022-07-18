@@ -50,8 +50,9 @@ function findLevelAverages(root) {
             const cur = queue.shift();
             if (cur.left) queue.push(cur.left);
             if (cur.right) queue.push(cur.right);
-        }
-    }
+        };
+    };
+    
     return values;
 };
 
@@ -63,7 +64,39 @@ const getAverage = (arr) => {
 const tree1 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
 const tree2 = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
 const tree3 = new TreeNode(1, new TreeNode(2, new TreeNode(4, new TreeNode(8), new TreeNode(9)), new TreeNode(5)), new TreeNode(3, new TreeNode(6), new TreeNode(7)));
+//    1   [1]
+// 2    3 [2,3]
+//3 5  6 8 [3,5,6,8]
+// [[1], [2,3]
 
-console.log(findLevelAverages(tree1))
-console.log(findLevelAverages(tree2))
-console.log(findLevelAverages(tree3))
+console.log(findLevelAverages(tree1));
+console.log(findLevelAverages(tree2));
+console.log(findLevelAverages(tree3));
+
+// Recursive way to do this:
+function solution2(root) {
+    const values = [];
+
+    function dfs(root, level = 0) {
+        if (!root) return;
+        if (values.length === level) {
+            values[level] = [root.val];
+        } else {
+            values[level].push(root.val);
+        }
+
+        dfs(root.left, level + 1);
+        dfs(root.right, level + 1);
+    };
+
+    dfs(root);
+    return values.map(fetchAverage);
+};
+
+function fetchAverage(arr) {
+    return arr.reduce((acc, cV) => acc + cV) / arr.length;
+};
+
+console.log(solution2(tree1));
+console.log(solution2(tree2));
+console.log(solution2(tree3));
