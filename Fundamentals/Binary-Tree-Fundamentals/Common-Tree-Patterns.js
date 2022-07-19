@@ -154,3 +154,49 @@ function fetchAverage(arr) {
 console.log(solution2(tree1));
 console.log(solution2(tree2));
 console.log(solution2(tree3));
+
+/*############
+2. 
+Question:
+Given a binary tree, return its level order traversal but in alternate left to right order.
+1. Instantiate and create our variables
+2. create two arrays for currLvl  and nextLvl
+3. make a forEach loop on the queue. 
+4. Push the current value into currLvl and enque children push left and right to nextLvl array
+5. the queue is now the nextLvl array
+6. push whats in currLvl into result array
+#########*/
+
+function zigZagTraversal(root) {
+    let queue = root ? [root] : [];
+    const res = [];
+    let flip_it = true; // flag needed for reversing direction.
+
+    while (queue.length) {
+        let currLvl = [];
+        let nextLvl = [];
+
+        queue.forEach((node) => {
+            currLvl.push(node.val);
+            if (node.left) nextLvl.push(node.left);
+            if (node.right) nextLvl.push(node.right);
+        });
+
+        if (!flip_it) {
+            currLvl.reverse();  // reverse current level
+        };
+
+        queue = nextLvl;
+        res.push(currLvl);
+        flip_it = !flip_it;
+    };
+
+    return res;
+};
+
+// Test Case:
+const zigzagtree1 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+const zigzagtree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3, new TreeNode(4), new TreeNode(5, new TreeNode(6, new TreeNode(7), new TreeNode(8)))));
+
+// console.log(zigZagTraversal(zigzagtree1));  // 1 3 2
+console.log(zigZagTraversal(zigzagtree2)); // 1 3 2 4 5 6 8 7
