@@ -159,6 +159,7 @@ console.log(solution2(tree3));
 2. 
 Question:
 Given a binary tree, return its level order traversal but in alternate left to right order.
+PSEUDO CODE:
 1. Instantiate and create our variables
 2. create two arrays for currLvl  and nextLvl
 3. make a forEach loop on the queue. 
@@ -200,3 +201,16 @@ const zigzagtree2 = new TreeNode(1, new TreeNode(2), new TreeNode(3, new TreeNod
 
 // console.log(zigZagTraversal(zigzagtree1));  // 1 3 2
 console.log(zigZagTraversal(zigzagtree2)); // 1 3 2 4 5 6 8 7
+
+/*############
+3. 
+Question:
+Given a binary tree, return its level order traversal but in alternate left to right order.
+PSEUDO CODE:
+1. Instantiate and create our variables
+2. create two arrays for currLvl  and nextLvl
+3. make a forEach loop on the queue. 
+4. Push the current value into currLvl and enque children push left and right to nextLvl array
+5. the queue is now the nextLvl array
+6. push whats in currLvl into result array
+#########*/
