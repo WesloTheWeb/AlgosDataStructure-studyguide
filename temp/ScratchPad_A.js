@@ -1,25 +1,24 @@
-// Add this to Tree fundamental pattern. in this file
+var zigzagLevelOrder = function (root) {
+    const results = []
 
-var levelOrder = function (root) {
-    if (!root) return []
+    const traverse = (node, level) => {
+        if (!node) {
+            return []
+        }
 
-    let result = []
-    let q = [root]
+        if (level >= results.length) {
+            results.push([node.val])
+        } else if (level % 2 === 0) {
+            results[level].push(node.val)
+        } else {
+            results[level].unshift(node.val)
+        };
 
+        traverse(node.left, level + 1);
+        traverse(node.right, level + 1);
+    };
 
-    while (q.length > 0) {
-        let currLvl = []
-        let nextLvl = []
+    traverse(root, 0);
 
-        q.forEach((node) => {
-            currLvl.push(node.val)
-            if (node.left) nextLvl.push(node.left)
-            if (node.right) nextLvl.push(node.right)
-        })
-
-        q = nextLvl
-        result.push(currLvl)
-    }
-
-    return result
+    return results;
 };
