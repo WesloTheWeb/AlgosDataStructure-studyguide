@@ -1,14 +1,24 @@
-function solution(root) {
-    const queue = root ? [root] : [];
-    let results = [];
+// const allTreePaths = (root) => {
+//     const recordedPaths = [];
+//     //base case:
+//     if (!root) return null;
 
-    while (queue.length) {
+//     const pathTraversal = (root) => {
+//         let writingPath = [];
 
-        results.push(root.val);
-        if (root.left) queue.push(root.left);
-        if (root.right) queue.push(root.right);
+//         // record path
+//         if (root.val) {
+//             writingPath.push(root.val);
+//         };
 
-    };
+//         if (root.left === null && root.right === null) {
+//             recordedPaths.push(writingPath);
+//         }
 
-    return results;
-};
+//         // recursive case:
+//         pathTraversal(root.left);
+//         pathTraversal(root.right);
+//     };
+
+//     return recordedPaths;
+// };
