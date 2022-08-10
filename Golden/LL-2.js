@@ -1,5 +1,5 @@
 function solution(l1, l2) {
-
+  
 };
 
 const swapPairs = (head) => {
