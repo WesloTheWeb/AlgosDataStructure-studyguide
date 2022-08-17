@@ -110,6 +110,7 @@ console.log(Formationsearch([0, 5, 11], [0, 2, 6, 10]));
 console.log(Formationsearch([0, 4, 13], [0, 2, 6, 10]));
 
 /* Solution Explanation
-
-
+Have one customer pointer and one cell tower pointer. Iterate through the customers array. 
+If the customer is closer to the next cell tower than the current one, move the cell tower pointer forward. 
+Keep track of the max distance seen so far.
 */
