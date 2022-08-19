@@ -14,7 +14,7 @@ function solution(head) {
     let curr = head;
     let carryOver = 0;
     let remainingValue = 0;
-    
+
     while (curr) {
         // add one to end.
         if (curr.next === null) {
