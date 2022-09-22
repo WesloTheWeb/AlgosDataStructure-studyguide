@@ -1,26 +1,30 @@
-# Given the root of a binary tree, collect a tree's nodes as if you were doing this:
-# 1) Collect all the leaf nodes.
-# 2) Remove all the leaf nodes.
-# 3) Repeat until the tree is empty.
+"""
+TYPE:
+Question:
+Given the root of a binary tree, collect a tree's nodes as if you were doing this:
+1) Collect all the leaf nodes.
+2) Remove all the leaf nodes.
+3) Repeat until the tree is empty.
 
-# input
-#              1
-#             /  \
-#            2    3
-#           / \
-#          4   5
-#
+Example:
+input
+             1
+            /  \
+           2    3
+          / \
+         4   5
 
-# output
-# [[4,5,3], [2], [1]]
+output
+[[4,5,3], [2], [1]]
 
-#  DFS vs BFS no diff
-
-# step 1 check if parent has leaves 
-# step 2 child is a leaf => store in response, prune parent of leaf
-#        child is not a leaf => recurse on child
-
-
+Approach:
+ DFS vs BFS no diff
+ 
+ Pseudo Code:
+step 1 check if parent has leaves 
+step 2 child is a leaf => store in response, prune parent of leaf
+       child is not a leaf => recurse on child
+"""
 class Node:
     def __init__(self, value=None, left=None, right=None):
         self.value = value
@@ -28,6 +32,7 @@ class Node:
         self.right = right
 
 tree = Node(1, Node(2, Node(4, Node(6), Node(7)), Node(5, Node(8, Node(9), Node(10)))), Node(3))
+
 #              1
 #             /  \
 #            2    3
