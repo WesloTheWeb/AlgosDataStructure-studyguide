@@ -48,3 +48,4 @@ const helper = (arr1, arr2) => {
     // Use of spread operator as copies
     return [...res, ...arr1.slice(i1), ...arr2.slice(i2)];
 };
+
