@@ -8,4 +8,4 @@
 
 Doing a little better, but I did not drill or practice algos this week. These type of problems training should be beneficial and breakdowns.
 
-Problem 1 did not fulfill every test case...
+Problem 1 did not fulfills
