@@ -1,0 +1,127 @@
+/* Office Hour - Algo Marathon
+Date: Nov 23 2022
+PARTNERS: Chris W.
+
+QUESTION:
+Given a list of positive and distinct integers, find the next greater element for each element. 
+The next greater element (NGE) of an element is the next element which is greater than the current element's value. 
+
+Formally, the NGE of element A[i] is A[j] where A[j] > A[i], j > i, and j is the lowest possible index that meets 
+this criterion.
+
+For example in the array [1, 3, 2, 5, 4, 8], the NGE of 3 is 5 since 5 is greater than 3 and the index of 
+element 5 is the lowest among all elements to the right of 3 which satisfies the 'greater than' relation.
+
+APPROACH:
+- Going through for each element returning back array
+- return -1 if NGE is not greater than element or no next greater element (i.e end)
+
+
+[1, 3, 2, 5, 4, 8]
+    p1
+       p2
+
+  if p2 < p1 = -1
+  if p2 > p1 = return p2 (NGE)
+
+
+PSEUDO CODE:
+  1. create result array, and our two pointers
+  2. iterate through the input a[i] a[i+1] < input.length
+      double for loop, one for p1 and one to increment p2
+
+      outer loop: i = 0 >> length-1
+        inner loop:
+          STUFF HAPPENS
+          line 32
+        line 31
+  3. as iterate have our checks to push to result array
+      if p2 < p1 = -1 (check ahead all the way second loop if no NGE)
+      if p2 > p1 = return p2 (NGE) 
+  4. return result array
+
+
+Target runtime and space complexity:
+O(N)
+
+- Going through for each element returning back array
+- return -1 if NGE is not greater than element or no next greater element (i.e end)
+
+
+[1, 3, 2, 5, 4, 8]
+    p1
+       p2
+
+  if p2 < p1 = -1
+  if p2 > p1 = return p2 (NGE)
+
+#########################################*/
+
+// Our attempt:
+// Time Complexity: O(N^2) | Space Complexity: O(n) n is length of the array
+
+function findNextGreaterElements(input) {
+    const res = [];
+
+    for (let i = 0; i < input.length; i++) {
+        // let pushedSomething = false;
+        for (let j = i + 1; j < input.length; j++) {
+            if (input[j] > input[i]) {
+                res.push(input[j]);
+                // pushedSomething = true;
+                break;
+            }
+        }
+        // if an NGE was not pushed, then push -1
+        // if (!pushedSomething)
+
+        // if res array length is not equal to i+1, then add -1
+        if (res.length !== i + 1) res.push(-1)
+    };
+
+    return res;
+};
+
+// Test Cases:
+console.log(findNextGreaterElements([2, 7, 3, 5, 4, 6, 8])) // [7, 8, 5, 6, 6, 8, -1]
+console.log(findNextGreaterElements([5, 4, 3, 2, 1])) // [-1, -1, -1, -1, -1]
+console.log(findNextGreaterElements([])) // []
+console.log(findNextGreaterElements([2])) // [-1]
+console.log(findNextGreaterElements([2, 2, 2, 2, 2])) // [-1,-1,-1,-1,-1]
+
+
+// Solution: [PYTHON] convert to JS later
+/*
+from collections import deque
+
+def findNextGreaterElements(input):
+ 
+    # base case
+    if not input:
+        return
+ 
+    n = len(input)
+    result = [-1] * n
+ 
+    # create an empty stack
+    s = deque()
+
+    [2, 7, 3, 5, 4, 6, 8]
+ 
+    # process each element from right to left
+    for i in reversed(range(n)):
+        # loop till we have a greater element on top or stack becomes empty.
+        // [8]
+        while s:
+            # pop elements that aren't greater than the current element
+            if s[-1] <= input[i]: // 8 <= 6
+                s.pop()
+            # the next greater element is now on the top of the stack
+            else:
+                result[i] = s[-1] // result = [-1,-1,-1,-1,-1,8,-1]
+                break
+        # push current element into the stack
+        s.append(input[i])
+ 
+    return result
+*/
