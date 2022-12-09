@@ -1,4 +1,4 @@
-/* Office Hour - Algo Marathon
+/* Algo Marathon
 Date: 
 PARTNERS:
 
