@@ -20,14 +20,25 @@ this problem should be done in the simplest way possible. What order will that p
 #################
 Expected Runtime
 ##################
-Time:
-Space: 
+Time: O(n) going through 1 pass
+Space:  O(n) length of the array
 
-
+- create results array
+- Use a for loop traditional since we want the indices to return.
+- If target value is found, push index into results array.
+- return results aarray
 ######################################################################################*/
 
 function indicesOfTarget(input, target) {
+    const res = [];
 
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] === target) {
+            res.push(i);
+        };
+    }
+
+    return res;
 };
 
 
@@ -41,3 +52,17 @@ TEST CASES
     array with multiple elements and target is present multiples times
     array with multiple elements and target is the only value
 ################*/
+
+const solution = (arr, num) => {
+    const indices = [];
+
+    for (let i = 0; i < arr.length; i++)
+        if (arr[i] === num) indices.push(i);
+
+    return indices;
+}
+
+/* Explanation of solution:
+Create a results array. Iterate through the input array using a loop where you have access to the current index. 
+Every time you see a value that matches the target, push the current index into the results array. Return the results array.
+*/
