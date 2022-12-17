@@ -53,6 +53,9 @@ TEST CASES
     array with multiple elements and target is the only value
 ################*/
 
+console.log(indicesOfTarget([30,30,30], 30)) // [0, 1, 2]
+console.log(indicesOfTarget([3, 2, 5, 5, 1], 5)) // [2, 3]
+
 const solution = (arr, num) => {
     const indices = [];
 
@@ -66,3 +69,5 @@ const solution = (arr, num) => {
 Create a results array. Iterate through the input array using a loop where you have access to the current index. 
 Every time you see a value that matches the target, push the current index into the results array. Return the results array.
 */
+
+// node .\Algo-Learning-Resources\Practice\Array\Return-all-indices.js

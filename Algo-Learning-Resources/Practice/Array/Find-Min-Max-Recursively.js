@@ -21,7 +21,7 @@ Time: O(n) where n is the length of the array
 Space: O(n) to store a call stack frame for each array index
 
 
-######################################################################################*/
+#####################################################################################*/
 
 function findMin() {
 
