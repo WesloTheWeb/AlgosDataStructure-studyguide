@@ -122,21 +122,7 @@ function findCompatibleRestaurantsBetween(nedsChoices, marysChoices) {
   marysChoices = ["Med Mix", "Saigon Deli", "Costco Food Court"]
   console.log(JSON.stringify(findCompatibleRestaurantsBetween(nedsChoices, marysChoices))
     === JSON.stringify(["Costco Food Court"]))
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    
   /**
   3 Levels to Algorithm Mastery
   
