@@ -42,6 +42,13 @@ class Node {
   };
 
 // Binary Trees  
+class TreeNode {
+  constructor(val, left = null, right = null) {
+      this.val = val;
+      this.left = left;
+      this.right = right;
+  };
+};
 
 /*###############
 TEST CASES
