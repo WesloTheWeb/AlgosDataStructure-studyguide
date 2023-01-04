@@ -31,7 +31,7 @@ class LinkedList {
         if (!this.tail) {
             this.head = this.tail = new Node(value)
         } else {
-            let oldTail = this.tail;
+            let oldTail = this.tail; // since its an integer, primitive type. Saves to memory at this point in time.
             this.tail = new Node(value);
             oldTail.next = this.tail;
             this.tail.prev = oldTail;
@@ -111,12 +111,12 @@ class Node {
     };
 };
 
-
 let list = new LinkedList();
 
 list.append(1);
 list.append(2);
 list.append(3);
+console.log(arrayify(list.head)) // Gets us linked list at this point in time.
 
 list.prepend(0);
 list.prepend(-1);
