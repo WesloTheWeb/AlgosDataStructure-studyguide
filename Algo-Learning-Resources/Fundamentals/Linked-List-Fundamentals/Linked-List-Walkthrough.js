@@ -1,23 +1,23 @@
 // LINKED LIST NODE
 class ListNode {
     constructor(value = 0, next = null) {
-      this.value = value;
-      this.next = next;
+        this.value = value;
+        this.next = next;
     };
-  };
+};
 
 // ARRAYIFY HELPER FUNCTION FOR LINKED LIST:
 function arrayify(head) {
     let ptr = head;
     var array = [];
-  
+
     while (ptr != null) {
-      array.push(ptr.value);
-      ptr = ptr.next;
+        array.push(ptr.value);
+        ptr = ptr.next;
     };
     return array;
-  };
-  
+};
+
 
 // LINKED LIST WALKTHROUGH 
 class LinkedList {
