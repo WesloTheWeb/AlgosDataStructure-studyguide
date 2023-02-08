@@ -8,134 +8,158 @@ This doc will attempt to summarize each but has folders for specific cases. To s
 2. [Adding a Node](#addNode)
 3. [Deleting a Node](#deleteNode)
 
-NOTE: Do this later but grab from Notion
+Class structure of a Linked List Node:
+```
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  };
+};
+```
 
 # Traversing <a id="Traversing"></a>
-Traversing a Linked List can do it iteratively or recursively. Iterative is pretty straight forward with a `while loop` while
-include:
+Traversing a Linked List we can do it iteratively or recursively. Iterative is pretty straight forward with a `while loop`. This typically includes a pointer and a condition. It is important to remember your condition, do we want to include every node until the last node or are we including the last node. 
 
-### Example problems:
-- Group Anagrams
-- Repeated Number of Elements in an Array
-
-
-## Group Anagram
-Given a list of strings, return a list of string lists that groups all anagrams together. Two strings are anagrams if rearranging one string results in another. For the purpose of this question, a string is an anagram of itself.
-
-Each group of anagrams should be in alphabetical order. The output should be in alphabetical order by the first elements of each group of anagrams.
-
-### **Solution 1**
-- This use the `Map` function from JavaScript:
 ``` 
-function groupAnagrams(strs) {
-    const anagram_map = new Map();
+// ITERATIVE TRAVERSAL
+function traverseLinkedList(head) {
+  let curr = head; // our pointer
 
-    for (const entry of strs) {
-        const anagram_id = Array.from(entry).sort().join('');
-        if (anagram_map.has(anagram_id)) {
-            anagram_map.get(anagram_id).push(entry);
-        }
-        else {
-            anagram_map.set(anagram_id, [entry]);
-        };
-    };
-    return Array.from(anagram_map.values());
-};
- ```
- ## Notes & Breakdowns
-For this problem, consider what happens when two strings are anagrams: if we sort them both by character, then they will result in the same string. When two strings are not anagrams, then this value will always be different.
-
-In that case, we can use a hashmap to store the information, with the key being the "`anagram ID`" (the sorted value of the string), and the entry being a list of strings with the same anagram IDs. Everything under the same ID must be anagrams, while everything outside of it are not.
-
-It has a time complexity of `O(n * mlog(m))`, where n is the number of strings and m is the max size of each string.
-
-### **Solution 2**
- - Another alternative that does the same thing as the above example is writing like this:
- 1. `Hashmap dictionary` approach, if its sorted, have a key, add to counter.
- 2. if its an anagram, create sub-array.
- 3. return array of sub array of anagrams as we iterate through strs.
-
- ```
- function groupAnagrams(strs) {
-    let anagramCount = {};
-    for (let str of strs) {
-        let sortedKey = str.split('').sort().join(''); // sorts the letters of input to be key
-
-        // here we create a key if not existing, if is existing we push it to subarray:
-        (!anagramCount[sortedKey]) ? anagramCount[sortedKey] = [str] : anagramCount[sortedKey].push(str);
-    };
-
-    return Object.values(anagramCount);
-};
-```
-## Notes & Breakdowns
-The part where you do `sortedKey` and then ...`anagramCount[sortedKey]` is possible and works because we turn the key into a string. 
-An example is this:
-```
-let anagramCount = {
-    'aet': ['eat', 'tea', 'ate'],
-    two: 'owo'
+  while (curr) {
+    console.log(curr.value);
+    curr = curr.next
   };
-  
-  console.log(anagramCount['aet']) // eat, tea, ate
-  console.log(anagramCount[two]) // invalid key
-  ```
+};
 
-# Adding a Node <a id="addNode"></a>
+// RECURSIVE TRAVERSAL
+function traverseLinkedList(node) {
+  // base case
+  if (!node) return;
 
-Since "two pointers" is kind of a broad topic, there is no singular way to implement it. Depending on the questions you encounter, you need to implement the answer differently. Generally speaking, a two pointer algorithm has these characteristics:
+  // action
+  console.log(node.value);
 
-1. Two moving pointers, regardless of directions, moving dependently or independently;
-2. A function that utilizes the entries pointing at the two pointers that relates to the answer in a way;
-3. An easy way of deciding which pointer to move;
-4. Optionally a way to process the array when the pointers are moved.
-
-Also problems where you would want to either check the beginning annd end of an array, check against two arrays. A great
-alternative to using double for loops that typically improves your time & space complexity.
-
-Two pointers are helpful because it often offers a more efficient solution than the naive solution. From the examples above, if we use the naive solution and use two loops to iterate through the array, the **time complexity** is often `O(n^2)`, which is often not enough. If we use two pointers for this type of problem, we are often only passing through the array once with the two pointers, which means that the **time complexity** is often `O(n)`.
-
-### Example problems:
-- Two Sum
-- Binary Search
-
-## Same Direction Problems
-These questions have two pointers that move in the same direction.
-
-### Example problems:
-- Remove Duplicate
-- Sliding Windows
-
-### How it Works:
-The moving condition of the two pointer is that:
-- if the previous check match, only the fast pointer moves.
-- Otherwise, the slow pointer moves, perform the process of setting the value at the slow pointer to the value at the fast pointer, and then the fast pointer moves.
-
-Problem: Longest substring without repeating characters
-```
-const longestSubstringWithoutRepeatingCharacters = (s) => {
-  const n = s.length // length of longestSubString
-  let longest = 0; // longest pointer we will return our answer (range of substrings)
-  let l = r = 0; 
-  const window = new Set();
-
-  while ( r < n) {
-    if (!window.has(s.charAt(r))) {
-      window.add(s.charAt(r));
-      r++;
-    } else {
-      window.delete(s.charAt(l));
-      l++
-    }
-    // here we get the "range" of substrings. Look more into math.max()
-    longest = Math.max(longest, r - l);
-  };
-
-  return longest;
+  // recursive case
+  traverseLinkedList(node.next);
 }
+
 ```
+The `while` loop is saying while there is a valid `curr` we log the value. Then we move our pointer to the next node via the property that's on `curr.next`. It will continue until the `next` node is `null`. In other words until we reach the end of the linked list.
 
-## Notes & Breakdown
-This makes it a classic sliding window problem. A sliding window is defined by two pointers. We move the window (incrementing pointers) whilst maintaining a certain invariant. For this particular problem, the invariant is the characters inside the window being unique. We use a set to record what's in the window. And when we encounter a character that's already in the window, we want to move the left pointer until it goes past the last occurrence of that character.
+ 
+# Adding a Node <a id="addNode"></a>
+This is the code want to write when we want to insert a node at a given index in a Linked List.
+
+```
+const insertNode = (head, value, index) => {
+    // when you want to insert at the head:
+    if (index === 0) {
+        const newHead = new Node(value);
+        newHead.next = head;
+        return newHead;
+    }
+    let curr = head;
+    let counter = 0;
+
+    while (curr) {
+        if (counter == index - 1) {
+            const temp = curr.next;
+            curr.next = new Node(value);
+            curr.next.next = temp;
+        };
+
+        counter += 1;
+        curr = curr.next;
+    };
+
+    return head;
+};
+
+```
+### How it Works:
+Here's how the code works:
+
+- If index is 0, it creates a new node with the given value and sets its next pointer to the current head of the linked list. Then it returns the new node as the new head of the linked list.
+
+- If index is not 0, it uses two pointers, curr and counter, to traverse the linked list and find the node with the index-1.
+
+- The while loop runs until the end of the linked list is reached. The counter is incremented for each iteration of the loop to keep track of the current node's index in the list. The curr pointer is updated to curr.next at each iteration, so that it moves to the next node in the linked list.
+
+- When counter reaches the desired index-1, the new node is inserted between the current node and its next node. To insert the new node, curr.next is set to a new node with the given value, and the next pointer of the new node is set to the old next node of the current node, which is stored in temp.
+
+- Finally, the original head of the linked list is returned.
+
+- This function inserts a new node into the linked list in O(n) time, where n is the length of the linked list.
+ 
+ # Removing a Node (first occurrence)<a id="removeNode"></a>
+This is the code want to write when we want to insert a node at a given index in a Linked List.
+
+```
+const removeNode = (head, targetVal) => {
+    if (head === targetVal) return head.next;
+
+    let curr = head;
+    let prev = null;
+
+    while (curr && curr.next) {
+        if (curr.val === targetVal) {
+            prev.next = curr.next; // removes only first occurrence
+            break;
+        };
+
+        prev = curr;
+        curr = curr.next;
+    };
+
+    return head;
+};
+
+```
+### How it Works:
+Here's how the code works:
+
+- If the head of the linked list is equal to the targetVal, it returns the next node of the head as the new head of the linked list, effectively removing the head node.
+
+- If the head is not equal to the targetVal, it uses two pointers, curr and prev, to traverse the linked list and find the node with the targetVal.
+
+- The while loop runs until the end of the linked list is reached, or the node with the targetVal is found. The prev pointer is updated to curr at each iteration, so that it keeps track of the previous node in the linked list. The curr pointer is updated to curr.next at each iteration, so that it moves to the next node in the linked list.
+
+- When the node with the targetVal is found, the prev.next is set to curr.next, effectively removing the curr node from the linked list and connecting the prev node directly to the next node. The break statement is used to exit the loop and prevent any further searching for the targetVal.
+
+- Finally, the original head of the linked list is returned.
+
+This function removes a node from the linked list in O(n) time, where n is the length of the linked list.
+
+## Removing a node (all occurrence):
+
+If you want to remove all nodes with the target value instead of just the first occurrence, you would need to modify the code to continue the loop after removing a node, until all nodes with the target value have been removed. Here is an example of how you could modify the code to remove all occurrences:
 
 
+```
+const removeNode = (head, targetVal) => {
+  if (!head) return null;
+
+  let curr = head;
+  let prev = null;
+
+  while (curr) {
+    if (curr.val === targetVal) {
+      if (!prev) {
+        head = curr.next;
+        curr = head;
+        continue;
+      } else {
+        prev.next = curr.next;
+        curr = prev.next;
+        continue;
+      }
+    }
+
+    prev = curr;
+    curr = curr.next;
+  }
+
+  return head;
+};
+```

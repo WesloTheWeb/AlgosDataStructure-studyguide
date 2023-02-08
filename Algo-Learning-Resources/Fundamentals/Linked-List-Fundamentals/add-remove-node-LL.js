@@ -1,4 +1,3 @@
-// ##########Add to linked list pattern when have time###############
 // class Node {
 //   constructor(val) {
 //     this.val = val;

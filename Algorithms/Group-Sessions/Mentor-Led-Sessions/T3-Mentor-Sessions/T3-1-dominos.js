@@ -8,6 +8,7 @@ KEY TAKE-AWAY:
 - 2 pointer solution in which the action separates it from the skeleton.
 TODO: See how 2 pointer skeleton and 2 pointer sliding window are the same. Whats my condition to stop? Whats my action when stop?
 - understand base algorithm and base skeleton, what are the components? and then how to modify them depending on the question?
+
 QUESTION:
 You're given an array containing either '.', 'L', or 'R' values. These values represent a starting state of a row 
 of dominoes. L means the domino has been pushed to the left. R means the domino has been pushed to the right. 
