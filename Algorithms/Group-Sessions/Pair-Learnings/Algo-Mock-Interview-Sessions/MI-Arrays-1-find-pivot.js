@@ -1,4 +1,4 @@
-/* Algo Marathon
+/* Algo Mock Interviews
 Date: 
 PARTNERS:
 
@@ -7,19 +7,22 @@ Suppose an array sorted in ascending order is rotated at some pivot unknown to y
 Find the minimum element in O(log N) time. You may assume the array does not contain duplicates.
  
 EXAMPLE(S)
-
 l = 5, m = 10, r = 4
 For example, given [5, 7, 10, 3, 4], return 3.
 [4, 5, 2, 3] // 2
 - return idx
 [] // -1
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // 0 idx
-
 [5, 7, 10, 3, 4]
 l = 5, r = 4
 l > r move m to the right otherwise move l to the left for inverse (r > l)
- 
-Notes:
+
+
+FUNCTION SIGNATURE
+function findPivot(input: number[]) -> number
+
+
+APPROACH:
 - 2 pointers
 [5, 7, 10, 3, 4]
 10, 3, 4
@@ -32,13 +35,6 @@ p1
 - binary search
 low, mid, high
 
-FUNCTION SIGNATURE
-function findPivot(input: number[]) -> number
-
-
-APPROACH:
-
-
 
 
 PSEUDO CODE:
@@ -50,15 +46,6 @@ Time Complexity:
 Space Complexity:
 #########################################*/
 
-// Our attempt:
-
-
-
-
-
-
-
-// Solution(s): 
 // My attempt
 function findPivot(arr) {
     let left = 0;
@@ -78,6 +65,7 @@ function findPivot(arr) {
     return mid;
 };
 
+// Solution(s): 
 // Fang's solution
 // O(logn) | O(1) uses l/r only for comparison
 function FangFindPivot(nums) {
@@ -108,7 +96,6 @@ function helper(arr, low, high) {
     return helper(arr, low, high);
 };
 
-
 // Test Cases:
 const test1 = [5, 7, 10, 3, 4];
 
@@ -122,4 +109,3 @@ console.log(findPivot([1, 2, 3]));
 console.log(findPivot([1]));
 // ->-1: no items
 console.log(findPivot([]));
-

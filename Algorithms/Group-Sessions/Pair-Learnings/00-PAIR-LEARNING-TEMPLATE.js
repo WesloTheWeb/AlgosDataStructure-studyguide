@@ -1,4 +1,4 @@
-/* Algo Marathon
+/* Algo Mock Interviews
 Date: 
 PARTNERS:
 
