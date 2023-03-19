@@ -1,6 +1,6 @@
 /*########################
 TYPE:
-Question:
+QUESTION:
 Assume you are given a Node class for an n-ary tree like so:
 
 class Node:
@@ -50,18 +50,21 @@ var solution = array
 function Node(val, children) {
     this.val = val;
     this.children = children || [];
-}
+};
 
 function convertToLinkedLists(root) {
     if (!root) {
         return [];
-    }
+    };
+
     const result = [];
     const queue = [root];
+    
     while (queue.length > 0) {
         const levelSize = queue.length;
         let head = null;
         let tail = null;
+
         for (let i = 0; i < levelSize; i++) {
             const node = queue.shift();
             if (!head) {
@@ -72,12 +75,13 @@ function convertToLinkedLists(root) {
             }
             for (let child of node.children) {
                 queue.push(child);
-            }
-        }
+            };
+        };
+
         result.push(head);
-    }
+    };
     return result;
-}
+};
 
 // Test Cases:
 console.log();
