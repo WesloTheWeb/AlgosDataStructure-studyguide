@@ -1,8 +1,8 @@
 /*
-'''
+QUESTION:
 Today, you will be asking the question to complete-ify a Binary Tree.
-
-Recall the definition of a complete tree: all levels of the tree are full except for possibly the last, lowest level. In the lowest level, all nodes are on the left.
+Recall the definition of a complete tree: all levels of the tree are full except for possibly the last, lowest level. 
+In the lowest level, all nodes are on the left.
 
 The input is a tree that is potentially not complete. Re-arrange these nodes to make a complete tree.
  
