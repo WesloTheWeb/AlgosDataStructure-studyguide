@@ -1,88 +1,85 @@
 /*
 '''
-In front of you is a row of N coins, with values v1, v2, ..., vn.
+❓ PROMPT
+Given a binary tree, return the sum of all root-to-leaf paths.
 
-You are asked to play the following game. You and an opponent take turns choosing either the first or last coin from the row, removing it from the row, and receiving the value of the coin.
+Example(s)
+     1 <--- root
+  2      3
+4   5  6   7
+sumAllTreePaths(root) == 36
 
-Write a program that returns the maximum amount of money you can win with certainty, if you move first, assuming your opponent plays optimally.
+Explanation:
+* The leftmost path: 1 + 2 + 4 = 7
+* The left-middle path: 1 + 2 + 5 = 8
+* The right-middle path: 1 + 3 + 6 = 10
+* The rightmost path: 1 + 3 + 7 =  11
+
+Aggregating the paths: 7 + 8 + 10 + 11 = 36
  
-EXAMPLE(S)
-[10, 24, 5, 9] => 33
 
-[10, 24, 5, 9] => 33
-Me: 10
-  [24, 5, 9] (what's remain)
-Opp: 9
- [ 24, 5] (what's remain)
+🔎 EXPLORE
+List your assumptions & discoveries:
+- (null case) return null;
+- we go from root to leaf path and add up all the sums made.
+- if leaf node then we just proceed.
+- No matter how we count or direction should be the same as long as we are doing the root to leaf sum.
+ 
 
-[10, 24, 5, 9] => 33
-Opp: 10
-Me: 24
+Insightful & revealing test cases:
+ 
 
-[ 5, 9]
-Me: 9 
-  24 + 9 => 33
-Opp: 5
+🧠 BRAINSTORM
+What approaches could work?
+Algorithm 1: Recursively
+Time: O(n)
+Space: O(n)
+ - Create array of all sums.
+ - Create path array
+ - Use helper function to run our recursion
+  -> Base case if no child, return null.
+  -> add to path array, once reach leaf node push sum to sums array
+  -> Pop element(?) to get the next. Need a way to get each sum path
 
-psychology: 
-we want to explore both branches of choosing EITHER:
-(1) the leftmost coin
-(2) the rightmost coin
+📆 PLAN
+Outline of algorithm #: 
+ 
 
-in each of these, the opp player (who behaves like us) will
-leave us with the smaller option of the remaining coins bc they're trying to
-pick the bigger coin
+🛠️ IMPLEMENT
+function sumAllTreePaths(root)
+def sumAllTreePaths(root: Node) -> int
+ 
 
+🧪 VERIFY
+Run tests. Methodically debug & analyze issues.
 
-[10, 24, 5, 9] start
-[10, 24, 5] opponent turn (pick 5, 10)
-[10, 24] my turn (pick 24 to add to the 9)
-
-
-[10, 24, 5, 9]
-[24, 5, 9] == opponent options (24, 9)
-
-9 --
-[10,24,5] == opponent options
-[24,5]
-
-Odd Number of rows of N coin ?
-Null case, return 0?
-draw possible? yes
-
-Optimal amount:
-  - combination (sum of elements in the array) we can only choose front or end.
-
-- choose the highest value of the two
-
-pseudo code:
-N = # turns
-N + 1 , N - 1
-
-# Notice that this solution uses much more memory
-# than the Javascript solution above
-def max_profit(coins):
-    if len(coins) == 1:
-        return coins[0]
-
-    elif len(coins) == 2:
-        return max(coins)
-
-    else:
-        return max(
-            coins[0] + min(max_profit(coins[2:]), max_profit(coins[1:-1])), # take the leftmost
-            coins[-1] + min(max_profit(coins[:-2]), max_profit(coins[1:-1])) # take the rightmost
-        )
-
-FUNCTION SIGNATURE
-function maxProfit(coins)
 '''
 */
 
-/* TAKE AWAYS
-- Try to pick out the highlights the problems,
-key context.
-
-- Translating it into
-
-*/
+function sumAllTreePaths(root) {
+    const listOfSums = [];
+    const runningPath = 0;
+  
+    const helper = (node, runningSum) => {
+      // base case
+      if (!node) return null;
+  
+      runningPath += node.val;
+      if (!node.left && !node.right) {
+        runningPath.push(listOfSums);
+        runningPath -= node.val;
+      }l
+  
+      // recursive case
+      helper(node.left, runningSum);
+      helper(node.right, runningSum);
+    };
+  
+    helper(ShadowRoot, runningPath);
+  
+    return listOfSums;
+  };
+  
+  
+  
+  

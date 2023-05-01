@@ -1,8 +1,8 @@
 /*
-'''
-Given an adjacency list of a directed graph, return "BINARY TREE" if it's a binary tree, "TREE" if it's any other type of tree, or "NONE" if it's neither.
+QUESTION:
+Given an adjacency list of a directed graph, return "BINARY TREE" if it's a binary tree, "TREE" if 
+it's any other type of tree, or "NONE" if it's neither.
  
-
 EXAMPLE(S)
      1
    /   \ 
@@ -56,8 +56,6 @@ classify(
         4: [],
     }
 ) -> NONE
- 
-
 
 1. Single root - no incoming pointer (and has children)
 2. Every node is connected
