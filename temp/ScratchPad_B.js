@@ -1,81 +1,145 @@
-const vertices = ['A', 'B', 'C', 'D', 'E'];
-const adjacencyMatrix = [
-  [0, 1, 1, 0, 0],
-  [1, 0, 0, 1, 0],
-  [1, 0, 0, 0, 1],
-  [0, 1, 0, 0, 1],
-  [0, 0, 1, 1, 0]
-];
+/* TODO: Add in later of floodFill but the important part is the 
+// directions of UP DOWN LEFT RIGHT
 
-function getAdjacentVertices(vertex) {
-  const index = vertices.indexOf(vertex);
-  const row = adjacencyMatrix[index];
-  const adjacentVertices = [];
+// sr = 1, sc = 1
+// color = 2
 
-  for (let i = 0; i < row.length; i++) {
-    if (row[i] === 1) {
-      adjacentVertices.push(vertices[i]);
-    }
-  }
+// [
+//   [1, 1, 1],
+//   [1, 1, 0],
+//   [1, 0, 1]
+// ]
+//  to...
+// [
+//   [2, 2, 2],
+//   [2, 2, 0],
+//   [2, 0, 1]
+// ]
 
-  return adjacentVertices;
-}
+// [
+//   [1, 1, 1],
+//   [1, 2, 2],
+//   [1, 2, 1]
+// ]
 
-const adjacentVerticesOfA = getAdjacentVertices('A');
-console.log(adjacentVerticesOfA); // Output: ['B', 'C']
-console.log(getAdjacentVertices('B')); // Output: ['A', 'D']
-
+// replace same as whatever the sr, sc was.
 /*
-    A  B  C  D  E
-A  [0, 1, 1, 0, 0],
-B  [1, 0, 0, 1, 0],
-C  [1, 0, 0, 0, 1],
-D  [0, 1, 0, 0, 1],
-E  [0, 0, 1, 1, 0]
 
+APPROACH: 
+1.) BFS - APPROACH
+- up, down, left, right
+- we start on our starting row (sr) and starting column (sc)
+  - will need Set / visited so we don't repeat
+- will use a queue, keep going until we cant aka reach a number that wasn't 
+number[sr][sc]
+
+PSUEDO CODE:
+- create visited array that is a set 
+- start at number[startingRow][startingColumn], and then change to what the color is. 
+    --> but only if it matches initial value of number[startingRow][startingColumn]
+
+- initialize our queue to be number[startingRow][startingColumn]
+- BFS traversal changing the same value to color 
+- enque children via directions
+    UP: startingColumn + 1
+    DOWN: startingColumn - 1
+    LEFT: startingRow - 1
+    RIGHT: startingRow + 1
+- As we traverse add to set.
+
+function fill(matrix, startingRow, startingColumn, color);
 */
 
-const myMap = new Map([[1, 'one'], [2, 'two'], [3, 'three']]);
-console.log(myMap.size); // Output: 3
+function fill(matrix, startingRow, startingColumn, color) {
+    const queue = [[startingRow, startingColumn]];
 
-// Find the most frequent number in this array
-const arr = [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 10, 11, 12]
+    const rowLimit = matrix.length;
+    const columnLimit = matrix[0].length
 
-const countFrequencies = (arr) => {
-  const frequencies = new Map();
-  let mostFrequentNumber = 0;
+    const oldColor = matrix[startingRow][startingColumn];
 
-  for (let num of arr) {
-    if (!frequencies.has(num)) {
-      frequencies.set(num, 1);
-    } else {
-      frequencies.set(num, frequencies.get(num) + 1);
+
+    while (queue.length > 0) {
+        const [row, col] = queue.shift(); // tuple
+
+        // out of bounds
+        if (row < 0 || row >= rowLimit) {
+            continue;
+        }
+
+        if (col < 0 || col >= columnLimit) {
+            continue;
+        }
+
+        if (matrix[row][col] === oldColor) {
+            // directions
+            const UP = col + 1
+            const DOWN = col - 1
+            const LEFT = row - 1
+            const RIGHT = row + 1
+
+            // process popped element
+            matrix[row][col] = color;
+            // enque next elements
+
+            queue.push([row, UP]);
+            queue.push([row, DOWN]);
+            queue.push([LEFT, col]);
+            queue.push([RIGHT, col]);
+        }
+        // r = - 1 // invalid
+        //     r = 0
+        // r = 1
+        // r = 2
+        // r = 3
+        // const matrix1 = [
+        //   [1, 1, 1],
+        //   [1, 1, 0],
+        //   [1, 0, 1]
+        // ];
+
+        // for (let square of matrix[i]) {
+        //   console.log(square);
+        //   // if (square == matrix[startingRow][startingColumn]) {
+        //   //   square = color;
+        //   //   visited.add(square);
+        //   // }
+        // }
+
+        return matrix;
     };
-  };
-
-  // once added to the map... iterate
-  for (let [num, value] of frequencies) {
-    if (value > mostFrequentNumber) {
-      mostFrequentNumber = num;
-    };
-  };
-
-  return mostFrequentNumber;
 };
 
+const matrix1 = [
+    [1, 1, 1],
+    [1, 1, 0],
+    [1, 0, 1]
+];
 
-// TEST CASES
-const test1 = [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 10, 11, 12]
-const test2 = [1, 2, 2, 3]; // 2
-const test3 = [] // 0
-const test4 = [1, 2, 3, 4]
-const test5 = [1,1, 2, 2, 3]
+console.log(fill(matrix1, 1, 1, 2))
 
-console.log(countFrequencies(test1)) // 9
-console.log(countFrequencies(test2)) // 2
-console.log(countFrequencies(test3)) // 0
-console.log(countFrequencies(test4)) // 1
-console.log(countFrequencies(test5)) // 2
+// SOLUTION DFS
 
-// Time: O(n); loop over array once
-// Space: O(n) n number of the array
+function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+    const sColor = image[sr][sc];
+
+    function fill(r: number, c: number): void {
+        if (r < 0 || r >= image.length) return;
+        if (c < 0 || c >= image[0].length) return;
+
+        const pixelColor = image[r][c];
+        if (pixelColor === color) return;
+        if (pixelColor !== sColor) return;
+
+        image[r][c] = color;
+
+        fill(r - 1, c);
+        fill(r + 1, c);
+        fill(r, c - 1);
+        fill(r, c + 1);
+    }
+
+    fill(sr, sc);
+
+    return image;
+};
