@@ -75,31 +75,31 @@ approach
 3. return result array
 ########################################*/
 
-// function findNaN(arr) {
-//   const res = [];
+function findNaN(arr) {
+  const res = [];
 
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === isNaN) {
-//       res.push(i);
-//     }
-//   };
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === isNaN) {
+      res.push(i);
+    }
+  };
 
-//   return res;
-// }
+  return res;
+}
 
-// // console.log(typeof NaN)
+// console.log(typeof NaN)
 
-// // ([2, NaN, 8, 16, 32]) -> [1]
-// // ([2, 4, NaN, 16, 32, NaN]) -> [2,5]
-// // ([2, 4, 16, 32]) ->[]
+// ([2, NaN, 8, 16, 32]) -> [1]
+// ([2, 4, NaN, 16, 32, NaN]) -> [2,5]
+// ([2, 4, 16, 32]) ->[]
 
-// const test1 = [2, NaN, 8, 16, 32] // [1]
-// const test2 = [2, 4, NaN, 16, 32, NaN] // [2,5]
-// const test3 = [2, 4, 16, 32] // []
+const test1 = [2, NaN, 8, 16, 32] // [1]
+const test2 = [2, 4, NaN, 16, 32, NaN] // [2,5]
+const test3 = [2, 4, 16, 32] // []
 
-// console.log(findNaN(test1))
-// console.log(findNaN(test2))
-// console.log(findNaN(test3))
+console.log(findNaN(test1))
+console.log(findNaN(test2))
+console.log(findNaN(test3))
 
 
 /*########################################
@@ -113,15 +113,26 @@ try {
   console.log(err);
 }
 
-// function ensure(value) {
-//   // Your code goes here
+function ensure(value) {
+  // Your code goes here
 
+}
+
+try {
+  console.log(ensure());
+} catch(err) {
+  console.log(err);
+}
+
+// SOLUTION
+// function willFail() {
+//   throw new Error("This function is meant to fail");
 // }
 
 // try {
-//   console.log(ensure());
-// } catch(err) {
-//   console.log(err);
+//   willFail();
+// } catch (error) {
+//   console.error("Error: ", error.message);
 // }
 
 /*########################################
@@ -159,27 +170,27 @@ in aother cases it returns false
 const parent = document.getElementsByClassName("image");
 
 
-// function setup() {
-//   // console.log(removeImg)
-//   console.log(parent);
-// }
+function setup() {
+  // console.log(removeImg)
+  console.log(parent);
+}
 
-// // const removeImg = document.getElementsByClassName('remove');
+// const removeImg = document.getElementsByClassName('remove');
 
-// document.body.innerHTML = `
-// <div class="image">
-//   <img src="https://bit.ly/3lmYVna" alt="First">
-//   <button class="remove">X</button>
-// </div>
-// <div class="image">
-//   <img src="https://bit.ly/3flyaMj" alt="Second">
-//   <button class="remove">X</button>
-// </div>`;
+document.body.innerHTML = `
+<div class="image">
+  <img src="https://bit.ly/3lmYVna" alt="First">
+  <button class="remove">X</button>
+</div>
+<div class="image">
+  <img src="https://bit.ly/3flyaMj" alt="Second">
+  <button class="remove">X</button>
+</div>`;
 
-// setup();
+setup();
 
-// const removeImg = document.getElementsByClassName("remove")[0].click();
-// console.log(document.body.innerHTML);
+const removeImg = document.getElementsByClassName("remove")[0].click();
+console.log(document.body.innerHTML);
 
 /*########################################
 QUESTION 6:
