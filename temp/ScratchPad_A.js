@@ -1,159 +1,145 @@
-// Random scratchpad 7-30-2022:
-const gymBaddies = [
-    'Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Harper', 'Evelyn',
-    'Abigail', 'Emily', 'Elizabeth', 'Mila', 'Ella', 'Avery', 'Scarlett', 'Grace', 'Chloe', 'Sofia',
-    'Ella', 'Lily', 'Aria', 'Hannah', 'Layla', 'Aubrey', 'Lillian', 'Addison', 'Zoe', 'Zara',
-    'Nora', 'Camila', 'Aurora', 'Hazel', 'Penelope', 'Victoria', 'Luna', 'Stella', 'Nova', 'Everly',
-    'Eleanor', 'Ariana', 'Claire', 'Ruby', 'Alice', 'Savannah', 'Natalie', 'Emilia', 'Lila', 'Audrey'
-  ];
-  
-  
-  const gymCrushUWU = (person) => {
-    const crush = gymBaddies[Math.floor(Math.random() * gymBaddies.length)];
-    console.log(`Ooooh ${person} has a crush on ${crush} UWU`)
-  };
-  
-  gymCrushUWU('Wesley')
-  gymCrushUWU('Collin')
-  
-  
-  class ShoppingCart {
-    constructor(items = new Map()) {
-      this.items = items;
-    };
-  
-    // addItems(item){
-    //   if (items.has(item)) {
-    //     return this.items;
-    //   } else {
-    //     return this.items.push(item);
-    //   }
-    // };
-  
-    addItems(item) {
-      if (this.items.has(item)) {
-        this.items.set(item, this.items.get(item) + 1);
-      } else {
-        this.items.set(item, 1);
+/* TODO: Add in later of floodFill but the important part is the 
+// directions of UP DOWN LEFT RIGHT
+
+// sr = 1, sc = 1
+// color = 2
+
+// [
+//   [1, 1, 1],
+//   [1, 1, 0],
+//   [1, 0, 1]
+// ]
+//  to...
+// [
+//   [2, 2, 2],
+//   [2, 2, 0],
+//   [2, 0, 1]
+// ]
+
+// [
+//   [1, 1, 1],
+//   [1, 2, 2],
+//   [1, 2, 1]
+// ]
+
+// replace same as whatever the sr, sc was.
+/*
+
+APPROACH: 
+1.) BFS - APPROACH
+- up, down, left, right
+- we start on our starting row (sr) and starting column (sc)
+  - will need Set / visited so we don't repeat
+- will use a queue, keep going until we cant aka reach a number that wasn't 
+number[sr][sc]
+
+PSUEDO CODE:
+- create visited array that is a set 
+- start at number[startingRow][startingColumn], and then change to what the color is. 
+    --> but only if it matches initial value of number[startingRow][startingColumn]
+
+- initialize our queue to be number[startingRow][startingColumn]
+- BFS traversal changing the same value to color 
+- enque children via directions
+    UP: startingColumn + 1
+    DOWN: startingColumn - 1
+    LEFT: startingRow - 1
+    RIGHT: startingRow + 1
+- As we traverse add to set.
+
+function fill(matrix, startingRow, startingColumn, color);
+*/
+
+function fill(matrix, startingRow, startingColumn, color) {
+  const queue = [[startingRow, startingColumn]];
+
+  const rowLimit = matrix.length;
+  const columnLimit = matrix[0].length
+
+  const oldColor = matrix[startingRow][startingColumn];
+
+
+  while (queue.length > 0) {
+      const [row, col] = queue.shift(); // tuple
+
+      // out of bounds
+      if (row < 0 || row >= rowLimit) {
+          continue;
       }
-    }
-  
-    getItems() {
-      let result = [];
-      for(let [item, quantity] of this.items) {
-        result.push([item, quantity]);
+
+      if (col < 0 || col >= columnLimit) {
+          continue;
       }
-      return result;
-    }
+
+      if (matrix[row][col] === oldColor) {
+          // directions
+          const UP = col + 1
+          const DOWN = col - 1
+          const LEFT = row - 1
+          const RIGHT = row + 1
+
+          // process popped element
+          matrix[row][col] = color;
+          // enque next elements
+
+          queue.push([row, UP]);
+          queue.push([row, DOWN]);
+          queue.push([LEFT, col]);
+          queue.push([RIGHT, col]);
+      }
+      // r = - 1 // invalid
+      //     r = 0
+      // r = 1
+      // r = 2
+      // r = 3
+      // const matrix1 = [
+      //   [1, 1, 1],
+      //   [1, 1, 0],
+      //   [1, 0, 1]
+      // ];
+
+      // for (let square of matrix[i]) {
+      //   console.log(square);
+      //   // if (square == matrix[startingRow][startingColumn]) {
+      //   //   square = color;
+      //   //   visited.add(square);
+      //   // }
+      // }
+
+      return matrix;
   };
-  
-  // const myCart = new ShoppingCart;
-  // myCart.addItems('apple');
-  // myCart.addItems('apple');
-  // myCart.addItems('apple');
-  // myCart.addItems('cookies');
-  
-  
-  // console.log(myCart.getItems()); // Output: [ [ 'apple', 3 ] ]
-  
-  
-  
-  // console.log(myCart);
-  
-  // let rogueData = {};
-  
-  // rogueData["Trunk Data"] = {
-  //   "Basic": {
-  //     connections: [ "Core" ],
-  //     x: 0,
-  //     y: 0
-  //   },
-  // };
-  
-  // rogueData['uwu'] = [
-  //   {
-  //     name: 'owo'
-  //   }
-  // ] 
-  
-  // END
-  
-  // rogueData[24] = {
-  //   name: 'test'
-  // }
-  
-  // rogueData['27'] = [
-  //   {
-  //     name: 'owo'
-  //   }
-  // ]
-  
-  
-  // console.log(rogueData) // we should see 1 object element that is an array.
-  
-  
-  // /*
-  // '''
-  // ❓ PROMPT
-  // Given *N* cents, write a function to determine the number of ways of using pennies, nickels, dimes, and quarters to represent it.
-  
-  // (Pennies are worth 1 cent; nickels, 5; dimes, 10; quarters, 25.) 
-  
-  // Example(s)
-  // getNumWaysToMakeChange(1) == 1  (1 penny)
-  // getNumWaysToMakeChange(3) == 1  (3 pennies)
-  // getNumWaysToMakeChange(5) == 2  (1 nickel, or 5 pennies)
-  
-  // When "cents" increase, there are more ways of making change:
-  // getNumWaysToMakeChange(12) == 4
-  // Explanation:
-  //   1 dime, 2 pennies
-  //   2 nickels, 2 pennies
-  //   1 nickel, 7 pennies
-  //   12 pennies
-  
-  // getNumWaysToMakeChange(26) == 13
-  // Explanation:
-  //   1 quarter, 1 penny
-  //   2 dimes, 1 nickel, 1 penny
-  //   2 dimes, 6 pennies
-  //   1 dime, 3 nickels, 1 penny
-  //   1 dime, 2 nickels, 6 pennies
-  //   1 dime, 1 nickel, 11 pennies
-  //   1 dime, 16 pennies
-  //   5 nickels, 1 penny
-  //   4 nickels, 6 pennies
-  //   3 nickels, 11 pennies
-  //   2 nickels, 16 pennies
-  //   1 nickel; 21 pennies
-  //   26 pennies
-   
-  
-  // 🔎 EXPLORE
-  // List your assumptions & discoveries:
-   
-  
-  // Insightful & revealing test cases:
-   
-  
-  // 🧠 BRAINSTORM
-  // What approaches could work?
-  // Algorithm 1:
-  // Time: O()
-  // Space: O()
-   
-  
-  // 📆 PLAN
-  // Outline of algorithm #: 
-   
-  
-  // 🛠️ IMPLEMENT
-  // function getNumWaysToMakeChange(cents) {
-  // def getNumWaysToMakeChange(cents: int) -> int:
-   
-  
-  // 🧪 VERIFY
-  // Run tests. Methodically debug & analyze issues.
-  
-  // '''
-  // */
+};
+
+const matrix1 = [
+  [1, 1, 1],
+  [1, 1, 0],
+  [1, 0, 1]
+];
+
+console.log(fill(matrix1, 1, 1, 2))
+
+// SOLUTION DFS
+
+function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
+  const sColor = image[sr][sc];
+
+  function fill(r: number, c: number): void {
+      if (r < 0 || r >= image.length) return;
+      if (c < 0 || c >= image[0].length) return;
+
+      const pixelColor = image[r][c];
+      if (pixelColor === color) return;
+      if (pixelColor !== sColor) return;
+
+      image[r][c] = color;
+
+      fill(r - 1, c);
+      fill(r + 1, c);
+      fill(r, c - 1);
+      fill(r, c + 1);
+  }
+
+  fill(sr, sc);
+
+  return image;
+};
