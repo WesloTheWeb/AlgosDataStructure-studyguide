@@ -1,0 +1,1 @@
+// Construct a Linked List from scratch using class base syntax.
