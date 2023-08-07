@@ -32,7 +32,7 @@ class BinarySearchTree {
 
     };
 
-    // depth first search
+    // depth first searchj
 
     // in-order
     dfsInOrder() {
