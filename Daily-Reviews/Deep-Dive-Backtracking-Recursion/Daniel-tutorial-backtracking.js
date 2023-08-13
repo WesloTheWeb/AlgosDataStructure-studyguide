@@ -53,7 +53,3 @@ function seatingCharts(students) {
   // Test case
   const example = ["A", "B", "C"];
   console.log(seatingCharts(example));
-
-  /*#######################################
-  ALTERNATE APPROACH
-  #########################################*/
