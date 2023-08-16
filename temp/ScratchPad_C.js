@@ -1,70 +1,206 @@
+// TODO: Look at this later from session. Binary Search but emphasis on high level approach:
 /*
-In this game, a group of players stands in a circle and passes a parcel around.
-When the game starts, a player is chosen to hold the parcel.
-The players then pass the parcel to their adjacent player in clockwise order.
-At a random point in time, a timer goes off, and the player holding the parcel is removed from the circle.
-The passing continues until only one player is left.
+Given a binary search tree and a target value, return the in-order successor.
 
-Example(s)
-We have a list  ["Alice", "Bob", "Charlie", "David", "Eve"]
-Assume we have a timer value of 3.
-Iteration 1: David removed
-Iteration 2: Charlie removed
-Iteration 3: Eve removed
-Iteration 4: Bob Removed
-Winner: Alice.
- 
-  0 - Alice
-  1 - Bob
-  2 - Charlie
-  3 - David
-  4 - Eve
+//     5
+//  2     8
+// 1 4   6 9
 
-  STARTS at idx 0
-  Alice -> Bob -> Charlie -> David
-  DAVID is removed idx 3
-  0 + 3 = 3 idx to be removed
-  
-  0 - Alice
-  1 - Bob
-  2 - Charlie
-  3 - Eve
-  STARTS at idx 3
-  Eve -> Alice -> Bob -> Charlie
-  CHRLIE is removed idx 2
-  3 + 2 = 5 
-  5 % 3 = 2 idx to be removed
+=========================================
+1. Explore
+- Understand the problem by asking clarifying questions and clearing up ambiguities
+- Convert the abstract into the concrete using examples
+- Categorize the examples and make insightful & revealing test scenarios
+=========================================
+===Discoveries===
+ In-order successor = next value in in-order traversal starting from target value
+- in order: left root right
+- The Tree is a Binary search Tree
+- Use the above property instead of inorder traversal.
 
-  0 - Alice
-  1 - Bob
-  2 - Eve
-  STARTS at idx 2
-  Eve -> Alice -> Bob -> Eve
-  EVE is removed at idx 2
-  2 + 3 = 5
-  5 % 3 = 2 idx to be removed
+===Happy Cases===
 
-  0 - Alice
-  1 - Bob
-  at this point idx is 2 so it starts at Alice (?)
-  Alice -> Bob -> Alice -> Bob
-  Bob is removed at ix 1;
-  2 + 3 = 5
-  5 % 2 = 1 idx to be removed
 
-  ALICE IS THE ONLY ONE LEFT
-  so we return ALICE;
+===Edge Cases===
+- tree with a single node:
+- Node has no successor - Return Null
+- if the target in not in the tree: return Null
+===Bad Cases (can be same as edge cases)===
+
+=========================================
+2. Brainstorm
+- Discuss possible algorithms
+- Focus on problem-solving instead of implementation
+- Discuss the space and time complexities of the solution(s)
+=========================================
+===Option(s)===
+
+1. Do in-order traversal and save nodes in an array
+    next pass find the target value and return the next node if there is one else None
+t: O(n)
+
+//     5
+//  2     8
+// 1 4   6 9
+
+examples when successor is above target
+1, 4, 6
+leaf nodes
+
+examples when successor is below target
+2, 5, 8
+
+//      5
+//   2        8
+// 1  4     6   9
+//0 2 3 4  5 7 8 10
+
+//     5
+//  2     8
+// 1 4   6  9
+
+
+binary search tree: left < root < right
+
+target 5, succ: 6
+
+
+
+2. Binary search to find the target
+    Check current node's left and right value for the target
+        if left child is the target
+            return current node
+        if right child is the target:
+            if that node has no children:
+                if its a left node:
+                    return parent
+                else:
+                    return parent.parent
+            else:
+                go right
+                go left as much as you can
+
+    ** idea: if right child is the target: (8)
+                if target has children:
+                    return target.right
+t:
+binary search to find target is: O(lg n)
+find successor: O(lg n)
+
+
+=========================================
+3. Plan
+- Agree on a solution to execute
+- Avoid thought gaps by documenting a concrete outline, the level of detail is up to you
+- The more detail, the easier the implementation becomes
+
+As an engineer, you should determine when you're getting diminishing returns from
+spending too much time in the Plan stage and move onto the Implement stage.
+This balance is different for each person and each problem.
+=========================================
+===Outline===
+
+Initialize a current node to the root
+Initialize a successor node to null
+
+Perform a binary search for the target value while the current node exists
+  If the current node's value < target value
+    Update the current node to be its right child
+  Otherwise, if the current node's value > target value
+    Track this node as a possible successor (in the stack or a single variable)
+    Update the current node to be its left child
+  Otherwise, if the current node's value == target value
+    Complete the search
+
+If the current node does not exist, the target value is not in the tree.
+Depending on the discussion, the successor is either null, or the successor was the most recent ancestor larger than the target value
+
+If the current node has the right child, set the current node to it
+  While the current node's left child exists
+    Update the current node to be its left child
+  The current node is the successor
+Otherwise, the successor was the most recent ancestor larger than the target value
+
+=================================================
+4. Implement
+- Focus on implementation instead of problem-solving
+- Refer back to your outline as needed
+- Rely on your hours of coding practice
+=================================================
 */
-
-function passTheParcel(players, timer) {
-    const circle = players.slice();
-    while (circle.length > 1) {
-      for (let i = 0; i < timer; i++) {
-        circle.push(circle.shift());
-      }
-      circle.shift();
+// simple iterative (SI)
+function inOrderSuccessorSI(root, target) {
+    let successor = null
+    let curr = root
+  
+    while (curr) {
+      if (curr.val < target)
+        curr = curr.right
+      else if (curr.val > target) {
+        successor = curr
+        curr = curr.left
+      } else // curr.val === target
+        break
     }
-    return circle[0];
+  
+    if (!curr)
+      return successor
+  
+    if (curr.right) {
+      curr = curr.right
+      while (curr.left)
+        curr = curr.left
+      return curr
+    }
+  
+    return successor
   }
   
-  console.log(passTheParcel(["Alice", "Bob", "Charlie", "David", "Eve"], 3))
+  // ! simple recursive (SR)
+  function inOrderSuccessorSR(root, target, successor=null) {
+    if (!root)
+      return successor
+  
+    if (root.val < target)
+      return inOrderSuccessorSR(root.right, target, successor)
+    else if (root.val > target)
+      return inOrderSuccessorSR(root.left, target, root)
+    else { // root.val === target
+      if (root.right) {
+        root = root.right
+        while (root.left)
+          root = root.left
+        return root
+      }
+    }
+  
+    return successor
+  }
+  
+  // ! concise iterative (CI)
+  function inOrderSuccessorCI(root, target) {
+    let successor = null
+    let curr = root
+  
+    while (curr) {
+      if (curr.val <= target)
+        curr = curr.right
+      else if (curr.val > target) {
+        successor = curr
+        curr = curr.left
+      }
+    }
+  
+    return successor
+  }
+  
+  // ! concise recursive (CR)
+  function inOrderSuccessorCR(root, target, successor=null) {
+    if (!root)
+      return successor
+  
+    if (root.val <= target)
+      return inOrderSuccessorCR(root.right, target, successor)
+    else if (root.val > target)
+      return inOrderSuccessorCR(root.left, target, root)
+  }
