@@ -1,6 +1,8 @@
 /*
-Q1:
+August 17th, 2023
+Interviewer: Fang Li
 
+Question #1:
 Given an integer array with repeated elements, the task is to find sum of all distinct elements in array
 Examples: 
 Input  : arr[] = {12, 10, 9, 45, 2, 10, 10, 45, 10};
