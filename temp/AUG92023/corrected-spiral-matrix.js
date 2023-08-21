@@ -1,10 +1,24 @@
+/*
+
+
+
+
+R\C | 0  left | 1       | 2  right |
+-----------------------------------
+ 0  top  | 1       | 2       | 3       |
+-----------------------------------
+ 1       | 4       | 5       | 6       |
+-----------------------------------
+ 2  bottom | 7       | 8       | 9       |
+
+*/
 function spiralOrder(matrix) {
     let results = [];
     // Define boundaries for our traversal. 
-    let left = 0;
-    let right = matrix[0].length - 1;
     let top = 0;
     let bottom = matrix.length - 1;
+    let left = 0;
+    let right = matrix[0].length - 1;
     
     // While there's still a layer to process in our spiral.
     while (left <= right && top <= bottom) {
@@ -12,7 +26,7 @@ function spiralOrder(matrix) {
         for (let i = left; i <= right; i++) {
             results.push(matrix[top][i]);
         }
-        top++;
+        top++; // move our top boundary "down" aka increase it
 
         // Process the rightmost column.
         for (let i = top; i <= bottom; i++) {
@@ -58,3 +72,4 @@ will return values and in our while loop we can manipulate them for each for loo
 - We are still working in a 2D array, so think about the outer layer and inner layer each time.
 
 */
+
