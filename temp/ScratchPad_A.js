@@ -1,145 +1,130 @@
-/* TODO: Add in later of floodFill but the important part is the 
-// directions of UP DOWN LEFT RIGHT
+// CORRECT SOLUTION:
+// TODO: Write down question and clean up pads
 
-// sr = 1, sc = 1
-// color = 2
+/* We want to know if this social network is connected or not aka, there is no islands or disconnected nodes
+tuple is (friend1, friend2)
+Return boolean whether or not everything is connected.
 
-// [
-//   [1, 1, 1],
-//   [1, 1, 0],
-//   [1, 0, 1]
-// ]
-//  to...
-// [
-//   [2, 2, 2],
-//   [2, 2, 0],
-//   [2, 0, 1]
-// ]
+EXAMPLE 1:
+User1--User2
+ |     |
+User3--User4---User5
+ |_______________|
+True, everything is connected
 
-// [
-//   [1, 1, 1],
-//   [1, 2, 2],
-//   [1, 2, 1]
-// ]
+EXAMPLE 2:
+User1--User2
+ |            
+User3  User4---User5
+False, not everything is connected. User4 -- User5 is separated from User1--User2--User3
 
-// replace same as whatever the sr, sc was.
-/*
+ASSUMPTIONS:
+- We know all users have unique name, no need for visited set (but would help and is a good check)
+- If there is disconnection of any sort like Example 2, we will return false. Everything needs to be connected.
+- (Null case) return false nothing there
+- Only one connection i.e User1, return false
 
-APPROACH: 
-1.) BFS - APPROACH
-- up, down, left, right
-- we start on our starting row (sr) and starting column (sc)
-  - will need Set / visited so we don't repeat
-- will use a queue, keep going until we cant aka reach a number that wasn't 
-number[sr][sc]
+OPTIONS / APPROACHES:
+- Either BFS or DFS would work, we just need to traverse the nodes.
+    OPTION 1: BFS
+        - Queue
+        - Check if each node has a connection to other via adjacencyList 
+    OPTION 2: DFS
+        - Stack (can run recursively)
+        - check if each node has a connection to other via AdjacencyList, DFS recursive takes care as it backtracks til hits null   
+        or a corner
+        
+PSEUDO CODE:
+- From our edgeList we need to create adjacencyList. Create function to make the adjacencyList
+- Once created, plug in the 'edge_list' into the helper function to create the graph
+- Traverse the graph (DFS)
+    - Check: If a at least one node has no connection we can early return false
+    (Optional but good check): visited set
+- default return true;
 
-PSUEDO CODE:
-- create visited array that is a set 
-- start at number[startingRow][startingColumn], and then change to what the color is. 
-    --> but only if it matches initial value of number[startingRow][startingColumn]
-
-- initialize our queue to be number[startingRow][startingColumn]
-- BFS traversal changing the same value to color 
-- enque children via directions
-    UP: startingColumn + 1
-    DOWN: startingColumn - 1
-    LEFT: startingRow - 1
-    RIGHT: startingRow + 1
-- As we traverse add to set.
-
-function fill(matrix, startingRow, startingColumn, color);
 */
 
-function fill(matrix, startingRow, startingColumn, color) {
-  const queue = [[startingRow, startingColumn]];
-
-  const rowLimit = matrix.length;
-  const columnLimit = matrix[0].length
-
-  const oldColor = matrix[startingRow][startingColumn];
-
-
-  while (queue.length > 0) {
-      const [row, col] = queue.shift(); // tuple
-
-      // out of bounds
-      if (row < 0 || row >= rowLimit) {
-          continue;
+function solution(edge_list) {
+    const graph = createAdjacencyList(edge_list);
+    const visited = new Set();
+    
+    const dfs = (node) => {
+      visited.add(node);
+      for (let neighbor of graph.get(node)) {
+        if (!visited.has(neighbor)) {
+          dfs(neighbor);
+        }
       }
-
-      if (col < 0 || col >= columnLimit) {
-          continue;
-      }
-
-      if (matrix[row][col] === oldColor) {
-          // directions
-          const UP = col + 1
-          const DOWN = col - 1
-          const LEFT = row - 1
-          const RIGHT = row + 1
-
-          // process popped element
-          matrix[row][col] = color;
-          // enque next elements
-
-          queue.push([row, UP]);
-          queue.push([row, DOWN]);
-          queue.push([LEFT, col]);
-          queue.push([RIGHT, col]);
-      }
-      // r = - 1 // invalid
-      //     r = 0
-      // r = 1
-      // r = 2
-      // r = 3
-      // const matrix1 = [
-      //   [1, 1, 1],
-      //   [1, 1, 0],
-      //   [1, 0, 1]
-      // ];
-
-      // for (let square of matrix[i]) {
-      //   console.log(square);
-      //   // if (square == matrix[startingRow][startingColumn]) {
-      //   //   square = color;
-      //   //   visited.add(square);
-      //   // }
-      // }
-
-      return matrix;
-  };
-};
-
-const matrix1 = [
-  [1, 1, 1],
-  [1, 1, 0],
-  [1, 0, 1]
-];
-
-console.log(fill(matrix1, 1, 1, 2))
-
-// SOLUTION DFS
-
-function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
-  const sColor = image[sr][sc];
-
-  function fill(r: number, c: number): void {
-      if (r < 0 || r >= image.length) return;
-      if (c < 0 || c >= image[0].length) return;
-
-      const pixelColor = image[r][c];
-      if (pixelColor === color) return;
-      if (pixelColor !== sColor) return;
-
-      image[r][c] = color;
-
-      fill(r - 1, c);
-      fill(r + 1, c);
-      fill(r, c - 1);
-      fill(r, c + 1);
+    };
+  
+    dfs(edge_list[0][0]);
+    return visited.size === graph.size;
   }
+  
+  const createAdjacencyList = (edges) => {
+    const graph = new Map();
+    
+    for (let [u, v] of edges) {
+      if (!graph.has(u)) {
+        graph.set(u, []);
+      }
+      if (!graph.has(v)) {
+        graph.set(v, []);
+      }
+      // undirected graph, so we add edges in both directions
+      graph.get(u).push(v);
+      graph.get(v).push(u);
+    }
+    
+    return graph;
+  };
+  
+  
+  // Test Samples
+  // const sampleTest = [['user1', 'user2'], ['user1', 'user3'],['user2','user4'],['user4','user5'], ['user5','user3']]
+  
+  // // TEST:
+  // console.log(createAdjacencyList(sampleTest));
 
-  fill(sr, sc);
 
-  return image;
+  /* ORIGINAL CODE WHILE WORKING ON:
+
+Suppose you are given an edge list of all the members of a social network. This edge list contains tuples of the format.
+
+(friend1, friend2)
+
+All users of this social network exist in at least one tuple of this edge list. All users have a unique name.
+
+Return a boolean of whether this social network is connected or not.
+
+function solution(edge_list) {
+    createAdjacencyList(edge_list);
+    const visited = new Set();
+    
+    // recursive call
+    const dfs = (edgeList) => {
+        // base case
+        
+        // recursive case
+    };
+
+    dfs(edge_list);
+    return false;
+}
+
+const createAdjacencyList = (edges) => {
+  const graph = new Map();
+  
+  for (let i = 0; i < edges.length; i++) {
+      const [u, v] = edges[i];
+    // unidrectional graph we are dealing with:
+    graph.get(u).push(v);
+    graph.get(v).push(u);
+  }
+  
+  return graph;
 };
+ 
+
+
+  */

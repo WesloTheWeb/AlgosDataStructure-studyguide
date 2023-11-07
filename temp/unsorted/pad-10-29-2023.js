@@ -1,6 +1,4 @@
-// todo: may be duplicates but this is just a backup
 /*
-'''
 ❓ PROMPT
 Given M sorted arrays, find the Kth smallest number among all the arrays.
 
